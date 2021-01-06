@@ -1,2 +1,3 @@
-# instagram_clone
+## instagram_clone
  Instagram made in Flutter
+
