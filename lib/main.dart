@@ -27,7 +27,7 @@ class _InstagramCloneState extends State<InstagramClone> with InitMixin<Instagra
     return FutureBuilder<Store<AppState>>(
       future: future,
       builder: (BuildContext context, AsyncSnapshot<Store<AppState>> snapshot) {
-        
+
         if (snapshot.hasData) {
           final Store<AppState> store = snapshot.data;
           return StoreProvider<AppState>(
