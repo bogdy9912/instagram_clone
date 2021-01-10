@@ -1,4 +1,4 @@
-import 'package:instagram_clone/src/actions/index.dart';
+
 import 'package:instagram_clone/src/data/auth_api.dart';
 import 'package:instagram_clone/src/epics/auth_epics.dart';
 import 'package:instagram_clone/src/models/index.dart';

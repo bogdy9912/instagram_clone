@@ -2,7 +2,7 @@ import 'package:instagram_clone/src/actions/auth/index.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:redux/redux.dart';
 
-Reducer<AuthState> reducer = combineReducers<AuthState>([
+Reducer<AuthState> reducer = combineReducers<AuthState>(<Reducer<AuthState>>[
   TypedReducer<AuthState, LoginSuccessful>(_loginSuccessful),
 ]);
 

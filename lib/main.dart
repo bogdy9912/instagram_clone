@@ -1,13 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:instagram_clone/src/init/init.dart';
 import 'package:instagram_clone/src/models/index.dart';
 import 'package:instagram_clone/src/presentation/mixin/init_mixin.dart';
 import 'package:instagram_clone/src/presentation/routes.dart';
 import 'package:redux/redux.dart';
-import 'package:rxdart/rxdart.dart';
+
 
 void main() {
   runApp(const InstagramClone());
@@ -46,7 +43,7 @@ class _InstagramCloneState extends State<InstagramClone> with InitMixin<Instagra
           title: 'Instagram clone',
           theme: ThemeData.dark(),
           home: const Scaffold(
-            body: CircularProgressIndicator(),
+            body: Center(child: CircularProgressIndicator()),
           ),
         );
       },
