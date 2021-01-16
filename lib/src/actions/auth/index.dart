@@ -6,3 +6,5 @@ import 'package:instagram_clone/src/models/auth/index.dart';
 
 part 'index.freezed.dart';
 part 'login.dart';
+part 'sign_up.dart';
+part 'set.dart';

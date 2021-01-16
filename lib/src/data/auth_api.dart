@@ -21,4 +21,27 @@ class AuthApi {
 
     return AppUser.fromJson(snapshot.data());
   }
+
+  Future<AppUser> signUp({@required String email, @required String password, @required String username}) async {
+    print('a intrat in data-api');
+
+    print(email);
+    print(password);
+    print(username);
+    final UserCredential response = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+    print('a creat in firebaseAuth');
+    final User user = response.user;
+
+    final AppUser newUser = AppUser((AppUserBuilder b) {
+      b
+        ..uid = user.uid
+        ..email = user.email
+        ..username = username;
+    });
+
+    _firestore.doc('user/${user.uid}').set(newUser.json);
+    print('a creat in firestore');
+
+    return newUser;
+  }
 }

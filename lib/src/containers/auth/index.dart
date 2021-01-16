@@ -1,6 +1,7 @@
 library auth_containers;
 
-import 'package:flutter/widgets.dart';
+//import 'package:flutter/widgets.dart' ;
+import 'package:flutter/material.dart' hide Builder;
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:instagram_clone/src/models/index.dart';

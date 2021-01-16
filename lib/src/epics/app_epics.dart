@@ -14,7 +14,7 @@ class AppEpics{
 
   Epic<AppState> get epics {
     return combineEpics<AppState>(<Epic<AppState>>[
-      AuthEpics(api: _authApi).epics,
+      AuthEpics(authApi: _authApi).epics,
     ]);
   }
   
