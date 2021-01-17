@@ -49,8 +49,6 @@ class PasswordPage extends StatelessWidget {
                       final bool valid = Form.of(context).validate();
                       if (valid) {
                         Form.of(context).save();
-                        print('save');
-
                         StoreProvider.of<AppState>(context).dispatch(
                           SignUp(
                             (AppAction action) {

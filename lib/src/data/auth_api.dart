@@ -16,20 +16,14 @@ class AuthApi {
   Future<AppUser> login({@required String email, @required String password}) async {
     final UserCredential response = await _auth.signInWithEmailAndPassword(email: email, password: password);
     final User user = response.user;
-
     final DocumentSnapshot snapshot = await _firestore.doc('/users/${user.uid}').get();
-
+    print(snapshot.data());
     return AppUser.fromJson(snapshot.data());
   }
 
   Future<AppUser> signUp({@required String email, @required String password, @required String username}) async {
-    print('a intrat in data-api');
-
-    print(email);
-    print(password);
-    print(username);
     final UserCredential response = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-    print('a creat in firebaseAuth');
+
     final User user = response.user;
 
     final AppUser newUser = AppUser((AppUserBuilder b) {
@@ -39,8 +33,7 @@ class AuthApi {
         ..username = username;
     });
 
-    _firestore.doc('user/${user.uid}').set(newUser.json);
-    print('a creat in firestore');
+    _firestore.doc('users/${user.uid}').set(newUser.json);
 
     return newUser;
   }
