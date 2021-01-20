@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:instagram_clone/src/actions/auth/index.dart';
 import 'package:instagram_clone/src/models/index.dart';
-import 'package:instagram_clone/src/presentation/routes.dart';
+import 'package:instagram_clone/src/presentation/app_routes.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key key}) : super(key: key);

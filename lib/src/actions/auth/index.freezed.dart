@@ -1074,3 +1074,802 @@ abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
   @override
   $UpdateRegistrationInfo$CopyWith<UpdateRegistrationInfo$> get copyWith;
 }
+
+/// @nodoc
+class _$SignOutTearOff {
+  const _$SignOutTearOff();
+
+// ignore: unused_element
+  SignOut$ call() {
+    return const SignOut$();
+  }
+
+// ignore: unused_element
+  SignOutSuccessful successful() {
+    return const SignOutSuccessful();
+  }
+
+// ignore: unused_element
+  SignOutError error(Object error) {
+    return SignOutError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $SignOut = _$SignOutTearOff();
+
+/// @nodoc
+mixin _$SignOut {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SignOut$ value), {
+    @required Result successful(SignOutSuccessful value),
+    @required Result error(SignOutError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SignOut$ value), {
+    Result successful(SignOutSuccessful value),
+    Result error(SignOutError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $SignOutCopyWith<$Res> {
+  factory $SignOutCopyWith(SignOut value, $Res Function(SignOut) then) =
+      _$SignOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignOutCopyWithImpl<$Res> implements $SignOutCopyWith<$Res> {
+  _$SignOutCopyWithImpl(this._value, this._then);
+
+  final SignOut _value;
+  // ignore: unused_field
+  final $Res Function(SignOut) _then;
+}
+
+/// @nodoc
+abstract class $SignOut$CopyWith<$Res> {
+  factory $SignOut$CopyWith(SignOut$ value, $Res Function(SignOut$) then) =
+      _$SignOut$CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignOut$CopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOut$CopyWith<$Res> {
+  _$SignOut$CopyWithImpl(SignOut$ _value, $Res Function(SignOut$) _then)
+      : super(_value, (v) => _then(v as SignOut$));
+
+  @override
+  SignOut$ get _value => super._value as SignOut$;
+}
+
+/// @nodoc
+class _$SignOut$ implements SignOut$ {
+  const _$SignOut$();
+
+  @override
+  String toString() {
+    return 'SignOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignOut$);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SignOut$ value), {
+    @required Result successful(SignOutSuccessful value),
+    @required Result error(SignOutError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SignOut$ value), {
+    Result successful(SignOutSuccessful value),
+    Result error(SignOutError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOut$ implements SignOut {
+  const factory SignOut$() = _$SignOut$;
+}
+
+/// @nodoc
+abstract class $SignOutSuccessfulCopyWith<$Res> {
+  factory $SignOutSuccessfulCopyWith(
+          SignOutSuccessful value, $Res Function(SignOutSuccessful) then) =
+      _$SignOutSuccessfulCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignOutSuccessfulCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOutSuccessfulCopyWith<$Res> {
+  _$SignOutSuccessfulCopyWithImpl(
+      SignOutSuccessful _value, $Res Function(SignOutSuccessful) _then)
+      : super(_value, (v) => _then(v as SignOutSuccessful));
+
+  @override
+  SignOutSuccessful get _value => super._value as SignOutSuccessful;
+}
+
+/// @nodoc
+class _$SignOutSuccessful implements SignOutSuccessful {
+  const _$SignOutSuccessful();
+
+  @override
+  String toString() {
+    return 'SignOut.successful()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignOutSuccessful);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SignOut$ value), {
+    @required Result successful(SignOutSuccessful value),
+    @required Result error(SignOutError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SignOut$ value), {
+    Result successful(SignOutSuccessful value),
+    Result error(SignOutError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutSuccessful implements SignOut {
+  const factory SignOutSuccessful() = _$SignOutSuccessful;
+}
+
+/// @nodoc
+abstract class $SignOutErrorCopyWith<$Res> {
+  factory $SignOutErrorCopyWith(
+          SignOutError value, $Res Function(SignOutError) then) =
+      _$SignOutErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$SignOutErrorCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOutErrorCopyWith<$Res> {
+  _$SignOutErrorCopyWithImpl(
+      SignOutError _value, $Res Function(SignOutError) _then)
+      : super(_value, (v) => _then(v as SignOutError));
+
+  @override
+  SignOutError get _value => super._value as SignOutError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(SignOutError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$SignOutError implements SignOutError {
+  const _$SignOutError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'SignOut.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SignOutError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $SignOutErrorCopyWith<SignOutError> get copyWith =>
+      _$SignOutErrorCopyWithImpl<SignOutError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SignOut$ value), {
+    @required Result successful(SignOutSuccessful value),
+    @required Result error(SignOutError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SignOut$ value), {
+    Result successful(SignOutSuccessful value),
+    Result error(SignOutError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutError implements SignOut, ErrorAction {
+  const factory SignOutError(Object error) = _$SignOutError;
+
+  Object get error;
+  $SignOutErrorCopyWith<SignOutError> get copyWith;
+}
+
+/// @nodoc
+class _$ResetPasswordTearOff {
+  const _$ResetPasswordTearOff();
+
+// ignore: unused_element
+  ResetPassword$ call(String email) {
+    return ResetPassword$(
+      email,
+    );
+  }
+
+// ignore: unused_element
+  ResetPasswordSuccessful successful() {
+    return const ResetPasswordSuccessful();
+  }
+
+// ignore: unused_element
+  ResetPasswordError error(Object error) {
+    return ResetPasswordError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $ResetPassword = _$ResetPasswordTearOff();
+
+/// @nodoc
+mixin _$ResetPassword {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String email), {
+    @required Result successful(),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String email), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(ResetPassword$ value), {
+    @required Result successful(ResetPasswordSuccessful value),
+    @required Result error(ResetPasswordError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(ResetPassword$ value), {
+    Result successful(ResetPasswordSuccessful value),
+    Result error(ResetPasswordError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $ResetPasswordCopyWith<$Res> {
+  factory $ResetPasswordCopyWith(
+          ResetPassword value, $Res Function(ResetPassword) then) =
+      _$ResetPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ResetPasswordCopyWithImpl<$Res>
+    implements $ResetPasswordCopyWith<$Res> {
+  _$ResetPasswordCopyWithImpl(this._value, this._then);
+
+  final ResetPassword _value;
+  // ignore: unused_field
+  final $Res Function(ResetPassword) _then;
+}
+
+/// @nodoc
+abstract class $ResetPassword$CopyWith<$Res> {
+  factory $ResetPassword$CopyWith(
+          ResetPassword$ value, $Res Function(ResetPassword$) then) =
+      _$ResetPassword$CopyWithImpl<$Res>;
+  $Res call({String email});
+}
+
+/// @nodoc
+class _$ResetPassword$CopyWithImpl<$Res>
+    extends _$ResetPasswordCopyWithImpl<$Res>
+    implements $ResetPassword$CopyWith<$Res> {
+  _$ResetPassword$CopyWithImpl(
+      ResetPassword$ _value, $Res Function(ResetPassword$) _then)
+      : super(_value, (v) => _then(v as ResetPassword$));
+
+  @override
+  ResetPassword$ get _value => super._value as ResetPassword$;
+
+  @override
+  $Res call({
+    Object email = freezed,
+  }) {
+    return _then(ResetPassword$(
+      email == freezed ? _value.email : email as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$ResetPassword$ implements ResetPassword$ {
+  const _$ResetPassword$(this.email) : assert(email != null);
+
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'ResetPassword(email: $email)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ResetPassword$ &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
+
+  @override
+  $ResetPassword$CopyWith<ResetPassword$> get copyWith =>
+      _$ResetPassword$CopyWithImpl<ResetPassword$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String email), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String email), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(ResetPassword$ value), {
+    @required Result successful(ResetPasswordSuccessful value),
+    @required Result error(ResetPasswordError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(ResetPassword$ value), {
+    Result successful(ResetPasswordSuccessful value),
+    Result error(ResetPasswordError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetPassword$ implements ResetPassword {
+  const factory ResetPassword$(String email) = _$ResetPassword$;
+
+  String get email;
+  $ResetPassword$CopyWith<ResetPassword$> get copyWith;
+}
+
+/// @nodoc
+abstract class $ResetPasswordSuccessfulCopyWith<$Res> {
+  factory $ResetPasswordSuccessfulCopyWith(ResetPasswordSuccessful value,
+          $Res Function(ResetPasswordSuccessful) then) =
+      _$ResetPasswordSuccessfulCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ResetPasswordSuccessfulCopyWithImpl<$Res>
+    extends _$ResetPasswordCopyWithImpl<$Res>
+    implements $ResetPasswordSuccessfulCopyWith<$Res> {
+  _$ResetPasswordSuccessfulCopyWithImpl(ResetPasswordSuccessful _value,
+      $Res Function(ResetPasswordSuccessful) _then)
+      : super(_value, (v) => _then(v as ResetPasswordSuccessful));
+
+  @override
+  ResetPasswordSuccessful get _value => super._value as ResetPasswordSuccessful;
+}
+
+/// @nodoc
+class _$ResetPasswordSuccessful implements ResetPasswordSuccessful {
+  const _$ResetPasswordSuccessful();
+
+  @override
+  String toString() {
+    return 'ResetPassword.successful()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ResetPasswordSuccessful);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String email), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String email), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(ResetPassword$ value), {
+    @required Result successful(ResetPasswordSuccessful value),
+    @required Result error(ResetPasswordError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(ResetPassword$ value), {
+    Result successful(ResetPasswordSuccessful value),
+    Result error(ResetPasswordError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetPasswordSuccessful implements ResetPassword {
+  const factory ResetPasswordSuccessful() = _$ResetPasswordSuccessful;
+}
+
+/// @nodoc
+abstract class $ResetPasswordErrorCopyWith<$Res> {
+  factory $ResetPasswordErrorCopyWith(
+          ResetPasswordError value, $Res Function(ResetPasswordError) then) =
+      _$ResetPasswordErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$ResetPasswordErrorCopyWithImpl<$Res>
+    extends _$ResetPasswordCopyWithImpl<$Res>
+    implements $ResetPasswordErrorCopyWith<$Res> {
+  _$ResetPasswordErrorCopyWithImpl(
+      ResetPasswordError _value, $Res Function(ResetPasswordError) _then)
+      : super(_value, (v) => _then(v as ResetPasswordError));
+
+  @override
+  ResetPasswordError get _value => super._value as ResetPasswordError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(ResetPasswordError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$ResetPasswordError implements ResetPasswordError {
+  const _$ResetPasswordError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'ResetPassword.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ResetPasswordError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $ResetPasswordErrorCopyWith<ResetPasswordError> get copyWith =>
+      _$ResetPasswordErrorCopyWithImpl<ResetPasswordError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String email), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String email), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(ResetPassword$ value), {
+    @required Result successful(ResetPasswordSuccessful value),
+    @required Result error(ResetPasswordError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(ResetPassword$ value), {
+    Result successful(ResetPasswordSuccessful value),
+    Result error(ResetPasswordError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetPasswordError implements ResetPassword, ErrorAction {
+  const factory ResetPasswordError(Object error) = _$ResetPasswordError;
+
+  Object get error;
+  $ResetPasswordErrorCopyWith<ResetPasswordError> get copyWith;
+}

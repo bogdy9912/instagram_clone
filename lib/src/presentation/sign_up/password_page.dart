@@ -4,7 +4,7 @@ import 'package:instagram_clone/src/actions/auth/index.dart';
 import 'package:instagram_clone/src/actions/index.dart';
 import 'package:instagram_clone/src/models/index.dart';
 
-import '../routes.dart';
+import '../app_routes.dart';
 
 class PasswordPage extends StatelessWidget {
   const PasswordPage({Key key}) : super(key: key);

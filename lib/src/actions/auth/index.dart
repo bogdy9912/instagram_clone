@@ -8,3 +8,5 @@ part 'index.freezed.dart';
 part 'login.dart';
 part 'sign_up.dart';
 part 'set.dart';
+part 'sign_out.dart';
+part 'reset_password.dart';
