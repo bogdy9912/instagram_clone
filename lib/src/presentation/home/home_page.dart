@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:instagram_clone/src/actions/auth/index.dart';
 import 'package:instagram_clone/src/actions/posts//index.dart';
 import 'package:instagram_clone/src/models/index.dart';
+import 'package:instagram_clone/src/presentation/app_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage();
@@ -52,7 +53,10 @@ class _HomePageState extends State<HomePage> {
           if (i == 2) {
             final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
             if (file != null) {
+              print('a intrat in if');
+              print(file);
               StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
+              Navigator.pushNamed(context, AppRoutes.choosePhotosPost);
             }
             /* setState(() {
               _page = 0;

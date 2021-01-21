@@ -1,3 +1,4 @@
+import 'package:instagram_clone/src/actions/auth/index.dart';
 import 'package:instagram_clone/src/actions/index.dart';
 import 'package:instagram_clone/src/data/auth_api.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
@@ -15,11 +16,19 @@ class AuthEpics {
 
   Epic<AppState> get epics {
     return combineEpics<AppState>(<Epic<AppState>>[
+      TypedEpic<AppState, InitializeApp$>(_initializeApp),
       TypedEpic<AppState, Login$>(_login),
       TypedEpic<AppState, SignUp$>(_signUp),
       TypedEpic<AppState, SignOut$>(_signOut),
       TypedEpic<AppState, ResetPassword$>(_resetPassword),
     ]);
+  }
+
+  Stream<AppAction> _initializeApp(Stream<InitializeApp$> actions, EpicStore<AppState> store) {
+    return actions.flatMap((InitializeApp$ action) => Stream<InitializeApp$>.value(action)
+        .asyncMap((InitializeApp$ action) => _authApi.initializeApp())
+        .map((AppUser event) => InitializeApp.successful(event))
+        .onErrorReturnWith((dynamic error) => InitializeApp.error(error)));
   }
 
   Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {

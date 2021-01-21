@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:instagram_clone/src/models/auth/index.dart';
-import 'package:instagram_clone/src/models/index.dart';
-import 'package:redux/redux.dart';
+part of auth_containers;
 
 class RegistrationInfoContainer extends StatelessWidget {
   const RegistrationInfoContainer({@required this.builder});

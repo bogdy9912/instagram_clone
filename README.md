@@ -15,11 +15,13 @@ This is a clone of Instagram with the following features:
   * [ ] login/signup with Google (10')
   * [ ] login/signup with Apple (10')
   * [x] reset password (5')
+  * [x] stay login (5')
 
 ## Add post (115')
- * [ ] add multiples pictures from the gallery and the camera (40')
+ * [x] add multiples pictures from the gallery and the camera (40')
  * [ ] add tags (25')
- * [ ] add person (20')
+ * [ ] add persons (20')
+      * [ ] search persons
  * [ ] add location (20')
  * [ ] post comment (10')
 
