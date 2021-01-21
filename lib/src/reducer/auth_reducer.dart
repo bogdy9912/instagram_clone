@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:instagram_clone/src/actions/auth/index.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:redux/redux.dart';
@@ -7,6 +8,7 @@ Reducer<AuthState> authReducer = combineReducers<AuthState>(<Reducer<AuthState>>
   TypedReducer<AuthState, LoginSuccessful>(_loginSuccessful),
   TypedReducer<AuthState, SignUpSuccessful>(_signUpSuccessful),
   TypedReducer<AuthState, UpdateRegistrationInfo$>(_updateRegistrationInfo),
+  TypedReducer<AuthState, SearchUsersSuccessful>(_searchUsersSuccessful),
 ]);
 
 AuthState _initializeAppSuccessful(AuthState state, InitializeAppSuccessful action) {
@@ -33,4 +35,8 @@ AuthState _updateRegistrationInfo(AuthState state, UpdateRegistrationInfo$ actio
       b.info = RegistrationInfo().toBuilder();
     }
   });
+}
+
+AuthState _searchUsersSuccessful(AuthState state, SearchUsersSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) => b.searchResult = ListBuilder<AppUser>(action.users));
 }

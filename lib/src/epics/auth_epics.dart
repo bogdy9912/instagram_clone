@@ -21,6 +21,7 @@ class AuthEpics {
       TypedEpic<AppState, SignUp$>(_signUp),
       TypedEpic<AppState, SignOut$>(_signOut),
       TypedEpic<AppState, ResetPassword$>(_resetPassword),
+      TypedEpic<AppState, SearchUsers$>(_searchUsers),
     ]);
   }
 
@@ -70,5 +71,14 @@ class AuthEpics {
         .asyncMap((ResetPassword$ action) => _authApi.resetPassword(email: action.email))
         .map((_) => const ResetPassword.successful())
         .onErrorReturnWith((dynamic error) => ResetPassword.error(error)));
+  }
+
+  Stream<AppAction> _searchUsers(Stream<SearchUsers$> actions, EpicStore<AppState> store) {
+    return actions
+        .debounceTime(const Duration(milliseconds: 500)) //
+        .flatMap((SearchUsers$ action) => Stream<SearchUsers$>.value(action)
+            .asyncMap((SearchUsers$ action) => _authApi.searchUsers(action.query))
+            .map((List<AppUser> users) => SearchUsers.successful(users))
+            .onErrorReturnWith((dynamic error) => SearchUsers.error(error)));
   }
 }

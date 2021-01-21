@@ -10,10 +10,15 @@ abstract class PostsInfo implements Built<PostsInfo, PostsInfoBuilder> {
   BuiltList<String> get paths;
 
   @nullable
-  String get lat;
+  String get description;
+
+  BuiltList<AppUser> get users;
 
   @nullable
-  String get lng;
+  double get lat;
+
+  @nullable
+  double get lng;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

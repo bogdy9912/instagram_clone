@@ -11,3 +11,4 @@ part 'set.dart';
 part 'sign_out.dart';
 part 'reset_password.dart';
 part 'initializeApp.dart';
+part 'search_users.dart';

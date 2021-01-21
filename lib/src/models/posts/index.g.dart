@@ -63,18 +63,28 @@ class _$PostsInfoSerializer implements StructuredSerializer<PostsInfo> {
       serializers.serialize(object.paths,
           specifiedType:
               const FullType(BuiltList, const [const FullType(String)])),
+      'users',
+      serializers.serialize(object.users,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(AppUser)])),
     ];
+    if (object.description != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(object.description,
+            specifiedType: const FullType(String)));
+    }
     if (object.lat != null) {
       result
         ..add('lat')
         ..add(serializers.serialize(object.lat,
-            specifiedType: const FullType(String)));
+            specifiedType: const FullType(double)));
     }
     if (object.lng != null) {
       result
         ..add('lng')
         ..add(serializers.serialize(object.lng,
-            specifiedType: const FullType(String)));
+            specifiedType: const FullType(double)));
     }
     return result;
   }
@@ -96,13 +106,23 @@ class _$PostsInfoSerializer implements StructuredSerializer<PostsInfo> {
                       const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList<Object>);
           break;
+        case 'description':
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'users':
+          result.users.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(AppUser)]))
+              as BuiltList<Object>);
+          break;
         case 'lat':
           result.lat = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(double)) as double;
           break;
         case 'lng':
           result.lng = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(double)) as double;
           break;
       }
     }
@@ -204,16 +224,24 @@ class _$PostsInfo extends PostsInfo {
   @override
   final BuiltList<String> paths;
   @override
-  final String lat;
+  final String description;
   @override
-  final String lng;
+  final BuiltList<AppUser> users;
+  @override
+  final double lat;
+  @override
+  final double lng;
 
   factory _$PostsInfo([void Function(PostsInfoBuilder) updates]) =>
       (new PostsInfoBuilder()..update(updates)).build();
 
-  _$PostsInfo._({this.paths, this.lat, this.lng}) : super._() {
+  _$PostsInfo._({this.paths, this.description, this.users, this.lat, this.lng})
+      : super._() {
     if (paths == null) {
       throw new BuiltValueNullFieldError('PostsInfo', 'paths');
+    }
+    if (users == null) {
+      throw new BuiltValueNullFieldError('PostsInfo', 'users');
     }
   }
 
@@ -229,19 +257,28 @@ class _$PostsInfo extends PostsInfo {
     if (identical(other, this)) return true;
     return other is PostsInfo &&
         paths == other.paths &&
+        description == other.description &&
+        users == other.users &&
         lat == other.lat &&
         lng == other.lng;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, paths.hashCode), lat.hashCode), lng.hashCode));
+    return $jf($jc(
+        $jc(
+            $jc($jc($jc(0, paths.hashCode), description.hashCode),
+                users.hashCode),
+            lat.hashCode),
+        lng.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('PostsInfo')
           ..add('paths', paths)
+          ..add('description', description)
+          ..add('users', users)
           ..add('lat', lat)
           ..add('lng', lng))
         .toString();
@@ -255,19 +292,30 @@ class PostsInfoBuilder implements Builder<PostsInfo, PostsInfoBuilder> {
   ListBuilder<String> get paths => _$this._paths ??= new ListBuilder<String>();
   set paths(ListBuilder<String> paths) => _$this._paths = paths;
 
-  String _lat;
-  String get lat => _$this._lat;
-  set lat(String lat) => _$this._lat = lat;
+  String _description;
+  String get description => _$this._description;
+  set description(String description) => _$this._description = description;
 
-  String _lng;
-  String get lng => _$this._lng;
-  set lng(String lng) => _$this._lng = lng;
+  ListBuilder<AppUser> _users;
+  ListBuilder<AppUser> get users =>
+      _$this._users ??= new ListBuilder<AppUser>();
+  set users(ListBuilder<AppUser> users) => _$this._users = users;
+
+  double _lat;
+  double get lat => _$this._lat;
+  set lat(double lat) => _$this._lat = lat;
+
+  double _lng;
+  double get lng => _$this._lng;
+  set lng(double lng) => _$this._lng = lng;
 
   PostsInfoBuilder();
 
   PostsInfoBuilder get _$this {
     if (_$v != null) {
       _paths = _$v.paths?.toBuilder();
+      _description = _$v.description;
+      _users = _$v.users?.toBuilder();
       _lat = _$v.lat;
       _lng = _$v.lng;
       _$v = null;
@@ -292,13 +340,21 @@ class PostsInfoBuilder implements Builder<PostsInfo, PostsInfoBuilder> {
   _$PostsInfo build() {
     _$PostsInfo _$result;
     try {
-      _$result =
-          _$v ?? new _$PostsInfo._(paths: paths.build(), lat: lat, lng: lng);
+      _$result = _$v ??
+          new _$PostsInfo._(
+              paths: paths.build(),
+              description: description,
+              users: users.build(),
+              lat: lat,
+              lng: lng);
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'paths';
         paths.build();
+
+        _$failedField = 'users';
+        users.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'PostsInfo', _$failedField, e.toString());

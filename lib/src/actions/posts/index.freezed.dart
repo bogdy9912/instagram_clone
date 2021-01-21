@@ -15,12 +15,21 @@ class _$UpdatePostInfoTearOff {
 
 // ignore: unused_element
   UpdatePostInfo$ call(
-      {String addImage, String removeImage, String lat, String lng}) {
+      {String addImage,
+      String removeImage,
+      double lat,
+      double lng,
+      String description,
+      AppUser addUser,
+      AppUser removeUser}) {
     return UpdatePostInfo$(
       addImage: addImage,
       removeImage: removeImage,
       lat: lat,
       lng: lng,
+      description: description,
+      addUser: addUser,
+      removeUser: removeUser,
     );
   }
 }
@@ -33,8 +42,11 @@ const $UpdatePostInfo = _$UpdatePostInfoTearOff();
 mixin _$UpdatePostInfo {
   String get addImage;
   String get removeImage;
-  String get lat;
-  String get lng;
+  double get lat;
+  double get lng;
+  String get description;
+  AppUser get addUser;
+  AppUser get removeUser;
 
   $UpdatePostInfoCopyWith<UpdatePostInfo> get copyWith;
 }
@@ -44,7 +56,14 @@ abstract class $UpdatePostInfoCopyWith<$Res> {
   factory $UpdatePostInfoCopyWith(
           UpdatePostInfo value, $Res Function(UpdatePostInfo) then) =
       _$UpdatePostInfoCopyWithImpl<$Res>;
-  $Res call({String addImage, String removeImage, String lat, String lng});
+  $Res call(
+      {String addImage,
+      String removeImage,
+      double lat,
+      double lng,
+      String description,
+      AppUser addUser,
+      AppUser removeUser});
 }
 
 /// @nodoc
@@ -62,13 +81,21 @@ class _$UpdatePostInfoCopyWithImpl<$Res>
     Object removeImage = freezed,
     Object lat = freezed,
     Object lng = freezed,
+    Object description = freezed,
+    Object addUser = freezed,
+    Object removeUser = freezed,
   }) {
     return _then(_value.copyWith(
       addImage: addImage == freezed ? _value.addImage : addImage as String,
       removeImage:
           removeImage == freezed ? _value.removeImage : removeImage as String,
-      lat: lat == freezed ? _value.lat : lat as String,
-      lng: lng == freezed ? _value.lng : lng as String,
+      lat: lat == freezed ? _value.lat : lat as double,
+      lng: lng == freezed ? _value.lng : lng as double,
+      description:
+          description == freezed ? _value.description : description as String,
+      addUser: addUser == freezed ? _value.addUser : addUser as AppUser,
+      removeUser:
+          removeUser == freezed ? _value.removeUser : removeUser as AppUser,
     ));
   }
 }
@@ -80,7 +107,14 @@ abstract class $UpdatePostInfo$CopyWith<$Res>
           UpdatePostInfo$ value, $Res Function(UpdatePostInfo$) then) =
       _$UpdatePostInfo$CopyWithImpl<$Res>;
   @override
-  $Res call({String addImage, String removeImage, String lat, String lng});
+  $Res call(
+      {String addImage,
+      String removeImage,
+      double lat,
+      double lng,
+      String description,
+      AppUser addUser,
+      AppUser removeUser});
 }
 
 /// @nodoc
@@ -100,13 +134,21 @@ class _$UpdatePostInfo$CopyWithImpl<$Res>
     Object removeImage = freezed,
     Object lat = freezed,
     Object lng = freezed,
+    Object description = freezed,
+    Object addUser = freezed,
+    Object removeUser = freezed,
   }) {
     return _then(UpdatePostInfo$(
       addImage: addImage == freezed ? _value.addImage : addImage as String,
       removeImage:
           removeImage == freezed ? _value.removeImage : removeImage as String,
-      lat: lat == freezed ? _value.lat : lat as String,
-      lng: lng == freezed ? _value.lng : lng as String,
+      lat: lat == freezed ? _value.lat : lat as double,
+      lng: lng == freezed ? _value.lng : lng as double,
+      description:
+          description == freezed ? _value.description : description as String,
+      addUser: addUser == freezed ? _value.addUser : addUser as AppUser,
+      removeUser:
+          removeUser == freezed ? _value.removeUser : removeUser as AppUser,
     ));
   }
 }
@@ -114,20 +156,32 @@ class _$UpdatePostInfo$CopyWithImpl<$Res>
 /// @nodoc
 class _$UpdatePostInfo$ implements UpdatePostInfo$ {
   const _$UpdatePostInfo$(
-      {this.addImage, this.removeImage, this.lat, this.lng});
+      {this.addImage,
+      this.removeImage,
+      this.lat,
+      this.lng,
+      this.description,
+      this.addUser,
+      this.removeUser});
 
   @override
   final String addImage;
   @override
   final String removeImage;
   @override
-  final String lat;
+  final double lat;
   @override
-  final String lng;
+  final double lng;
+  @override
+  final String description;
+  @override
+  final AppUser addUser;
+  @override
+  final AppUser removeUser;
 
   @override
   String toString() {
-    return 'UpdatePostInfo(addImage: $addImage, removeImage: $removeImage, lat: $lat, lng: $lng)';
+    return 'UpdatePostInfo(addImage: $addImage, removeImage: $removeImage, lat: $lat, lng: $lng, description: $description, addUser: $addUser, removeUser: $removeUser)';
   }
 
   @override
@@ -143,7 +197,16 @@ class _$UpdatePostInfo$ implements UpdatePostInfo$ {
             (identical(other.lat, lat) ||
                 const DeepCollectionEquality().equals(other.lat, lat)) &&
             (identical(other.lng, lng) ||
-                const DeepCollectionEquality().equals(other.lng, lng)));
+                const DeepCollectionEquality().equals(other.lng, lng)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
+            (identical(other.addUser, addUser) ||
+                const DeepCollectionEquality()
+                    .equals(other.addUser, addUser)) &&
+            (identical(other.removeUser, removeUser) ||
+                const DeepCollectionEquality()
+                    .equals(other.removeUser, removeUser)));
   }
 
   @override
@@ -152,7 +215,10 @@ class _$UpdatePostInfo$ implements UpdatePostInfo$ {
       const DeepCollectionEquality().hash(addImage) ^
       const DeepCollectionEquality().hash(removeImage) ^
       const DeepCollectionEquality().hash(lat) ^
-      const DeepCollectionEquality().hash(lng);
+      const DeepCollectionEquality().hash(lng) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(addUser) ^
+      const DeepCollectionEquality().hash(removeUser);
 
   @override
   $UpdatePostInfo$CopyWith<UpdatePostInfo$> get copyWith =>
@@ -163,17 +229,26 @@ abstract class UpdatePostInfo$ implements UpdatePostInfo {
   const factory UpdatePostInfo$(
       {String addImage,
       String removeImage,
-      String lat,
-      String lng}) = _$UpdatePostInfo$;
+      double lat,
+      double lng,
+      String description,
+      AppUser addUser,
+      AppUser removeUser}) = _$UpdatePostInfo$;
 
   @override
   String get addImage;
   @override
   String get removeImage;
   @override
-  String get lat;
+  double get lat;
   @override
-  String get lng;
+  double get lng;
+  @override
+  String get description;
+  @override
+  AppUser get addUser;
+  @override
+  AppUser get removeUser;
   @override
   $UpdatePostInfo$CopyWith<UpdatePostInfo$> get copyWith;
 }

@@ -7,6 +7,7 @@ import 'package:instagram_clone/src/presentation/posts/create_post_page.dart';
 import 'package:instagram_clone/src/presentation/sign_up/password_page.dart';
 import 'package:instagram_clone/src/presentation/sign_up/sign_up_page.dart';
 import 'package:instagram_clone/src/presentation/sign_up/username_page.dart';
+import 'package:instagram_clone/src/presentation/widgets/search_users_page.dart';
 
 import 'home.dart';
 
@@ -19,6 +20,7 @@ class AppRoutes {
   static const String resetPassword = '/resetPassword';
   static const String createPost = '/createPost';
   static const String choosePhotosPost = '/choosePhotosPost';
+  static const String searchUsers = '/searchUsers';
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
@@ -27,5 +29,6 @@ class AppRoutes {
     resetPassword: (BuildContext context) => const ResetPasswordPage(),
     createPost: (BuildContext context) => const CreatePostPage(),
     choosePhotosPost: (BuildContext context) => const ChoosePhotosPost(),
+    searchUsers: (BuildContext context) => const SearchUsersPage(),
   };
 }
