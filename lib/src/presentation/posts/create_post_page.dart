@@ -17,7 +17,6 @@ class CreatePostPage extends StatelessWidget {
         body: Column(
           children: <Widget>[
             Row(
-
               children: <Widget>[
                 Stack(
                   alignment: AlignmentDirectional.topEnd,
@@ -30,6 +29,11 @@ class CreatePostPage extends StatelessWidget {
                     ),
                     const Icon(Icons.photo_library),
                   ],
+                ),
+                const TextField(
+                  decoration: InputDecoration(hintText: 'Set a description'),
+                  maxLines: 3,
+                  keyboardType: TextInputType.text,
                 ),
               ],
             ),

@@ -64,7 +64,18 @@ class _$PostsInfoSerializer implements StructuredSerializer<PostsInfo> {
           specifiedType:
               const FullType(BuiltList, const [const FullType(String)])),
     ];
-
+    if (object.lat != null) {
+      result
+        ..add('lat')
+        ..add(serializers.serialize(object.lat,
+            specifiedType: const FullType(String)));
+    }
+    if (object.lng != null) {
+      result
+        ..add('lng')
+        ..add(serializers.serialize(object.lng,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -84,6 +95,14 @@ class _$PostsInfoSerializer implements StructuredSerializer<PostsInfo> {
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList<Object>);
+          break;
+        case 'lat':
+          result.lat = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'lng':
+          result.lng = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -184,11 +203,15 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
 class _$PostsInfo extends PostsInfo {
   @override
   final BuiltList<String> paths;
+  @override
+  final String lat;
+  @override
+  final String lng;
 
   factory _$PostsInfo([void Function(PostsInfoBuilder) updates]) =>
       (new PostsInfoBuilder()..update(updates)).build();
 
-  _$PostsInfo._({this.paths}) : super._() {
+  _$PostsInfo._({this.paths, this.lat, this.lng}) : super._() {
     if (paths == null) {
       throw new BuiltValueNullFieldError('PostsInfo', 'paths');
     }
@@ -204,17 +227,23 @@ class _$PostsInfo extends PostsInfo {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is PostsInfo && paths == other.paths;
+    return other is PostsInfo &&
+        paths == other.paths &&
+        lat == other.lat &&
+        lng == other.lng;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, paths.hashCode));
+    return $jf($jc($jc($jc(0, paths.hashCode), lat.hashCode), lng.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('PostsInfo')..add('paths', paths))
+    return (newBuiltValueToStringHelper('PostsInfo')
+          ..add('paths', paths)
+          ..add('lat', lat)
+          ..add('lng', lng))
         .toString();
   }
 }
@@ -226,11 +255,21 @@ class PostsInfoBuilder implements Builder<PostsInfo, PostsInfoBuilder> {
   ListBuilder<String> get paths => _$this._paths ??= new ListBuilder<String>();
   set paths(ListBuilder<String> paths) => _$this._paths = paths;
 
+  String _lat;
+  String get lat => _$this._lat;
+  set lat(String lat) => _$this._lat = lat;
+
+  String _lng;
+  String get lng => _$this._lng;
+  set lng(String lng) => _$this._lng = lng;
+
   PostsInfoBuilder();
 
   PostsInfoBuilder get _$this {
     if (_$v != null) {
       _paths = _$v.paths?.toBuilder();
+      _lat = _$v.lat;
+      _lng = _$v.lng;
       _$v = null;
     }
     return this;
@@ -253,7 +292,8 @@ class PostsInfoBuilder implements Builder<PostsInfo, PostsInfoBuilder> {
   _$PostsInfo build() {
     _$PostsInfo _$result;
     try {
-      _$result = _$v ?? new _$PostsInfo._(paths: paths.build());
+      _$result =
+          _$v ?? new _$PostsInfo._(paths: paths.build(), lat: lat, lng: lng);
     } catch (_) {
       String _$failedField;
       try {

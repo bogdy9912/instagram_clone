@@ -47,11 +47,12 @@ class ChoosePhotosPost extends StatelessWidget {
                     final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
                     if (file != null) {
                       StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
+
                     }
                   },
                 ),
               );
-            } else
+            }
               return GridTile(
                 header: GridTileBar(
                   title: const Text(''),
@@ -60,6 +61,7 @@ class ChoosePhotosPost extends StatelessWidget {
                       onPressed: () {
                         StoreProvider.of<AppState>(context)
                             .dispatch(UpdatePostInfo(removeImage: info.paths[index - 1]));
+
                       }),
                 ),
                 child: Image.file(

@@ -24,5 +24,5 @@ Future<Store<AppState>> init() async {
     middleware: <Middleware<AppState>>[
       EpicMiddleware<AppState>(epic.epics),
     ],
-  )..dispatch(const InitializeApp());
+  );
 }

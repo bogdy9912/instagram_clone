@@ -53,14 +53,11 @@ class _HomePageState extends State<HomePage> {
           if (i == 2) {
             final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
             if (file != null) {
-              print('a intrat in if');
-              print(file);
+              print(file.path);
               StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
+
               Navigator.pushNamed(context, AppRoutes.choosePhotosPost);
             }
-            /* setState(() {
-              _page = 0;
-            });*/
           } else {
             setState(() {
               _page = i;
