@@ -18,7 +18,6 @@ class PostsApi {
   final FirebaseStorage _storage;
 
   Future<Post> createPost(PostsInfo info, String uid) async {
-    print('a intrat in create post api');
     final DocumentReference ref = _firestore.collection('posts').doc();
 
     final List<String> images = await _uploadImages(ref.id, info.paths);
@@ -34,16 +33,12 @@ class PostsApi {
         ..images = ListBuilder<String>(images)
         ..users = ListBuilder<String>(info.users.map((AppUser user) => user.uid).toList());
     });
-    print('a creat obiectul');
-    print(post);
 
-    print(post.json);
-
-    await ref.set(post.json);
-
-    //await _firestore.doc('posts/${ref.id}').set(post.json);
-
-    print('succes');
+    try {
+      await ref.set(post.json);
+    } catch (err) {
+      print(err);
+    } //debugging with try catch
 
     return post;
   }

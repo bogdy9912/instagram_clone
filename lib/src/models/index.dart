@@ -10,4 +10,5 @@ export 'auth/index.dart';
 export 'posts/index.dart';
 
 part 'app_state.dart';
+
 part 'index.g.dart';
