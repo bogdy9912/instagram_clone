@@ -18,6 +18,14 @@ class CreatePostPage extends StatelessWidget {
       builder: (BuildContext context, PostsInfo info) => Scaffold(
         appBar: AppBar(
           title: const Text('New post'),
+          actions: <Widget>[
+            FlatButton(
+                onPressed: () {
+                  StoreProvider.of<AppState>(context).dispatch(const CreatePost());
+                  Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
+                },
+                child: const Text('SHARE'))
+          ],
         ),
         body: Column(
           children: <Widget>[

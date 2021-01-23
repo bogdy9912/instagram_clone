@@ -9,6 +9,8 @@ abstract class PostsInfo implements Built<PostsInfo, PostsInfoBuilder> {
 
   BuiltList<String> get paths;
 
+  BuiltList<String> get tags;
+
   @nullable
   String get description;
 

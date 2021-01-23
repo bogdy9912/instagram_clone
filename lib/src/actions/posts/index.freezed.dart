@@ -10,6 +10,420 @@ part of posts_actions;
 T _$identity<T>(T value) => value;
 
 /// @nodoc
+class _$CreatePostTearOff {
+  const _$CreatePostTearOff();
+
+// ignore: unused_element
+  CreatePost$ call() {
+    return const CreatePost$();
+  }
+
+// ignore: unused_element
+  CreatePostSuccessful successful(Post post) {
+    return CreatePostSuccessful(
+      post,
+    );
+  }
+
+// ignore: unused_element
+  CreatePostError error(Object error) {
+    return CreatePostError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $CreatePost = _$CreatePostTearOff();
+
+/// @nodoc
+mixin _$CreatePost {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(Post post),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(Post post),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(CreatePost$ value), {
+    @required Result successful(CreatePostSuccessful value),
+    @required Result error(CreatePostError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(CreatePost$ value), {
+    Result successful(CreatePostSuccessful value),
+    Result error(CreatePostError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $CreatePostCopyWith<$Res> {
+  factory $CreatePostCopyWith(
+          CreatePost value, $Res Function(CreatePost) then) =
+      _$CreatePostCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CreatePostCopyWithImpl<$Res> implements $CreatePostCopyWith<$Res> {
+  _$CreatePostCopyWithImpl(this._value, this._then);
+
+  final CreatePost _value;
+  // ignore: unused_field
+  final $Res Function(CreatePost) _then;
+}
+
+/// @nodoc
+abstract class $CreatePost$CopyWith<$Res> {
+  factory $CreatePost$CopyWith(
+          CreatePost$ value, $Res Function(CreatePost$) then) =
+      _$CreatePost$CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CreatePost$CopyWithImpl<$Res> extends _$CreatePostCopyWithImpl<$Res>
+    implements $CreatePost$CopyWith<$Res> {
+  _$CreatePost$CopyWithImpl(
+      CreatePost$ _value, $Res Function(CreatePost$) _then)
+      : super(_value, (v) => _then(v as CreatePost$));
+
+  @override
+  CreatePost$ get _value => super._value as CreatePost$;
+}
+
+/// @nodoc
+class _$CreatePost$ implements CreatePost$ {
+  const _$CreatePost$();
+
+  @override
+  String toString() {
+    return 'CreatePost()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is CreatePost$);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(Post post),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(Post post),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(CreatePost$ value), {
+    @required Result successful(CreatePostSuccessful value),
+    @required Result error(CreatePostError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(CreatePost$ value), {
+    Result successful(CreatePostSuccessful value),
+    Result error(CreatePostError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreatePost$ implements CreatePost {
+  const factory CreatePost$() = _$CreatePost$;
+}
+
+/// @nodoc
+abstract class $CreatePostSuccessfulCopyWith<$Res> {
+  factory $CreatePostSuccessfulCopyWith(CreatePostSuccessful value,
+          $Res Function(CreatePostSuccessful) then) =
+      _$CreatePostSuccessfulCopyWithImpl<$Res>;
+  $Res call({Post post});
+}
+
+/// @nodoc
+class _$CreatePostSuccessfulCopyWithImpl<$Res>
+    extends _$CreatePostCopyWithImpl<$Res>
+    implements $CreatePostSuccessfulCopyWith<$Res> {
+  _$CreatePostSuccessfulCopyWithImpl(
+      CreatePostSuccessful _value, $Res Function(CreatePostSuccessful) _then)
+      : super(_value, (v) => _then(v as CreatePostSuccessful));
+
+  @override
+  CreatePostSuccessful get _value => super._value as CreatePostSuccessful;
+
+  @override
+  $Res call({
+    Object post = freezed,
+  }) {
+    return _then(CreatePostSuccessful(
+      post == freezed ? _value.post : post as Post,
+    ));
+  }
+}
+
+/// @nodoc
+class _$CreatePostSuccessful implements CreatePostSuccessful {
+  const _$CreatePostSuccessful(this.post) : assert(post != null);
+
+  @override
+  final Post post;
+
+  @override
+  String toString() {
+    return 'CreatePost.successful(post: $post)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is CreatePostSuccessful &&
+            (identical(other.post, post) ||
+                const DeepCollectionEquality().equals(other.post, post)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(post);
+
+  @override
+  $CreatePostSuccessfulCopyWith<CreatePostSuccessful> get copyWith =>
+      _$CreatePostSuccessfulCopyWithImpl<CreatePostSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(Post post),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(post);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(Post post),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(post);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(CreatePost$ value), {
+    @required Result successful(CreatePostSuccessful value),
+    @required Result error(CreatePostError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(CreatePost$ value), {
+    Result successful(CreatePostSuccessful value),
+    Result error(CreatePostError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreatePostSuccessful implements CreatePost {
+  const factory CreatePostSuccessful(Post post) = _$CreatePostSuccessful;
+
+  Post get post;
+  $CreatePostSuccessfulCopyWith<CreatePostSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $CreatePostErrorCopyWith<$Res> {
+  factory $CreatePostErrorCopyWith(
+          CreatePostError value, $Res Function(CreatePostError) then) =
+      _$CreatePostErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$CreatePostErrorCopyWithImpl<$Res> extends _$CreatePostCopyWithImpl<$Res>
+    implements $CreatePostErrorCopyWith<$Res> {
+  _$CreatePostErrorCopyWithImpl(
+      CreatePostError _value, $Res Function(CreatePostError) _then)
+      : super(_value, (v) => _then(v as CreatePostError));
+
+  @override
+  CreatePostError get _value => super._value as CreatePostError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(CreatePostError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$CreatePostError implements CreatePostError {
+  const _$CreatePostError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'CreatePost.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is CreatePostError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $CreatePostErrorCopyWith<CreatePostError> get copyWith =>
+      _$CreatePostErrorCopyWithImpl<CreatePostError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(Post post),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(Post post),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(CreatePost$ value), {
+    @required Result successful(CreatePostSuccessful value),
+    @required Result error(CreatePostError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(CreatePost$ value), {
+    Result successful(CreatePostSuccessful value),
+    Result error(CreatePostError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreatePostError implements CreatePost, ErrorAction {
+  const factory CreatePostError(Object error) = _$CreatePostError;
+
+  Object get error;
+  $CreatePostErrorCopyWith<CreatePostError> get copyWith;
+}
+
+/// @nodoc
 class _$UpdatePostInfoTearOff {
   const _$UpdatePostInfoTearOff();
 

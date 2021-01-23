@@ -10,5 +10,6 @@ abstract class UpdatePostInfo with _$UpdatePostInfo implements AppAction {
     String description,
     AppUser addUser,
     AppUser removeUser,
+    
   }) = UpdatePostInfo$;
 }

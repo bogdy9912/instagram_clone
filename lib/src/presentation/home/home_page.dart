@@ -53,7 +53,8 @@ class _HomePageState extends State<HomePage> {
           if (i == 2) {
             final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
             if (file != null) {
-              print(file.path);
+
+              StoreProvider.of<AppState>(context).dispatch(const UpdatePostInfo());
               StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
 
               Navigator.pushNamed(context, AppRoutes.choosePhotosPost);

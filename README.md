@@ -19,7 +19,7 @@ This is a clone of Instagram with the following features:
 
 ## Add post (115')
  * [x] add multiples pictures from the gallery and the camera (40')
- * [ ] add tags (25')
+ * [x] add tags (25')
  * [x] add persons (20')
       * [x] search persons
  * [x] add location (20')

@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:instagram_clone/src/actions/posts/index.dart';
 import 'package:instagram_clone/src/models/posts/index.dart';
 import 'package:redux/redux.dart';
@@ -7,6 +8,7 @@ Reducer<PostsState> postsReducer = combineReducers(<Reducer<PostsState>>[
 ]);
 
 PostsState _updatePost(PostsState state, UpdatePostInfo$ action) {
+  print('a intrat in reducer post');
   return state.rebuild((PostsStateBuilder b) {
     if (action.addImage != null) {
       print('add');
@@ -15,7 +17,12 @@ PostsState _updatePost(PostsState state, UpdatePostInfo$ action) {
       print('remove');
       b.info.paths.remove(action.removeImage);
     } else if (action.description != null) {
-      b.info.description = action.description;
+      final List<String> tags =
+          RegExp('\#([a-zA-Z0-9]+)').allMatches(action.description).map((RegExpMatch e) => e.group(1)).toList();
+
+      b.info
+        ..description = action.description
+        ..tags = ListBuilder<String>(tags);
     } else if (action.lat != null && action.lng != null) {
       b.info
         ..lat = action.lat
