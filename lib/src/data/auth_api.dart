@@ -26,7 +26,7 @@ class AuthApi {
     final UserCredential response = await _auth.signInWithEmailAndPassword(email: email, password: password);
     final User user = response.user;
     final DocumentSnapshot snapshot = await _firestore.doc('/users/${user.uid}').get();
-    print(snapshot.data());
+
     return AppUser.fromJson(snapshot.data());
   }
 

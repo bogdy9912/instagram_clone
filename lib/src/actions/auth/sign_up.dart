@@ -1,4 +1,5 @@
 part of auth_actions;
+
 @freezed
 abstract class SignUp with _$SignUp implements AppAction {
   const factory SignUp(ActionResponse response) = SignUp$;

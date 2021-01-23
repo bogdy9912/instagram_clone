@@ -15,44 +15,43 @@ class ChoosePhotosPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PostInfoContainer(
-      builder: (BuildContext context, PostsInfo info) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Choose photos'),
-          actions: <Widget>[
-            FlatButton(
-                onPressed: () {
-                  if (info.paths.isNotEmpty) {
-                    Navigator.pushNamed(context, AppRoutes.createPost);
-                  } else {
-                    // show error
-                  }
-                },
-                child: const Text('NEXT')),
-          ],
-        ),
-        body: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 8,
-            mainAxisSpacing: 8,
-          ),
-          itemCount: info.paths.length + 1,
-          itemBuilder: (BuildContext context, int index) {
-            print(info.paths.length);
-            if (index == 0) {
-              return Center(
-                child: IconButton(
-                  icon: const Icon(Icons.add_circle_outline),
-                  onPressed: () async {
-                    final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
-                    if (file != null) {
-                      StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
-
+      builder: (BuildContext context, PostsInfo info) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Choose photos'),
+            actions: <Widget>[
+              FlatButton(
+                  onPressed: () {
+                    if (info.paths.isNotEmpty) {
+                      Navigator.pushNamed(context, AppRoutes.createPost);
+                    } else {
+                      // show error
                     }
                   },
-                ),
-              );
-            }
+                  child: const Text('NEXT')),
+            ],
+          ),
+          body: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+            ),
+            itemCount: info.paths.length + 1,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 0) {
+                return Center(
+                  child: IconButton(
+                    icon: const Icon(Icons.add_circle_outline),
+                    onPressed: () async {
+                      final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
+                      if (file != null) {
+                        StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
+                      }
+                    },
+                  ),
+                );
+              }
               return GridTile(
                 header: GridTileBar(
                   title: const Text(''),
@@ -61,7 +60,6 @@ class ChoosePhotosPost extends StatelessWidget {
                       onPressed: () {
                         StoreProvider.of<AppState>(context)
                             .dispatch(UpdatePostInfo(removeImage: info.paths[index - 1]));
-
                       }),
                 ),
                 child: Image.file(
@@ -69,9 +67,10 @@ class ChoosePhotosPost extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               );
-          },
-        ),
-      ),
+            },
+          ),
+        );
+      },
     );
   }
 }

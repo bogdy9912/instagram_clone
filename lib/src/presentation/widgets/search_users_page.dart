@@ -35,8 +35,7 @@ class SearchUsersPage extends StatelessWidget {
                     Image.network(searchResult[index].photoUrl)
                     : Container(),
               ),
-              onTap: (){
-                print('La');
+              onTap: () {
                 Navigator.pop(context, searchResult[index]);
               },
             ),

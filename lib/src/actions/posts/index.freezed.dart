@@ -69,9 +69,7 @@ mixin _$CreatePost {
 
 /// @nodoc
 abstract class $CreatePostCopyWith<$Res> {
-  factory $CreatePostCopyWith(
-          CreatePost value, $Res Function(CreatePost) then) =
-      _$CreatePostCopyWithImpl<$Res>;
+  factory $CreatePostCopyWith(CreatePost value, $Res Function(CreatePost) then) = _$CreatePostCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -85,16 +83,12 @@ class _$CreatePostCopyWithImpl<$Res> implements $CreatePostCopyWith<$Res> {
 
 /// @nodoc
 abstract class $CreatePost$CopyWith<$Res> {
-  factory $CreatePost$CopyWith(
-          CreatePost$ value, $Res Function(CreatePost$) then) =
-      _$CreatePost$CopyWithImpl<$Res>;
+  factory $CreatePost$CopyWith(CreatePost$ value, $Res Function(CreatePost$) then) = _$CreatePost$CopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CreatePost$CopyWithImpl<$Res> extends _$CreatePostCopyWithImpl<$Res>
-    implements $CreatePost$CopyWith<$Res> {
-  _$CreatePost$CopyWithImpl(
-      CreatePost$ _value, $Res Function(CreatePost$) _then)
+class _$CreatePost$CopyWithImpl<$Res> extends _$CreatePostCopyWithImpl<$Res> implements $CreatePost$CopyWith<$Res> {
+  _$CreatePost$CopyWithImpl(CreatePost$ _value, $Res Function(CreatePost$) _then)
       : super(_value, (v) => _then(v as CreatePost$));
 
   @override
@@ -181,18 +175,15 @@ abstract class CreatePost$ implements CreatePost {
 
 /// @nodoc
 abstract class $CreatePostSuccessfulCopyWith<$Res> {
-  factory $CreatePostSuccessfulCopyWith(CreatePostSuccessful value,
-          $Res Function(CreatePostSuccessful) then) =
+  factory $CreatePostSuccessfulCopyWith(CreatePostSuccessful value, $Res Function(CreatePostSuccessful) then) =
       _$CreatePostSuccessfulCopyWithImpl<$Res>;
   $Res call({Post post});
 }
 
 /// @nodoc
-class _$CreatePostSuccessfulCopyWithImpl<$Res>
-    extends _$CreatePostCopyWithImpl<$Res>
+class _$CreatePostSuccessfulCopyWithImpl<$Res> extends _$CreatePostCopyWithImpl<$Res>
     implements $CreatePostSuccessfulCopyWith<$Res> {
-  _$CreatePostSuccessfulCopyWithImpl(
-      CreatePostSuccessful _value, $Res Function(CreatePostSuccessful) _then)
+  _$CreatePostSuccessfulCopyWithImpl(CreatePostSuccessful _value, $Res Function(CreatePostSuccessful) _then)
       : super(_value, (v) => _then(v as CreatePostSuccessful));
 
   @override
@@ -224,18 +215,15 @@ class _$CreatePostSuccessful implements CreatePostSuccessful {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is CreatePostSuccessful &&
-            (identical(other.post, post) ||
-                const DeepCollectionEquality().equals(other.post, post)));
+            (identical(other.post, post) || const DeepCollectionEquality().equals(other.post, post)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(post);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(post);
 
   @override
   $CreatePostSuccessfulCopyWith<CreatePostSuccessful> get copyWith =>
-      _$CreatePostSuccessfulCopyWithImpl<CreatePostSuccessful>(
-          this, _$identity);
+      _$CreatePostSuccessfulCopyWithImpl<CreatePostSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -303,8 +291,7 @@ abstract class CreatePostSuccessful implements CreatePost {
 
 /// @nodoc
 abstract class $CreatePostErrorCopyWith<$Res> {
-  factory $CreatePostErrorCopyWith(
-          CreatePostError value, $Res Function(CreatePostError) then) =
+  factory $CreatePostErrorCopyWith(CreatePostError value, $Res Function(CreatePostError) then) =
       _$CreatePostErrorCopyWithImpl<$Res>;
   $Res call({Object error});
 }
@@ -312,8 +299,7 @@ abstract class $CreatePostErrorCopyWith<$Res> {
 /// @nodoc
 class _$CreatePostErrorCopyWithImpl<$Res> extends _$CreatePostCopyWithImpl<$Res>
     implements $CreatePostErrorCopyWith<$Res> {
-  _$CreatePostErrorCopyWithImpl(
-      CreatePostError _value, $Res Function(CreatePostError) _then)
+  _$CreatePostErrorCopyWithImpl(CreatePostError _value, $Res Function(CreatePostError) _then)
       : super(_value, (v) => _then(v as CreatePostError));
 
   @override
@@ -347,13 +333,11 @@ class _$CreatePostError implements CreatePostError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is CreatePostError &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+            (identical(other.error, error) || const DeepCollectionEquality().equals(other.error, error)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
   @override
   $CreatePostErrorCopyWith<CreatePostError> get copyWith =>
@@ -467,8 +451,7 @@ mixin _$UpdatePostInfo {
 
 /// @nodoc
 abstract class $UpdatePostInfoCopyWith<$Res> {
-  factory $UpdatePostInfoCopyWith(
-          UpdatePostInfo value, $Res Function(UpdatePostInfo) then) =
+  factory $UpdatePostInfoCopyWith(UpdatePostInfo value, $Res Function(UpdatePostInfo) then) =
       _$UpdatePostInfoCopyWithImpl<$Res>;
   $Res call(
       {String addImage,
@@ -481,8 +464,7 @@ abstract class $UpdatePostInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UpdatePostInfoCopyWithImpl<$Res>
-    implements $UpdatePostInfoCopyWith<$Res> {
+class _$UpdatePostInfoCopyWithImpl<$Res> implements $UpdatePostInfoCopyWith<$Res> {
   _$UpdatePostInfoCopyWithImpl(this._value, this._then);
 
   final UpdatePostInfo _value;
@@ -501,24 +483,19 @@ class _$UpdatePostInfoCopyWithImpl<$Res>
   }) {
     return _then(_value.copyWith(
       addImage: addImage == freezed ? _value.addImage : addImage as String,
-      removeImage:
-          removeImage == freezed ? _value.removeImage : removeImage as String,
+      removeImage: removeImage == freezed ? _value.removeImage : removeImage as String,
       lat: lat == freezed ? _value.lat : lat as double,
       lng: lng == freezed ? _value.lng : lng as double,
-      description:
-          description == freezed ? _value.description : description as String,
+      description: description == freezed ? _value.description : description as String,
       addUser: addUser == freezed ? _value.addUser : addUser as AppUser,
-      removeUser:
-          removeUser == freezed ? _value.removeUser : removeUser as AppUser,
+      removeUser: removeUser == freezed ? _value.removeUser : removeUser as AppUser,
     ));
   }
 }
 
 /// @nodoc
-abstract class $UpdatePostInfo$CopyWith<$Res>
-    implements $UpdatePostInfoCopyWith<$Res> {
-  factory $UpdatePostInfo$CopyWith(
-          UpdatePostInfo$ value, $Res Function(UpdatePostInfo$) then) =
+abstract class $UpdatePostInfo$CopyWith<$Res> implements $UpdatePostInfoCopyWith<$Res> {
+  factory $UpdatePostInfo$CopyWith(UpdatePostInfo$ value, $Res Function(UpdatePostInfo$) then) =
       _$UpdatePostInfo$CopyWithImpl<$Res>;
   @override
   $Res call(
@@ -532,11 +509,9 @@ abstract class $UpdatePostInfo$CopyWith<$Res>
 }
 
 /// @nodoc
-class _$UpdatePostInfo$CopyWithImpl<$Res>
-    extends _$UpdatePostInfoCopyWithImpl<$Res>
+class _$UpdatePostInfo$CopyWithImpl<$Res> extends _$UpdatePostInfoCopyWithImpl<$Res>
     implements $UpdatePostInfo$CopyWith<$Res> {
-  _$UpdatePostInfo$CopyWithImpl(
-      UpdatePostInfo$ _value, $Res Function(UpdatePostInfo$) _then)
+  _$UpdatePostInfo$CopyWithImpl(UpdatePostInfo$ _value, $Res Function(UpdatePostInfo$) _then)
       : super(_value, (v) => _then(v as UpdatePostInfo$));
 
   @override
@@ -554,15 +529,12 @@ class _$UpdatePostInfo$CopyWithImpl<$Res>
   }) {
     return _then(UpdatePostInfo$(
       addImage: addImage == freezed ? _value.addImage : addImage as String,
-      removeImage:
-          removeImage == freezed ? _value.removeImage : removeImage as String,
+      removeImage: removeImage == freezed ? _value.removeImage : removeImage as String,
       lat: lat == freezed ? _value.lat : lat as double,
       lng: lng == freezed ? _value.lng : lng as double,
-      description:
-          description == freezed ? _value.description : description as String,
+      description: description == freezed ? _value.description : description as String,
       addUser: addUser == freezed ? _value.addUser : addUser as AppUser,
-      removeUser:
-          removeUser == freezed ? _value.removeUser : removeUser as AppUser,
+      removeUser: removeUser == freezed ? _value.removeUser : removeUser as AppUser,
     ));
   }
 }
@@ -570,13 +542,7 @@ class _$UpdatePostInfo$CopyWithImpl<$Res>
 /// @nodoc
 class _$UpdatePostInfo$ implements UpdatePostInfo$ {
   const _$UpdatePostInfo$(
-      {this.addImage,
-      this.removeImage,
-      this.lat,
-      this.lng,
-      this.description,
-      this.addUser,
-      this.removeUser});
+      {this.addImage, this.removeImage, this.lat, this.lng, this.description, this.addUser, this.removeUser});
 
   @override
   final String addImage;
@@ -602,25 +568,16 @@ class _$UpdatePostInfo$ implements UpdatePostInfo$ {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is UpdatePostInfo$ &&
-            (identical(other.addImage, addImage) ||
-                const DeepCollectionEquality()
-                    .equals(other.addImage, addImage)) &&
+            (identical(other.addImage, addImage) || const DeepCollectionEquality().equals(other.addImage, addImage)) &&
             (identical(other.removeImage, removeImage) ||
-                const DeepCollectionEquality()
-                    .equals(other.removeImage, removeImage)) &&
-            (identical(other.lat, lat) ||
-                const DeepCollectionEquality().equals(other.lat, lat)) &&
-            (identical(other.lng, lng) ||
-                const DeepCollectionEquality().equals(other.lng, lng)) &&
+                const DeepCollectionEquality().equals(other.removeImage, removeImage)) &&
+            (identical(other.lat, lat) || const DeepCollectionEquality().equals(other.lat, lat)) &&
+            (identical(other.lng, lng) || const DeepCollectionEquality().equals(other.lng, lng)) &&
             (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.addUser, addUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.addUser, addUser)) &&
+                const DeepCollectionEquality().equals(other.description, description)) &&
+            (identical(other.addUser, addUser) || const DeepCollectionEquality().equals(other.addUser, addUser)) &&
             (identical(other.removeUser, removeUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.removeUser, removeUser)));
+                const DeepCollectionEquality().equals(other.removeUser, removeUser)));
   }
 
   @override

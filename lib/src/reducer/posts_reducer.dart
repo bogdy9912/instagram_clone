@@ -1,20 +1,17 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:instagram_clone/src/actions/posts/index.dart';
-import 'package:instagram_clone/src/models/posts/index.dart';
+import 'package:instagram_clone/src/actions/index.dart';
+import 'package:instagram_clone/src/models/index.dart';
 import 'package:redux/redux.dart';
 
-Reducer<PostsState> postsReducer = combineReducers(<Reducer<PostsState>>[
+Reducer<PostsState> postsReducer = combineReducers<PostsState>(<Reducer<PostsState>>[
   TypedReducer<PostsState, UpdatePostInfo$>(_updatePost),
 ]);
 
 PostsState _updatePost(PostsState state, UpdatePostInfo$ action) {
-  print('a intrat in reducer post');
   return state.rebuild((PostsStateBuilder b) {
     if (action.addImage != null) {
-      print('add');
       b.info.paths.add(action.addImage);
     } else if (action.removeImage != null) {
-      print('remove');
       b.info.paths.remove(action.removeImage);
     } else if (action.description != null) {
       final List<String> tags =

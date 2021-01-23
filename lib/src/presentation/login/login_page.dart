@@ -75,8 +75,6 @@ class _LoginPageState extends State<LoginPage> with DialogMixin {
                   const Spacer(),
                   FlatButton(
                     onPressed: () {
-                      print(_email.text);
-                      print(_password.text);
                       final bool valid = Form.of(context).validate();
 
                       if (valid) {

@@ -24,7 +24,9 @@ Future<Store<AppState>> init() async {
   final AppEpics epic = AppEpics(authApi: _authApi, postApi: _postApi);
 
   return Store<AppState>(
-    reducer,
+    (AppState state, dynamic action) {
+      return reducer(state, action);
+    },
     initialState: AppState.initialState(),
     middleware: <Middleware<AppState>>[
       EpicMiddleware<AppState>(epic.epics),

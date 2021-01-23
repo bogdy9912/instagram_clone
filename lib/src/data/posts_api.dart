@@ -34,11 +34,7 @@ class PostsApi {
         ..users = ListBuilder<String>(info.users.map((AppUser user) => user.uid).toList());
     });
 
-    try {
-      await ref.set(post.json);
-    } catch (err) {
-      print(err);
-    } //debugging with try catch
+    await ref.set(post.json);
 
     return post;
   }
