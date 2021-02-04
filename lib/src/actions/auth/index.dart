@@ -12,3 +12,5 @@ part 'sign_out.dart';
 part 'reset_password.dart';
 part 'initializeApp.dart';
 part 'search_users.dart';
+part 'update_following.dart';
+part 'get_user.dart';

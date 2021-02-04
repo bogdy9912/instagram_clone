@@ -60,4 +60,26 @@ class AuthApi {
     final QuerySnapshot result = await _firestore.collection('users').where('searchIndex', arrayContains: query).get();
     return result.docs.map((QueryDocumentSnapshot snapshot) => AppUser.fromJson(snapshot.data())).toList();
   }
+
+  Future<void> updateFollowing({@required String uid, String add, String remove}) async {
+    FieldValue value;
+    if (add != null) {
+      value = FieldValue.arrayUnion(<String>[add]);
+    } else {
+      value = FieldValue.arrayRemove(<String>[remove]);
+    }
+    if (value != null) {
+      await _firestore.doc('users/$uid').update(<String, dynamic>{'following': value});
+    }
+  }
+
+
+  Future<AppUser> getUser(String uid)async{
+    final DocumentSnapshot result = await _firestore.doc('users/$uid').get();
+    return AppUser.fromJson(result.data());
+  }
+
+
+
+
 }

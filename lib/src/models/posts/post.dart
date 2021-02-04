@@ -26,6 +26,8 @@ abstract class Post implements Built<Post, PostBuilder> {
 
   BuiltList<String> get tags;
 
+  BuiltList<String> get likes;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<Post> get serializer => _$postSerializer;

@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
+import 'package:instagram_clone/src/presentation/feed/feed_page.dart';
 import 'package:instagram_clone/src/presentation/login/reset_password_page.dart';
 import 'package:instagram_clone/src/presentation/posts/choose_photos_post.dart';
 import 'package:instagram_clone/src/presentation/posts/create_post_page.dart';
@@ -21,6 +22,7 @@ class AppRoutes {
   static const String createPost = '/createPost';
   static const String choosePhotosPost = '/choosePhotosPost';
   static const String searchUsers = '/searchUsers';
+  static const String feedPage = '/feedPage';
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
@@ -30,5 +32,6 @@ class AppRoutes {
     createPost: (BuildContext context) => const CreatePostPage(),
     choosePhotosPost: (BuildContext context) => const ChoosePhotosPost(),
     searchUsers: (BuildContext context) => const SearchUsersPage(),
+    feedPage: (BuildContext context) => const FeedPage(),
   };
 }

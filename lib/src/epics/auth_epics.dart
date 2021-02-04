@@ -22,6 +22,8 @@ class AuthEpics {
       TypedEpic<AppState, SignOut$>(_signOut),
       TypedEpic<AppState, ResetPassword$>(_resetPassword),
       TypedEpic<AppState, SearchUsers$>(_searchUsers),
+      TypedEpic<AppState, UpdateFollowing$>(_updateFollowing),
+      TypedEpic<AppState, GetUser$>(_getUser),
     ]);
   }
 
@@ -80,5 +82,22 @@ class AuthEpics {
             .asyncMap((SearchUsers$ action) => _authApi.searchUsers(action.query))
             .map((List<AppUser> users) => SearchUsers.successful(users))
             .onErrorReturnWith((dynamic error) => SearchUsers.error(error)));
+  }
+
+  Stream<AppAction> _updateFollowing(Stream<UpdateFollowing$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((UpdateFollowing$ action) => Stream<UpdateFollowing$>.value(action)
+            .asyncMap((UpdateFollowing$ action) =>
+                _authApi.updateFollowing(uid: store.state.auth.user.uid, add: action.add, remove: action.remove))
+            .mapTo(UpdateFollowing.successful(add: action.add, remove: action.remove))
+            .onErrorReturnWith((dynamic error) => UpdateFollowing.error(error)));
+  }
+
+  Stream<AppAction> _getUser(Stream<GetUser$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((GetUser$ action) => Stream<GetUser$>.value(action)
+            .asyncMap((GetUser$ action) => _authApi.getUser(action.uid))
+            .map((AppUser user) => GetUser.successful(user))
+            .onErrorReturnWith((dynamic error) => GetUser.error(error)));
   }
 }

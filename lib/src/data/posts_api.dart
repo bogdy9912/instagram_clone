@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:instagram_clone/src/models/posts/index.dart';
 import 'package:meta/meta.dart';
+import 'package:quiver/iterables.dart';
 
 class PostsApi {
   PostsApi({@required FirebaseFirestore firestore, @required FirebaseStorage storage})
@@ -51,5 +52,34 @@ class PostsApi {
       images.add(url);
     }
     return images;
+  }
+
+  Future<List<Post>> getFeed(List<String> following) async {
+    final List<Post> newResult = <Post>[];
+    final List<List<String>> parts = partition(following, 10).toList();
+    for (final List<String> part in parts) {
+      final QuerySnapshot snapshot = await _firestore //
+          .collection('posts')
+          .where('uid', whereIn: part)
+          .get();
+
+      final List<Post> result = snapshot.docs //
+          .map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data()))
+          .toList();
+
+      newResult.addAll(result);
+    }
+    return newResult;
+  }
+
+  Future<void> updateLikePost({@required String id, String add, String remove}) async {
+    FieldValue value;
+    if (add != null) {
+      value = FieldValue.arrayUnion(<String>[add]);
+    } else {
+      value = FieldValue.arrayRemove(<String>[remove]);
+    }
+
+    await _firestore.doc('posts/$id').update(<String, dynamic>{'likes': value});
   }
 }

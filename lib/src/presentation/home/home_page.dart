@@ -4,6 +4,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:instagram_clone/src/actions/index.dart';
 import 'package:instagram_clone/src/models/index.dart';
 import 'package:instagram_clone/src/presentation/app_routes.dart';
+import 'package:instagram_clone/src/presentation/feed/feed_page.dart';
+import 'package:instagram_clone/src/presentation/widgets/search_users_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage();
@@ -18,24 +20,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomePage'),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.power_settings_new),
-            onPressed: () {
-              StoreProvider.of<AppState>(context).dispatch(const SignOut());
-            },
-          ),
-        ],
-      ),
       body: <Widget>[
-        Container(
-          color: Colors.red,
-        ),
-        Container(
-          color: Colors.yellow,
-        ),
+        const FeedPage(),
+        const SearchUsersPage(showFollow: true),
         Container(
           color: Colors.green,
         ),

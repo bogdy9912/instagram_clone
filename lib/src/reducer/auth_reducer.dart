@@ -9,6 +9,8 @@ Reducer<AuthState> authReducer = combineReducers<AuthState>(<Reducer<AuthState>>
   TypedReducer<AuthState, SignUpSuccessful>(_signUpSuccessful),
   TypedReducer<AuthState, UpdateRegistrationInfo$>(_updateRegistrationInfo),
   TypedReducer<AuthState, SearchUsersSuccessful>(_searchUsersSuccessful),
+  TypedReducer<AuthState, UpdateFollowingSuccessful>(_updateFollowingSuccessful),
+  TypedReducer<AuthState, GetUserSuccessful>(_getUserSuccessful),
 ]);
 
 AuthState _initializeAppSuccessful(AuthState state, InitializeAppSuccessful action) {
@@ -39,4 +41,18 @@ AuthState _updateRegistrationInfo(AuthState state, UpdateRegistrationInfo$ actio
 
 AuthState _searchUsersSuccessful(AuthState state, SearchUsersSuccessful action) {
   return state.rebuild((AuthStateBuilder b) => b.searchResult = ListBuilder<AppUser>(action.users));
+}
+
+AuthState _updateFollowingSuccessful(AuthState state, UpdateFollowingSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) {
+    if (action.add != null) {
+      b.user.following.add(action.add);
+    } else {
+      b.user.following.remove(action.remove);
+    }
+  });
+}
+
+AuthState _getUserSuccessful(AuthState state, GetUserSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) => b.users[action.user.uid] = action.user);
 }

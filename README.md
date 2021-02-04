@@ -26,7 +26,7 @@ This is a clone of Instagram with the following features:
  * [ ] post comment (10')
 
 ## Feed Page (70')
-  * [ ] show posts of users that I follow (20')
+  * [x] show posts of users that I follow (20')
   * [ ] add comment (10')
   * [ ] like (double tap to like) (10')
   * [ ] share (10')
@@ -35,7 +35,7 @@ This is a clone of Instagram with the following features:
   * [ ] report (5')
 
 ## Search + Trending (65')
-  * [ ] username (20')
+  * [x] username (20')
   * [ ] tags (25')
   * [ ] show trending (20')
 
@@ -47,7 +47,7 @@ This is a clone of Instagram with the following features:
   * [ ] new post from following (15')
 
 ## Profile page (75')
-  * [ ] follow user (10')
+  * [x] follow user (10')
   * [ ] profile counters(posts, followers and following) (20')
   * [ ] users posts (10')
   * [ ] posts tagged with user (25')
