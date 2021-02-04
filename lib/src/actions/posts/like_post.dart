@@ -1,11 +1,11 @@
 part of posts_actions;
 
 @freezed
-abstract class LikePost with _$LikePost implements AppAction {
-  const factory LikePost({String id, String add, String remove}) = LikePost$;
+abstract class UpdateLikePost with _$UpdateLikePost implements AppAction {
+  const factory UpdateLikePost({String id, String add, String remove}) = UpdateLikePost$;
 
-  const factory LikePost.successful({String id, String add, String remove}) = LikePostSuccessful;
+  const factory UpdateLikePost.successful({String id, String add, String remove}) = UpdateLikePostSuccessful;
 
   @Implements(ErrorAction)
-  const factory LikePost.error(Object error) = LikePostError;
+  const factory UpdateLikePost.error(Object error) = UpdateLikePostError;
 }

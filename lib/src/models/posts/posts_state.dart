@@ -13,7 +13,7 @@ abstract class PostsState implements Built<PostsState, PostsStateBuilder> {
 
   PostsInfo get info;
 
-  BuiltList<Post> get posts;
+  BuiltMap<String, Post> get posts;
 
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;

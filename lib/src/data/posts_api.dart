@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:built_collection/built_collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:instagram_clone/src/models/posts/index.dart';
 import 'package:meta/meta.dart';
@@ -54,9 +55,10 @@ class PostsApi {
     return images;
   }
 
-  Future<List<Post>> getFeed(List<String> following) async {
-    final List<Post> newResult = <Post>[];
+  Future<Map<String, Post>> getFeed(List<String> following) async {
+    final List<Post> listOfResults = <Post>[];
     final List<List<String>> parts = partition(following, 10).toList();
+
     for (final List<String> part in parts) {
       final QuerySnapshot snapshot = await _firestore //
           .collection('posts')
@@ -67,9 +69,15 @@ class PostsApi {
           .map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data()))
           .toList();
 
-      newResult.addAll(result);
+      listOfResults.addAll(result);
     }
-    return newResult;
+
+    final Map<String, Post> mapOfResults = <String, Post>{};
+    for (final Post post in listOfResults) {
+      mapOfResults[post.id] = post;
+    }
+
+    return mapOfResults;
   }
 
   Future<void> updateLikePost({@required String id, String add, String remove}) async {
@@ -81,5 +89,6 @@ class PostsApi {
     }
 
     await _firestore.doc('posts/$id').update(<String, dynamic>{'likes': value});
+    final DocumentSnapshot doc = await _firestore.doc('posts/$id').get();
   }
 }

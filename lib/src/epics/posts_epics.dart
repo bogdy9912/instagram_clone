@@ -15,7 +15,7 @@ class PostsEpics {
     return combineEpics(<Epic<AppState>>[
       TypedEpic<AppState, CreatePost$>(_createPost),
       TypedEpic<AppState, GetFeed$>(_getFeed),
-      TypedEpic<AppState, LikePost$>(_likePost),
+      TypedEpic<AppState, UpdateLikePost$>(_updateLikePost),
     ]);
   }
 
@@ -27,24 +27,6 @@ class PostsEpics {
             .onErrorReturnWith((dynamic error) => CreatePost.error(error)));
   }
 
-  Stream<AppAction> _getFeedv(Stream<GetFeed$> actions, EpicStore<AppState> store) {
-    return actions //
-        .flatMap((GetFeed$ action) => Stream<GetFeed$>.value(action)
-            .asyncMap((GetFeed$ event) => _api.getFeed(<String>[
-                  store.state.auth.user.uid,
-                  ...store.state.auth.user.following,
-                ]))
-            .expand((List<Post> posts) => <AppAction>[
-                  GetFeed.successful(posts),
-                  ...posts
-                      .map((Post post) => post.uid)
-                      .toSet()
-                      .where((String uid) => store.state.auth.users[uid] == null)
-                      .map((String uid) => GetUser(uid)),
-                ])
-            .onErrorReturnWith((dynamic error) => GetFeed.error(error)));
-  }
-
   Stream<AppAction> _getFeed(Stream<GetFeed$> actions, EpicStore<AppState> store) {
     return actions //
         .flatMap((GetFeed$ action) => Stream<GetFeed$>.value(action)
@@ -52,9 +34,9 @@ class PostsEpics {
                   store.state.auth.user.uid,
                   ...store.state.auth.user.following,
                 ]))
-            .expand((List<Post> posts) => <AppAction>[
+            .expand((Map<String, Post> posts) => <AppAction>[
                   GetFeed.successful(posts),
-                  ...posts
+                  ...posts.values
                       .map((Post post) => post.uid)
                       .toSet()
                       .where((String uid) => store.state.auth.users[uid] == null)
@@ -63,19 +45,19 @@ class PostsEpics {
             .onErrorReturnWith((dynamic error) => GetFeed.error(error)));
   }
 
-  Stream<AppAction> _likePost(Stream<LikePost$> actions, EpicStore<AppState> store) {
+  Stream<AppAction> _updateLikePost(Stream<UpdateLikePost$> actions, EpicStore<AppState> store) {
     return actions //
-        .flatMap((LikePost$ action) => Stream<LikePost$>.value(action)
-            .asyncMap((LikePost$ event) => _api.updateLikePost(
+        .flatMap((UpdateLikePost$ action) => Stream<UpdateLikePost$>.value(action)
+            .asyncMap((UpdateLikePost$ event) => _api.updateLikePost(
                   id: action.id,
                   remove: action.remove,
                   add: action.add,
                 ))
-            .mapTo(LikePost.successful(
+            .mapTo(UpdateLikePost.successful(
               id: action.id,
               remove: action.remove,
               add: action.add,
             ))
-            .onErrorReturnWith((dynamic error) => LikePost.error(error)));
+            .onErrorReturnWith((dynamic error) => UpdateLikePost.error(error)));
   }
 }

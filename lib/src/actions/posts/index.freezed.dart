@@ -677,7 +677,7 @@ class _$GetFeedTearOff {
   }
 
 // ignore: unused_element
-  GetFeedSuccessful successful(List<Post> posts) {
+  GetFeedSuccessful successful(Map<String, Post> posts) {
     return GetFeedSuccessful(
       posts,
     );
@@ -700,13 +700,13 @@ mixin _$GetFeed {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(), {
-    @required Result successful(List<Post> posts),
+    @required Result successful(Map<String, Post> posts),
     @required Result error(Object error),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(), {
-    Result successful(List<Post> posts),
+    Result successful(Map<String, Post> posts),
     Result error(Object error),
     @required Result orElse(),
   });
@@ -777,7 +777,7 @@ class _$GetFeed$ implements GetFeed$ {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(), {
-    @required Result successful(List<Post> posts),
+    @required Result successful(Map<String, Post> posts),
     @required Result error(Object error),
   }) {
     assert($default != null);
@@ -790,7 +790,7 @@ class _$GetFeed$ implements GetFeed$ {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(), {
-    Result successful(List<Post> posts),
+    Result successful(Map<String, Post> posts),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -839,7 +839,7 @@ abstract class $GetFeedSuccessfulCopyWith<$Res> {
   factory $GetFeedSuccessfulCopyWith(
           GetFeedSuccessful value, $Res Function(GetFeedSuccessful) then) =
       _$GetFeedSuccessfulCopyWithImpl<$Res>;
-  $Res call({List<Post> posts});
+  $Res call({Map<String, Post> posts});
 }
 
 /// @nodoc
@@ -857,7 +857,7 @@ class _$GetFeedSuccessfulCopyWithImpl<$Res> extends _$GetFeedCopyWithImpl<$Res>
     Object posts = freezed,
   }) {
     return _then(GetFeedSuccessful(
-      posts == freezed ? _value.posts : posts as List<Post>,
+      posts == freezed ? _value.posts : posts as Map<String, Post>,
     ));
   }
 }
@@ -867,7 +867,7 @@ class _$GetFeedSuccessful implements GetFeedSuccessful {
   const _$GetFeedSuccessful(this.posts) : assert(posts != null);
 
   @override
-  final List<Post> posts;
+  final Map<String, Post> posts;
 
   @override
   String toString() {
@@ -894,7 +894,7 @@ class _$GetFeedSuccessful implements GetFeedSuccessful {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(), {
-    @required Result successful(List<Post> posts),
+    @required Result successful(Map<String, Post> posts),
     @required Result error(Object error),
   }) {
     assert($default != null);
@@ -907,7 +907,7 @@ class _$GetFeedSuccessful implements GetFeedSuccessful {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(), {
-    Result successful(List<Post> posts),
+    Result successful(Map<String, Post> posts),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -948,9 +948,10 @@ class _$GetFeedSuccessful implements GetFeedSuccessful {
 }
 
 abstract class GetFeedSuccessful implements GetFeed {
-  const factory GetFeedSuccessful(List<Post> posts) = _$GetFeedSuccessful;
+  const factory GetFeedSuccessful(Map<String, Post> posts) =
+      _$GetFeedSuccessful;
 
-  List<Post> get posts;
+  Map<String, Post> get posts;
   $GetFeedSuccessfulCopyWith<GetFeedSuccessful> get copyWith;
 }
 
@@ -1016,7 +1017,7 @@ class _$GetFeedError implements GetFeedError {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(), {
-    @required Result successful(List<Post> posts),
+    @required Result successful(Map<String, Post> posts),
     @required Result error(Object error),
   }) {
     assert($default != null);
@@ -1029,7 +1030,7 @@ class _$GetFeedError implements GetFeedError {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(), {
-    Result successful(List<Post> posts),
+    Result successful(Map<String, Post> posts),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -1077,12 +1078,12 @@ abstract class GetFeedError implements GetFeed, ErrorAction {
 }
 
 /// @nodoc
-class _$LikePostTearOff {
-  const _$LikePostTearOff();
+class _$UpdateLikePostTearOff {
+  const _$UpdateLikePostTearOff();
 
 // ignore: unused_element
-  LikePost$ call({String id, String add, String remove}) {
-    return LikePost$(
+  UpdateLikePost$ call({String id, String add, String remove}) {
+    return UpdateLikePost$(
       id: id,
       add: add,
       remove: remove,
@@ -1090,8 +1091,8 @@ class _$LikePostTearOff {
   }
 
 // ignore: unused_element
-  LikePostSuccessful successful({String id, String add, String remove}) {
-    return LikePostSuccessful(
+  UpdateLikePostSuccessful successful({String id, String add, String remove}) {
+    return UpdateLikePostSuccessful(
       id: id,
       add: add,
       remove: remove,
@@ -1099,8 +1100,8 @@ class _$LikePostTearOff {
   }
 
 // ignore: unused_element
-  LikePostError error(Object error) {
-    return LikePostError(
+  UpdateLikePostError error(Object error) {
+    return UpdateLikePostError(
       error,
     );
   }
@@ -1108,10 +1109,10 @@ class _$LikePostTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $LikePost = _$LikePostTearOff();
+const $UpdateLikePost = _$UpdateLikePostTearOff();
 
 /// @nodoc
-mixin _$LikePost {
+mixin _$UpdateLikePost {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(String id, String add, String remove), {
@@ -1127,49 +1128,54 @@ mixin _$LikePost {
   });
   @optionalTypeArgs
   Result map<Result extends Object>(
-    Result $default(LikePost$ value), {
-    @required Result successful(LikePostSuccessful value),
-    @required Result error(LikePostError value),
+    Result $default(UpdateLikePost$ value), {
+    @required Result successful(UpdateLikePostSuccessful value),
+    @required Result error(UpdateLikePostError value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
-    Result $default(LikePost$ value), {
-    Result successful(LikePostSuccessful value),
-    Result error(LikePostError value),
+    Result $default(UpdateLikePost$ value), {
+    Result successful(UpdateLikePostSuccessful value),
+    Result error(UpdateLikePostError value),
     @required Result orElse(),
   });
 }
 
 /// @nodoc
-abstract class $LikePostCopyWith<$Res> {
-  factory $LikePostCopyWith(LikePost value, $Res Function(LikePost) then) =
-      _$LikePostCopyWithImpl<$Res>;
+abstract class $UpdateLikePostCopyWith<$Res> {
+  factory $UpdateLikePostCopyWith(
+          UpdateLikePost value, $Res Function(UpdateLikePost) then) =
+      _$UpdateLikePostCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LikePostCopyWithImpl<$Res> implements $LikePostCopyWith<$Res> {
-  _$LikePostCopyWithImpl(this._value, this._then);
+class _$UpdateLikePostCopyWithImpl<$Res>
+    implements $UpdateLikePostCopyWith<$Res> {
+  _$UpdateLikePostCopyWithImpl(this._value, this._then);
 
-  final LikePost _value;
+  final UpdateLikePost _value;
   // ignore: unused_field
-  final $Res Function(LikePost) _then;
+  final $Res Function(UpdateLikePost) _then;
 }
 
 /// @nodoc
-abstract class $LikePost$CopyWith<$Res> {
-  factory $LikePost$CopyWith(LikePost$ value, $Res Function(LikePost$) then) =
-      _$LikePost$CopyWithImpl<$Res>;
+abstract class $UpdateLikePost$CopyWith<$Res> {
+  factory $UpdateLikePost$CopyWith(
+          UpdateLikePost$ value, $Res Function(UpdateLikePost$) then) =
+      _$UpdateLikePost$CopyWithImpl<$Res>;
   $Res call({String id, String add, String remove});
 }
 
 /// @nodoc
-class _$LikePost$CopyWithImpl<$Res> extends _$LikePostCopyWithImpl<$Res>
-    implements $LikePost$CopyWith<$Res> {
-  _$LikePost$CopyWithImpl(LikePost$ _value, $Res Function(LikePost$) _then)
-      : super(_value, (v) => _then(v as LikePost$));
+class _$UpdateLikePost$CopyWithImpl<$Res>
+    extends _$UpdateLikePostCopyWithImpl<$Res>
+    implements $UpdateLikePost$CopyWith<$Res> {
+  _$UpdateLikePost$CopyWithImpl(
+      UpdateLikePost$ _value, $Res Function(UpdateLikePost$) _then)
+      : super(_value, (v) => _then(v as UpdateLikePost$));
 
   @override
-  LikePost$ get _value => super._value as LikePost$;
+  UpdateLikePost$ get _value => super._value as UpdateLikePost$;
 
   @override
   $Res call({
@@ -1177,7 +1183,7 @@ class _$LikePost$CopyWithImpl<$Res> extends _$LikePostCopyWithImpl<$Res>
     Object add = freezed,
     Object remove = freezed,
   }) {
-    return _then(LikePost$(
+    return _then(UpdateLikePost$(
       id: id == freezed ? _value.id : id as String,
       add: add == freezed ? _value.add : add as String,
       remove: remove == freezed ? _value.remove : remove as String,
@@ -1186,8 +1192,8 @@ class _$LikePost$CopyWithImpl<$Res> extends _$LikePostCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$LikePost$ implements LikePost$ {
-  const _$LikePost$({this.id, this.add, this.remove});
+class _$UpdateLikePost$ implements UpdateLikePost$ {
+  const _$UpdateLikePost$({this.id, this.add, this.remove});
 
   @override
   final String id;
@@ -1198,13 +1204,13 @@ class _$LikePost$ implements LikePost$ {
 
   @override
   String toString() {
-    return 'LikePost(id: $id, add: $add, remove: $remove)';
+    return 'UpdateLikePost(id: $id, add: $add, remove: $remove)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LikePost$ &&
+        (other is UpdateLikePost$ &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.add, add) ||
@@ -1221,8 +1227,8 @@ class _$LikePost$ implements LikePost$ {
       const DeepCollectionEquality().hash(remove);
 
   @override
-  $LikePost$CopyWith<LikePost$> get copyWith =>
-      _$LikePost$CopyWithImpl<LikePost$>(this, _$identity);
+  $UpdateLikePost$CopyWith<UpdateLikePost$> get copyWith =>
+      _$UpdateLikePost$CopyWithImpl<UpdateLikePost$>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1255,9 +1261,9 @@ class _$LikePost$ implements LikePost$ {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>(
-    Result $default(LikePost$ value), {
-    @required Result successful(LikePostSuccessful value),
-    @required Result error(LikePostError value),
+    Result $default(UpdateLikePost$ value), {
+    @required Result successful(UpdateLikePostSuccessful value),
+    @required Result error(UpdateLikePostError value),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1268,9 +1274,9 @@ class _$LikePost$ implements LikePost$ {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
-    Result $default(LikePost$ value), {
-    Result successful(LikePostSuccessful value),
-    Result error(LikePostError value),
+    Result $default(UpdateLikePost$ value), {
+    Result successful(UpdateLikePostSuccessful value),
+    Result error(UpdateLikePostError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1281,33 +1287,35 @@ class _$LikePost$ implements LikePost$ {
   }
 }
 
-abstract class LikePost$ implements LikePost {
-  const factory LikePost$({String id, String add, String remove}) = _$LikePost$;
+abstract class UpdateLikePost$ implements UpdateLikePost {
+  const factory UpdateLikePost$({String id, String add, String remove}) =
+      _$UpdateLikePost$;
 
   String get id;
   String get add;
   String get remove;
-  $LikePost$CopyWith<LikePost$> get copyWith;
+  $UpdateLikePost$CopyWith<UpdateLikePost$> get copyWith;
 }
 
 /// @nodoc
-abstract class $LikePostSuccessfulCopyWith<$Res> {
-  factory $LikePostSuccessfulCopyWith(
-          LikePostSuccessful value, $Res Function(LikePostSuccessful) then) =
-      _$LikePostSuccessfulCopyWithImpl<$Res>;
+abstract class $UpdateLikePostSuccessfulCopyWith<$Res> {
+  factory $UpdateLikePostSuccessfulCopyWith(UpdateLikePostSuccessful value,
+          $Res Function(UpdateLikePostSuccessful) then) =
+      _$UpdateLikePostSuccessfulCopyWithImpl<$Res>;
   $Res call({String id, String add, String remove});
 }
 
 /// @nodoc
-class _$LikePostSuccessfulCopyWithImpl<$Res>
-    extends _$LikePostCopyWithImpl<$Res>
-    implements $LikePostSuccessfulCopyWith<$Res> {
-  _$LikePostSuccessfulCopyWithImpl(
-      LikePostSuccessful _value, $Res Function(LikePostSuccessful) _then)
-      : super(_value, (v) => _then(v as LikePostSuccessful));
+class _$UpdateLikePostSuccessfulCopyWithImpl<$Res>
+    extends _$UpdateLikePostCopyWithImpl<$Res>
+    implements $UpdateLikePostSuccessfulCopyWith<$Res> {
+  _$UpdateLikePostSuccessfulCopyWithImpl(UpdateLikePostSuccessful _value,
+      $Res Function(UpdateLikePostSuccessful) _then)
+      : super(_value, (v) => _then(v as UpdateLikePostSuccessful));
 
   @override
-  LikePostSuccessful get _value => super._value as LikePostSuccessful;
+  UpdateLikePostSuccessful get _value =>
+      super._value as UpdateLikePostSuccessful;
 
   @override
   $Res call({
@@ -1315,7 +1323,7 @@ class _$LikePostSuccessfulCopyWithImpl<$Res>
     Object add = freezed,
     Object remove = freezed,
   }) {
-    return _then(LikePostSuccessful(
+    return _then(UpdateLikePostSuccessful(
       id: id == freezed ? _value.id : id as String,
       add: add == freezed ? _value.add : add as String,
       remove: remove == freezed ? _value.remove : remove as String,
@@ -1324,8 +1332,8 @@ class _$LikePostSuccessfulCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$LikePostSuccessful implements LikePostSuccessful {
-  const _$LikePostSuccessful({this.id, this.add, this.remove});
+class _$UpdateLikePostSuccessful implements UpdateLikePostSuccessful {
+  const _$UpdateLikePostSuccessful({this.id, this.add, this.remove});
 
   @override
   final String id;
@@ -1336,13 +1344,13 @@ class _$LikePostSuccessful implements LikePostSuccessful {
 
   @override
   String toString() {
-    return 'LikePost.successful(id: $id, add: $add, remove: $remove)';
+    return 'UpdateLikePost.successful(id: $id, add: $add, remove: $remove)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LikePostSuccessful &&
+        (other is UpdateLikePostSuccessful &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.add, add) ||
@@ -1359,8 +1367,9 @@ class _$LikePostSuccessful implements LikePostSuccessful {
       const DeepCollectionEquality().hash(remove);
 
   @override
-  $LikePostSuccessfulCopyWith<LikePostSuccessful> get copyWith =>
-      _$LikePostSuccessfulCopyWithImpl<LikePostSuccessful>(this, _$identity);
+  $UpdateLikePostSuccessfulCopyWith<UpdateLikePostSuccessful> get copyWith =>
+      _$UpdateLikePostSuccessfulCopyWithImpl<UpdateLikePostSuccessful>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1393,9 +1402,9 @@ class _$LikePostSuccessful implements LikePostSuccessful {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>(
-    Result $default(LikePost$ value), {
-    @required Result successful(LikePostSuccessful value),
-    @required Result error(LikePostError value),
+    Result $default(UpdateLikePost$ value), {
+    @required Result successful(UpdateLikePostSuccessful value),
+    @required Result error(UpdateLikePostError value),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1406,9 +1415,9 @@ class _$LikePostSuccessful implements LikePostSuccessful {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
-    Result $default(LikePost$ value), {
-    Result successful(LikePostSuccessful value),
-    Result error(LikePostError value),
+    Result $default(UpdateLikePost$ value), {
+    Result successful(UpdateLikePostSuccessful value),
+    Result error(UpdateLikePostError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1419,39 +1428,40 @@ class _$LikePostSuccessful implements LikePostSuccessful {
   }
 }
 
-abstract class LikePostSuccessful implements LikePost {
-  const factory LikePostSuccessful({String id, String add, String remove}) =
-      _$LikePostSuccessful;
+abstract class UpdateLikePostSuccessful implements UpdateLikePost {
+  const factory UpdateLikePostSuccessful(
+      {String id, String add, String remove}) = _$UpdateLikePostSuccessful;
 
   String get id;
   String get add;
   String get remove;
-  $LikePostSuccessfulCopyWith<LikePostSuccessful> get copyWith;
+  $UpdateLikePostSuccessfulCopyWith<UpdateLikePostSuccessful> get copyWith;
 }
 
 /// @nodoc
-abstract class $LikePostErrorCopyWith<$Res> {
-  factory $LikePostErrorCopyWith(
-          LikePostError value, $Res Function(LikePostError) then) =
-      _$LikePostErrorCopyWithImpl<$Res>;
+abstract class $UpdateLikePostErrorCopyWith<$Res> {
+  factory $UpdateLikePostErrorCopyWith(
+          UpdateLikePostError value, $Res Function(UpdateLikePostError) then) =
+      _$UpdateLikePostErrorCopyWithImpl<$Res>;
   $Res call({Object error});
 }
 
 /// @nodoc
-class _$LikePostErrorCopyWithImpl<$Res> extends _$LikePostCopyWithImpl<$Res>
-    implements $LikePostErrorCopyWith<$Res> {
-  _$LikePostErrorCopyWithImpl(
-      LikePostError _value, $Res Function(LikePostError) _then)
-      : super(_value, (v) => _then(v as LikePostError));
+class _$UpdateLikePostErrorCopyWithImpl<$Res>
+    extends _$UpdateLikePostCopyWithImpl<$Res>
+    implements $UpdateLikePostErrorCopyWith<$Res> {
+  _$UpdateLikePostErrorCopyWithImpl(
+      UpdateLikePostError _value, $Res Function(UpdateLikePostError) _then)
+      : super(_value, (v) => _then(v as UpdateLikePostError));
 
   @override
-  LikePostError get _value => super._value as LikePostError;
+  UpdateLikePostError get _value => super._value as UpdateLikePostError;
 
   @override
   $Res call({
     Object error = freezed,
   }) {
-    return _then(LikePostError(
+    return _then(UpdateLikePostError(
       error == freezed ? _value.error : error,
     ));
   }
@@ -1460,21 +1470,21 @@ class _$LikePostErrorCopyWithImpl<$Res> extends _$LikePostCopyWithImpl<$Res>
 @Implements(ErrorAction)
 
 /// @nodoc
-class _$LikePostError implements LikePostError {
-  const _$LikePostError(this.error) : assert(error != null);
+class _$UpdateLikePostError implements UpdateLikePostError {
+  const _$UpdateLikePostError(this.error) : assert(error != null);
 
   @override
   final Object error;
 
   @override
   String toString() {
-    return 'LikePost.error(error: $error)';
+    return 'UpdateLikePost.error(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LikePostError &&
+        (other is UpdateLikePostError &&
             (identical(other.error, error) ||
                 const DeepCollectionEquality().equals(other.error, error)));
   }
@@ -1484,8 +1494,8 @@ class _$LikePostError implements LikePostError {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
   @override
-  $LikePostErrorCopyWith<LikePostError> get copyWith =>
-      _$LikePostErrorCopyWithImpl<LikePostError>(this, _$identity);
+  $UpdateLikePostErrorCopyWith<UpdateLikePostError> get copyWith =>
+      _$UpdateLikePostErrorCopyWithImpl<UpdateLikePostError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1518,9 +1528,9 @@ class _$LikePostError implements LikePostError {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>(
-    Result $default(LikePost$ value), {
-    @required Result successful(LikePostSuccessful value),
-    @required Result error(LikePostError value),
+    Result $default(UpdateLikePost$ value), {
+    @required Result successful(UpdateLikePostSuccessful value),
+    @required Result error(UpdateLikePostError value),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1531,9 +1541,9 @@ class _$LikePostError implements LikePostError {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
-    Result $default(LikePost$ value), {
-    Result successful(LikePostSuccessful value),
-    Result error(LikePostError value),
+    Result $default(UpdateLikePost$ value), {
+    Result successful(UpdateLikePostSuccessful value),
+    Result error(UpdateLikePostError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1544,9 +1554,9 @@ class _$LikePostError implements LikePostError {
   }
 }
 
-abstract class LikePostError implements LikePost, ErrorAction {
-  const factory LikePostError(Object error) = _$LikePostError;
+abstract class UpdateLikePostError implements UpdateLikePost, ErrorAction {
+  const factory UpdateLikePostError(Object error) = _$UpdateLikePostError;
 
   Object get error;
-  $LikePostErrorCopyWith<LikePostError> get copyWith;
+  $UpdateLikePostErrorCopyWith<UpdateLikePostError> get copyWith;
 }

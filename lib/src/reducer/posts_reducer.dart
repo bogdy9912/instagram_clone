@@ -6,7 +6,7 @@ import 'package:redux/redux.dart';
 Reducer<PostsState> postsReducer = combineReducers<PostsState>(<Reducer<PostsState>>[
   TypedReducer<PostsState, UpdatePostInfo$>(_updatePost),
   TypedReducer<PostsState, GetFeedSuccessful>(_getFeedSuccessful),
-  TypedReducer<PostsState, LikePostSuccessful>(_likePostSuccessful),
+  TypedReducer<PostsState, UpdateLikePostSuccessful>(_updateLikesPostSuccessful),
 ]);
 
 PostsState _updatePost(PostsState state, UpdatePostInfo$ action) {
@@ -37,16 +37,21 @@ PostsState _updatePost(PostsState state, UpdatePostInfo$ action) {
 }
 
 PostsState _getFeedSuccessful(PostsState state, GetFeedSuccessful action) {
-  return state.rebuild((PostsStateBuilder b) => b.posts = ListBuilder<Post>(action.posts));
+  return state.rebuild((PostsStateBuilder b) => b.posts = MapBuilder<String, Post>(action.posts));
 }
 
-PostsState _likePostSuccessful(PostsState state, LikePostSuccessful action) {
-  return state.rebuild((b) {
-
-    if (action.add != null){
-    final ListBuilder<Post> cop = b.posts;
-    if (cop.where((post) => post.id == ))
+PostsState _updateLikesPostSuccessful(PostsState state, UpdateLikePostSuccessful action) {
+  print('reducer: $action');
+  return state.rebuild((PostsStateBuilder b) {
+    if (action.add != null) {
+      print(b.posts[action.id].likes.contains(action.add));
+      if (!b.posts[action.id].likes.contains(action.add)) {
+        b.posts[action.id].likes.toBuilder().add(action.add);
+      }
+    } else {
+      if (b.posts[action.id].likes.contains(action.remove)) {
+        b.posts[action.id].likes.toBuilder().remove(action.remove);
+      }
     }
-
   });
 }
