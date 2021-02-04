@@ -101,6 +101,18 @@ class _FeedPageState extends State<FeedPage> {
                           ],
                         ),
                         Padding(
+                          padding: const EdgeInsets.only(left:16.0, bottom: 4),
+                          child: Text.rich(
+                            TextSpan(
+                              text: '${post.likes.length}',
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                              children: const <TextSpan>[
+                                TextSpan(text: ' likes'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text.rich(
                             TextSpan(
