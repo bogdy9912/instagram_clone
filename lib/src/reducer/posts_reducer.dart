@@ -41,16 +41,14 @@ PostsState _getFeedSuccessful(PostsState state, GetFeedSuccessful action) {
 }
 
 PostsState _updateLikesPostSuccessful(PostsState state, UpdateLikePostSuccessful action) {
-  print('reducer: $action');
   return state.rebuild((PostsStateBuilder b) {
     if (action.add != null) {
-      print(b.posts[action.id].likes.contains(action.add));
       if (!b.posts[action.id].likes.contains(action.add)) {
-        b.posts[action.id].likes.toBuilder().add(action.add);
+        b.posts[action.id] = b.posts[action.id].rebuild((PostBuilder post) => post.likes.add(action.add));
       }
     } else {
       if (b.posts[action.id].likes.contains(action.remove)) {
-        b.posts[action.id].likes.toBuilder().remove(action.remove);
+        b.posts[action.id] = b.posts[action.id].rebuild((PostBuilder post) => post.likes.remove(action.remove));
       }
     }
   });

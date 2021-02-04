@@ -42,79 +42,83 @@ class _FeedPageState extends State<FeedPage> {
                     bool isLiked = post.likes.contains(currentUser.uid);
 
                     return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          ListTile(
-                            title: Text(user.username),
-                            leading: user.photoUrl != null
-                                ? CircleAvatar(
-                                    backgroundImage: NetworkImage(user.photoUrl),
-                                  )
-                                : CircleAvatar(
-                                    backgroundColor: Colors.grey,
-                                    child: Text(user.username[0].toUpperCase()),
-                                  ),
-                          ),
-                          GestureDetector(
-                            onDoubleTap: () {
-                              print('touched');
-                              StoreProvider.of<AppState>(context).dispatch(UpdateLikePost(id: post.id, add: currentUser.uid));
-                              print('fedPage: $isLiked');
-                              setState(() {
-                                isLiked = true;
-                              });
-                              print('fedPage: $isLiked');
-                            },
-                            child: Center(
-                              child: Image.network(
-                                post.images.first,
-                                height: MediaQuery.of(context).size.height * 0.5,
-                                fit: BoxFit.cover,
-                              ),
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        ListTile(
+                          title: Text(user.username),
+                          leading: user.photoUrl != null
+                              ? CircleAvatar(
+                                  backgroundImage: NetworkImage(user.photoUrl),
+                                )
+                              : CircleAvatar(
+                                  backgroundColor: Colors.grey,
+                                  child: Text(user.username[0].toUpperCase()),
+                                ),
+                        ),
+                        GestureDetector(
+                          onDoubleTap: () {
+                            StoreProvider.of<AppState>(context)
+                                .dispatch(UpdateLikePost(id: post.id, add: currentUser.uid));
+                          },
+                          child: Center(
+                            child: Image.network(
+                              post.images.first,
+                              height: MediaQuery.of(context).size.height * 0.5,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          Row(
-                            children: <Widget>[
-                              IconButton(
-                                icon: isLiked
-                                    ? const Icon(Icons.favorite, color: Colors.red)
-                                    : const Icon(Icons.favorite_outline),
-                                onPressed: () {},
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.chat_bubble_outline),
-                                onPressed: () {},
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.send),
-                                onPressed: () {},
-                              ),
-                              const Spacer(),
-                              IconButton(
-                                icon: const Icon(Icons.bookmark_border),
-                                onPressed: () {},
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                            child: Text.rich(
-                              TextSpan(
-                                text: user.username,
-                                style: const TextStyle(fontWeight: FontWeight.bold),
-                                children: <TextSpan>[
-                                  const TextSpan(text: ': '),
-                                  TextSpan(
-                                    text: post.description,
-                                    style: const TextStyle(fontWeight: FontWeight.normal),
-                                  ),
-                                ],
-                              ),
+                        ),
+                        Row(
+                          children: <Widget>[
+                            IconButton(
+                              icon: isLiked
+                                  ? const Icon(Icons.favorite, color: Colors.red)
+                                  : const Icon(Icons.favorite_outline),
+                              onPressed: () {
+                                if (isLiked) {
+                                  StoreProvider.of<AppState>(context)
+                                      .dispatch(UpdateLikePost(id: post.id, remove: currentUser.uid));
+                                } else {
+                                  StoreProvider.of<AppState>(context)
+                                      .dispatch(UpdateLikePost(id: post.id, add: currentUser.uid));
+                                }
+                              },
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.chat_bubble_outline),
+                              onPressed: () {},
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.send),
+                              onPressed: () {},
+                            ),
+                            const Spacer(),
+                            IconButton(
+                              icon: const Icon(Icons.bookmark_border),
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Text.rich(
+                            TextSpan(
+                              text: user.username,
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                              children: <TextSpan>[
+                                const TextSpan(text: ': '),
+                                TextSpan(
+                                  text: post.description,
+                                  style: const TextStyle(fontWeight: FontWeight.normal),
+                                ),
+                              ],
                             ),
                           ),
-                          const Divider(),
-                        ],
-                      );
+                        ),
+                        const Divider(),
+                      ],
+                    );
                   },
                 );
               },
