@@ -24,6 +24,7 @@ class AuthEpics {
       TypedEpic<AppState, SearchUsers$>(_searchUsers),
       TypedEpic<AppState, UpdateFollowing$>(_updateFollowing),
       TypedEpic<AppState, GetUser$>(_getUser),
+      TypedEpic<AppState, UpdateSavedPosts$>(_updateSavedPosts),
     ]);
   }
 
@@ -99,5 +100,20 @@ class AuthEpics {
             .asyncMap((GetUser$ action) => _authApi.getUser(action.uid))
             .map((AppUser user) => GetUser.successful(user))
             .onErrorReturnWith((dynamic error) => GetUser.error(error)));
+  }
+
+  Stream<AppAction> _updateSavedPosts(Stream<UpdateSavedPosts$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((UpdateSavedPosts$ action) => Stream<UpdateSavedPosts$>.value(action)
+            .asyncMap((UpdateSavedPosts$ action) => _authApi.updateSavedPosts(
+                  add: action.add,
+                  remove: action.remove,
+                  uid: store.state.auth.user.uid,
+                ))
+            .mapTo(UpdateSavedPosts.successful(
+              add: action.add,
+              remove: action.remove,
+            ))
+            .onErrorReturnWith((dynamic error) => UpdateSavedPosts.error(error)));
   }
 }

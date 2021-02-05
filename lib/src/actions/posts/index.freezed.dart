@@ -1560,3 +1560,471 @@ abstract class UpdateLikePostError implements UpdateLikePost, ErrorAction {
   Object get error;
   $UpdateLikePostErrorCopyWith<UpdateLikePostError> get copyWith;
 }
+
+/// @nodoc
+class _$UpdateSavedPostsTearOff {
+  const _$UpdateSavedPostsTearOff();
+
+// ignore: unused_element
+  UpdateSavedPosts$ call({String add, String remove}) {
+    return UpdateSavedPosts$(
+      add: add,
+      remove: remove,
+    );
+  }
+
+// ignore: unused_element
+  UpdateSavedPostsSuccessful successful({String add, String remove}) {
+    return UpdateSavedPostsSuccessful(
+      add: add,
+      remove: remove,
+    );
+  }
+
+// ignore: unused_element
+  UpdateSavedPostsError error(Object error) {
+    return UpdateSavedPostsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $UpdateSavedPosts = _$UpdateSavedPostsTearOff();
+
+/// @nodoc
+mixin _$UpdateSavedPosts {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateSavedPosts$ value), {
+    @required Result successful(UpdateSavedPostsSuccessful value),
+    @required Result error(UpdateSavedPostsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateSavedPosts$ value), {
+    Result successful(UpdateSavedPostsSuccessful value),
+    Result error(UpdateSavedPostsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $UpdateSavedPostsCopyWith<$Res> {
+  factory $UpdateSavedPostsCopyWith(
+          UpdateSavedPosts value, $Res Function(UpdateSavedPosts) then) =
+      _$UpdateSavedPostsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateSavedPostsCopyWithImpl<$Res>
+    implements $UpdateSavedPostsCopyWith<$Res> {
+  _$UpdateSavedPostsCopyWithImpl(this._value, this._then);
+
+  final UpdateSavedPosts _value;
+  // ignore: unused_field
+  final $Res Function(UpdateSavedPosts) _then;
+}
+
+/// @nodoc
+abstract class $UpdateSavedPosts$CopyWith<$Res> {
+  factory $UpdateSavedPosts$CopyWith(
+          UpdateSavedPosts$ value, $Res Function(UpdateSavedPosts$) then) =
+      _$UpdateSavedPosts$CopyWithImpl<$Res>;
+  $Res call({String add, String remove});
+}
+
+/// @nodoc
+class _$UpdateSavedPosts$CopyWithImpl<$Res>
+    extends _$UpdateSavedPostsCopyWithImpl<$Res>
+    implements $UpdateSavedPosts$CopyWith<$Res> {
+  _$UpdateSavedPosts$CopyWithImpl(
+      UpdateSavedPosts$ _value, $Res Function(UpdateSavedPosts$) _then)
+      : super(_value, (v) => _then(v as UpdateSavedPosts$));
+
+  @override
+  UpdateSavedPosts$ get _value => super._value as UpdateSavedPosts$;
+
+  @override
+  $Res call({
+    Object add = freezed,
+    Object remove = freezed,
+  }) {
+    return _then(UpdateSavedPosts$(
+      add: add == freezed ? _value.add : add as String,
+      remove: remove == freezed ? _value.remove : remove as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateSavedPosts$ implements UpdateSavedPosts$ {
+  const _$UpdateSavedPosts$({this.add, this.remove});
+
+  @override
+  final String add;
+  @override
+  final String remove;
+
+  @override
+  String toString() {
+    return 'UpdateSavedPosts(add: $add, remove: $remove)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateSavedPosts$ &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove);
+
+  @override
+  $UpdateSavedPosts$CopyWith<UpdateSavedPosts$> get copyWith =>
+      _$UpdateSavedPosts$CopyWithImpl<UpdateSavedPosts$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(add, remove);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(add, remove);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateSavedPosts$ value), {
+    @required Result successful(UpdateSavedPostsSuccessful value),
+    @required Result error(UpdateSavedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateSavedPosts$ value), {
+    Result successful(UpdateSavedPostsSuccessful value),
+    Result error(UpdateSavedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateSavedPosts$ implements UpdateSavedPosts {
+  const factory UpdateSavedPosts$({String add, String remove}) =
+      _$UpdateSavedPosts$;
+
+  String get add;
+  String get remove;
+  $UpdateSavedPosts$CopyWith<UpdateSavedPosts$> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateSavedPostsSuccessfulCopyWith<$Res> {
+  factory $UpdateSavedPostsSuccessfulCopyWith(UpdateSavedPostsSuccessful value,
+          $Res Function(UpdateSavedPostsSuccessful) then) =
+      _$UpdateSavedPostsSuccessfulCopyWithImpl<$Res>;
+  $Res call({String add, String remove});
+}
+
+/// @nodoc
+class _$UpdateSavedPostsSuccessfulCopyWithImpl<$Res>
+    extends _$UpdateSavedPostsCopyWithImpl<$Res>
+    implements $UpdateSavedPostsSuccessfulCopyWith<$Res> {
+  _$UpdateSavedPostsSuccessfulCopyWithImpl(UpdateSavedPostsSuccessful _value,
+      $Res Function(UpdateSavedPostsSuccessful) _then)
+      : super(_value, (v) => _then(v as UpdateSavedPostsSuccessful));
+
+  @override
+  UpdateSavedPostsSuccessful get _value =>
+      super._value as UpdateSavedPostsSuccessful;
+
+  @override
+  $Res call({
+    Object add = freezed,
+    Object remove = freezed,
+  }) {
+    return _then(UpdateSavedPostsSuccessful(
+      add: add == freezed ? _value.add : add as String,
+      remove: remove == freezed ? _value.remove : remove as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateSavedPostsSuccessful implements UpdateSavedPostsSuccessful {
+  const _$UpdateSavedPostsSuccessful({this.add, this.remove});
+
+  @override
+  final String add;
+  @override
+  final String remove;
+
+  @override
+  String toString() {
+    return 'UpdateSavedPosts.successful(add: $add, remove: $remove)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateSavedPostsSuccessful &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove);
+
+  @override
+  $UpdateSavedPostsSuccessfulCopyWith<UpdateSavedPostsSuccessful>
+      get copyWith =>
+          _$UpdateSavedPostsSuccessfulCopyWithImpl<UpdateSavedPostsSuccessful>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(add, remove);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(add, remove);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateSavedPosts$ value), {
+    @required Result successful(UpdateSavedPostsSuccessful value),
+    @required Result error(UpdateSavedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateSavedPosts$ value), {
+    Result successful(UpdateSavedPostsSuccessful value),
+    Result error(UpdateSavedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateSavedPostsSuccessful implements UpdateSavedPosts {
+  const factory UpdateSavedPostsSuccessful({String add, String remove}) =
+      _$UpdateSavedPostsSuccessful;
+
+  String get add;
+  String get remove;
+  $UpdateSavedPostsSuccessfulCopyWith<UpdateSavedPostsSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateSavedPostsErrorCopyWith<$Res> {
+  factory $UpdateSavedPostsErrorCopyWith(UpdateSavedPostsError value,
+          $Res Function(UpdateSavedPostsError) then) =
+      _$UpdateSavedPostsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$UpdateSavedPostsErrorCopyWithImpl<$Res>
+    extends _$UpdateSavedPostsCopyWithImpl<$Res>
+    implements $UpdateSavedPostsErrorCopyWith<$Res> {
+  _$UpdateSavedPostsErrorCopyWithImpl(
+      UpdateSavedPostsError _value, $Res Function(UpdateSavedPostsError) _then)
+      : super(_value, (v) => _then(v as UpdateSavedPostsError));
+
+  @override
+  UpdateSavedPostsError get _value => super._value as UpdateSavedPostsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(UpdateSavedPostsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$UpdateSavedPostsError implements UpdateSavedPostsError {
+  const _$UpdateSavedPostsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'UpdateSavedPosts.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateSavedPostsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $UpdateSavedPostsErrorCopyWith<UpdateSavedPostsError> get copyWith =>
+      _$UpdateSavedPostsErrorCopyWithImpl<UpdateSavedPostsError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateSavedPosts$ value), {
+    @required Result successful(UpdateSavedPostsSuccessful value),
+    @required Result error(UpdateSavedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateSavedPosts$ value), {
+    Result successful(UpdateSavedPostsSuccessful value),
+    Result error(UpdateSavedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateSavedPostsError implements UpdateSavedPosts, ErrorAction {
+  const factory UpdateSavedPostsError(Object error) = _$UpdateSavedPostsError;
+
+  Object get error;
+  $UpdateSavedPostsErrorCopyWith<UpdateSavedPostsError> get copyWith;
+}

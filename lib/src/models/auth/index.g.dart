@@ -106,6 +106,10 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
       serializers.serialize(object.following,
           specifiedType:
               const FullType(BuiltList, const [const FullType(String)])),
+      'saves',
+      serializers.serialize(object.saves,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(String)])),
     ];
     if (object.photoUrl != null) {
       result
@@ -151,6 +155,12 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
           break;
         case 'following':
           result.following.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<Object>);
+          break;
+        case 'saves':
+          result.saves.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList<Object>);
@@ -380,6 +390,8 @@ class _$AppUser extends AppUser {
   final BuiltList<String> searchIndex;
   @override
   final BuiltList<String> following;
+  @override
+  final BuiltList<String> saves;
 
   factory _$AppUser([void Function(AppUserBuilder) updates]) =>
       (new AppUserBuilder()..update(updates)).build();
@@ -390,7 +402,8 @@ class _$AppUser extends AppUser {
       this.email,
       this.photoUrl,
       this.searchIndex,
-      this.following})
+      this.following,
+      this.saves})
       : super._() {
     if (uid == null) {
       throw new BuiltValueNullFieldError('AppUser', 'uid');
@@ -406,6 +419,9 @@ class _$AppUser extends AppUser {
     }
     if (following == null) {
       throw new BuiltValueNullFieldError('AppUser', 'following');
+    }
+    if (saves == null) {
+      throw new BuiltValueNullFieldError('AppUser', 'saves');
     }
   }
 
@@ -425,7 +441,8 @@ class _$AppUser extends AppUser {
         email == other.email &&
         photoUrl == other.photoUrl &&
         searchIndex == other.searchIndex &&
-        following == other.following;
+        following == other.following &&
+        saves == other.saves;
   }
 
   @override
@@ -433,11 +450,13 @@ class _$AppUser extends AppUser {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, uid.hashCode), username.hashCode),
-                    email.hashCode),
-                photoUrl.hashCode),
-            searchIndex.hashCode),
-        following.hashCode));
+                $jc(
+                    $jc($jc($jc(0, uid.hashCode), username.hashCode),
+                        email.hashCode),
+                    photoUrl.hashCode),
+                searchIndex.hashCode),
+            following.hashCode),
+        saves.hashCode));
   }
 
   @override
@@ -448,7 +467,8 @@ class _$AppUser extends AppUser {
           ..add('email', email)
           ..add('photoUrl', photoUrl)
           ..add('searchIndex', searchIndex)
-          ..add('following', following))
+          ..add('following', following)
+          ..add('saves', saves))
         .toString();
   }
 }
@@ -483,6 +503,10 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _$this._following ??= new ListBuilder<String>();
   set following(ListBuilder<String> following) => _$this._following = following;
 
+  ListBuilder<String> _saves;
+  ListBuilder<String> get saves => _$this._saves ??= new ListBuilder<String>();
+  set saves(ListBuilder<String> saves) => _$this._saves = saves;
+
   AppUserBuilder();
 
   AppUserBuilder get _$this {
@@ -493,6 +517,7 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _photoUrl = _$v.photoUrl;
       _searchIndex = _$v.searchIndex?.toBuilder();
       _following = _$v.following?.toBuilder();
+      _saves = _$v.saves?.toBuilder();
       _$v = null;
     }
     return this;
@@ -522,7 +547,8 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
               email: email,
               photoUrl: photoUrl,
               searchIndex: searchIndex.build(),
-              following: following.build());
+              following: following.build(),
+              saves: saves.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -530,6 +556,8 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
         searchIndex.build();
         _$failedField = 'following';
         following.build();
+        _$failedField = 'saves';
+        saves.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AppUser', _$failedField, e.toString());

@@ -73,13 +73,23 @@ class AuthApi {
     }
   }
 
-
-  Future<AppUser> getUser(String uid)async{
+  Future<AppUser> getUser(String uid) async {
     final DocumentSnapshot result = await _firestore.doc('users/$uid').get();
     return AppUser.fromJson(result.data());
   }
 
+  Future<void> updateSavedPosts({String remove, String add, String uid}) async {
 
-
-
+    print('data add: $add');
+    print('data remove: $remove');
+    FieldValue value;
+    if (add != null) {
+      value = FieldValue.arrayUnion(<String>[add]);
+    } else {
+      value = FieldValue.arrayRemove(<String>[remove]);
+    }
+    if (value != null) {
+      await _firestore.doc('users/$uid').update(<String, dynamic>{'saves': value});
+    }
+  }
 }

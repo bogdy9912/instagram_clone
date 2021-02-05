@@ -39,7 +39,8 @@ class _FeedPageState extends State<FeedPage> {
                   itemBuilder: (BuildContext context, int index) {
                     final Post post = listOfPosts[index];
                     final AppUser user = users[post.uid];
-                    bool isLiked = post.likes.contains(currentUser.uid);
+                    final bool isLiked = post.likes.contains(currentUser.uid);
+                    final bool isSaved = currentUser.saves.contains(post.id);
 
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,13 +96,19 @@ class _FeedPageState extends State<FeedPage> {
                             ),
                             const Spacer(),
                             IconButton(
-                              icon: const Icon(Icons.bookmark_border),
-                              onPressed: () {},
+                              icon: isSaved ? const Icon(Icons.bookmark) : const Icon(Icons.bookmark_border),
+                              onPressed: () {
+                                if (isSaved) {
+                                  StoreProvider.of<AppState>(context).dispatch(UpdateSavedPosts(remove: post.id));
+                                } else {
+                                  StoreProvider.of<AppState>(context).dispatch(UpdateSavedPosts(add: post.id));
+                                }
+                              },
                             ),
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left:16.0, bottom: 4),
+                          padding: const EdgeInsets.only(left: 16.0, bottom: 4),
                           child: Text.rich(
                             TextSpan(
                               text: '${post.likes.length}',

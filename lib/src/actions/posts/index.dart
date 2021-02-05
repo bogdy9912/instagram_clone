@@ -12,3 +12,4 @@ part 'index.freezed.dart';
 part 'set.dart';
 part 'get_feed.dart';
 part 'like_post.dart';
+part 'save_posts.dart';

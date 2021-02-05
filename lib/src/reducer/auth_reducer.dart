@@ -1,5 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:instagram_clone/src/actions/auth/index.dart';
+import 'package:instagram_clone/src/actions/index.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:redux/redux.dart';
 
@@ -11,6 +12,7 @@ Reducer<AuthState> authReducer = combineReducers<AuthState>(<Reducer<AuthState>>
   TypedReducer<AuthState, SearchUsersSuccessful>(_searchUsersSuccessful),
   TypedReducer<AuthState, UpdateFollowingSuccessful>(_updateFollowingSuccessful),
   TypedReducer<AuthState, GetUserSuccessful>(_getUserSuccessful),
+  TypedReducer<AuthState, UpdateSavedPostsSuccessful>(_updateSavedPostsSuccessful),
 ]);
 
 AuthState _initializeAppSuccessful(AuthState state, InitializeAppSuccessful action) {
@@ -55,4 +57,18 @@ AuthState _updateFollowingSuccessful(AuthState state, UpdateFollowingSuccessful 
 
 AuthState _getUserSuccessful(AuthState state, GetUserSuccessful action) {
   return state.rebuild((AuthStateBuilder b) => b.users[action.user.uid] = action.user);
+}
+
+AuthState _updateSavedPostsSuccessful(AuthState state, UpdateSavedPostsSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) {
+    if (action.add != null) {
+      if (!state.user.saves.contains(action.add)) {
+        b.user.saves.add(action.add);
+      }
+    } else {
+      if (state.user.saves.contains(action.remove)) {
+        b.user.saves.remove(action.remove);
+      }
+    }
+  });
 }
