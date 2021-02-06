@@ -6,6 +6,7 @@ import 'package:instagram_clone/src/containers/auth/users_container.dart';
 import 'package:instagram_clone/src/containers/posts/posts_container.dart';
 import 'package:instagram_clone/src/models/index.dart';
 import 'package:instagram_clone/src/models/posts/index.dart';
+import 'package:instagram_clone/src/presentation/app_routes.dart';
 
 class FeedPage extends StatefulWidget {
   const FeedPage({Key key}) : super(key: key);
@@ -29,7 +30,8 @@ class _FeedPageState extends State<FeedPage> {
         title: const Text('Feed'),
       ),
       body: UserContainer(
-        builder: (BuildContext context, AppUser currentUser) => UsersContainer(
+        builder: (BuildContext context, AppUser currentUser) {
+          return UsersContainer(
           builder: (BuildContext context, Map<String, AppUser> users) {
             return PostsContainer(
               builder: (BuildContext context, Map<String, Post> posts) {
@@ -88,7 +90,9 @@ class _FeedPageState extends State<FeedPage> {
                             ),
                             IconButton(
                               icon: const Icon(Icons.chat_bubble_outline),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, AppRoutes.commentsPage,arguments: post);
+                              },
                             ),
                             IconButton(
                               icon: const Icon(Icons.send),
@@ -143,7 +147,8 @@ class _FeedPageState extends State<FeedPage> {
               },
             );
           },
-        ),
+        );
+        },
       ),
     );
   }

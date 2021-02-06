@@ -16,6 +16,8 @@ class PostsEpics {
       TypedEpic<AppState, CreatePost$>(_createPost),
       TypedEpic<AppState, GetFeed$>(_getFeed),
       TypedEpic<AppState, UpdateLikePost$>(_updateLikePost),
+      TypedEpic<AppState, GetComments$>(_getComments),
+      TypedEpic<AppState, PostComment$>(_postComments),
     ]);
   }
 
@@ -59,5 +61,31 @@ class PostsEpics {
               add: action.add,
             ))
             .onErrorReturnWith((dynamic error) => UpdateLikePost.error(error)));
+  }
+
+  Stream<AppAction> _getComments(Stream<GetComments$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((GetComments$ action) => Stream<GetComments$>.value(action)
+            .asyncMap((GetComments$ action) => _api.getMessages(action.postId))
+            .expand((List<Comment> comments) => <AppAction>[
+                  GetComments.successful(comments),
+                  ...comments
+                      .map((Comment e) => e.userId)
+                      .toSet() //
+                      .map((String uid) => GetUser(uid)),
+                ])
+            .onErrorReturnWith((dynamic error) => GetComments.error(error)));
+  }
+
+  Stream<AppAction> _postComments(Stream<PostComment$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((PostComment$ action) => Stream<PostComment$>.value(action)
+            .asyncMap((PostComment$ action) => _api.postComment(
+                  postId: action.postId,
+                  text: action.text,
+                  uid: action.uid,
+                ))
+            .mapTo(const PostComment.successful())
+            .onErrorReturnWith((dynamic error) => PostComment.error(error)));
   }
 }

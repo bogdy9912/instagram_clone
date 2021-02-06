@@ -10,3 +10,4 @@ part 'index.g.dart';
 part 'posts_state.dart';
 part 'posts_info.dart';
 part 'post.dart';
+part 'comment.dart';

@@ -27,7 +27,8 @@ This is a clone of Instagram with the following features:
 
 ## Feed Page (70')
   * [x] show posts of users that I follow (20')
-  * [ ] add comment (10')
+  * [x] add comment (20')
+    * [ ] like a comment (20')
   * [x] like (double tap to like) (10')
   * [ ] share (10')
   * [x] save (10')

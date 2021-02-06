@@ -9,6 +9,7 @@ part of posts_models;
 Serializer<PostsState> _$postsStateSerializer = new _$PostsStateSerializer();
 Serializer<PostsInfo> _$postsInfoSerializer = new _$PostsInfoSerializer();
 Serializer<Post> _$postSerializer = new _$PostSerializer();
+Serializer<Comment> _$commentSerializer = new _$CommentSerializer();
 
 class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
   @override
@@ -27,6 +28,10 @@ class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
       serializers.serialize(object.posts,
           specifiedType: const FullType(
               BuiltMap, const [const FullType(String), const FullType(Post)])),
+      'comments',
+      serializers.serialize(object.comments,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(Comment)])),
     ];
 
     return result;
@@ -51,6 +56,12 @@ class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
           result.posts.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap,
                   const [const FullType(String), const FullType(Post)])));
+          break;
+        case 'comments':
+          result.comments.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(Comment)]))
+              as BuiltList<Object>);
           break;
       }
     }
@@ -265,21 +276,78 @@ class _$PostSerializer implements StructuredSerializer<Post> {
   }
 }
 
+class _$CommentSerializer implements StructuredSerializer<Comment> {
+  @override
+  final Iterable<Type> types = const [Comment, _$Comment];
+  @override
+  final String wireName = 'Comment';
+
+  @override
+  Iterable<Object> serialize(Serializers serializers, Comment object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'text',
+      serializers.serialize(object.text, specifiedType: const FullType(String)),
+      'userId',
+      serializers.serialize(object.userId,
+          specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Comment deserialize(Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new CommentBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'text':
+          result.text = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'userId':
+          result.userId = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$PostsState extends PostsState {
   @override
   final PostsInfo info;
   @override
   final BuiltMap<String, Post> posts;
+  @override
+  final BuiltList<Comment> comments;
 
   factory _$PostsState([void Function(PostsStateBuilder) updates]) =>
       (new PostsStateBuilder()..update(updates)).build();
 
-  _$PostsState._({this.info, this.posts}) : super._() {
+  _$PostsState._({this.info, this.posts, this.comments}) : super._() {
     if (info == null) {
       throw new BuiltValueNullFieldError('PostsState', 'info');
     }
     if (posts == null) {
       throw new BuiltValueNullFieldError('PostsState', 'posts');
+    }
+    if (comments == null) {
+      throw new BuiltValueNullFieldError('PostsState', 'comments');
     }
   }
 
@@ -293,19 +361,24 @@ class _$PostsState extends PostsState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is PostsState && info == other.info && posts == other.posts;
+    return other is PostsState &&
+        info == other.info &&
+        posts == other.posts &&
+        comments == other.comments;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, info.hashCode), posts.hashCode));
+    return $jf(
+        $jc($jc($jc(0, info.hashCode), posts.hashCode), comments.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('PostsState')
           ..add('info', info)
-          ..add('posts', posts))
+          ..add('posts', posts)
+          ..add('comments', comments))
         .toString();
   }
 }
@@ -322,12 +395,18 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
       _$this._posts ??= new MapBuilder<String, Post>();
   set posts(MapBuilder<String, Post> posts) => _$this._posts = posts;
 
+  ListBuilder<Comment> _comments;
+  ListBuilder<Comment> get comments =>
+      _$this._comments ??= new ListBuilder<Comment>();
+  set comments(ListBuilder<Comment> comments) => _$this._comments = comments;
+
   PostsStateBuilder();
 
   PostsStateBuilder get _$this {
     if (_$v != null) {
       _info = _$v.info?.toBuilder();
       _posts = _$v.posts?.toBuilder();
+      _comments = _$v.comments?.toBuilder();
       _$v = null;
     }
     return this;
@@ -350,8 +429,11 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
   _$PostsState build() {
     _$PostsState _$result;
     try {
-      _$result =
-          _$v ?? new _$PostsState._(info: info.build(), posts: posts.build());
+      _$result = _$v ??
+          new _$PostsState._(
+              info: info.build(),
+              posts: posts.build(),
+              comments: comments.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -359,6 +441,8 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
         info.build();
         _$failedField = 'posts';
         posts.build();
+        _$failedField = 'comments';
+        comments.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'PostsState', _$failedField, e.toString());
@@ -747,6 +831,108 @@ class PostBuilder implements Builder<Post, PostBuilder> {
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$Comment extends Comment {
+  @override
+  final String id;
+  @override
+  final String text;
+  @override
+  final String userId;
+
+  factory _$Comment([void Function(CommentBuilder) updates]) =>
+      (new CommentBuilder()..update(updates)).build();
+
+  _$Comment._({this.id, this.text, this.userId}) : super._() {
+    if (id == null) {
+      throw new BuiltValueNullFieldError('Comment', 'id');
+    }
+    if (text == null) {
+      throw new BuiltValueNullFieldError('Comment', 'text');
+    }
+    if (userId == null) {
+      throw new BuiltValueNullFieldError('Comment', 'userId');
+    }
+  }
+
+  @override
+  Comment rebuild(void Function(CommentBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CommentBuilder toBuilder() => new CommentBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Comment &&
+        id == other.id &&
+        text == other.text &&
+        userId == other.userId;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc($jc(0, id.hashCode), text.hashCode), userId.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('Comment')
+          ..add('id', id)
+          ..add('text', text)
+          ..add('userId', userId))
+        .toString();
+  }
+}
+
+class CommentBuilder implements Builder<Comment, CommentBuilder> {
+  _$Comment _$v;
+
+  String _id;
+  String get id => _$this._id;
+  set id(String id) => _$this._id = id;
+
+  String _text;
+  String get text => _$this._text;
+  set text(String text) => _$this._text = text;
+
+  String _userId;
+  String get userId => _$this._userId;
+  set userId(String userId) => _$this._userId = userId;
+
+  CommentBuilder();
+
+  CommentBuilder get _$this {
+    if (_$v != null) {
+      _id = _$v.id;
+      _text = _$v.text;
+      _userId = _$v.userId;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Comment other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$Comment;
+  }
+
+  @override
+  void update(void Function(CommentBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$Comment build() {
+    final _$result = _$v ?? new _$Comment._(id: id, text: text, userId: userId);
     replace(_$result);
     return _$result;
   }

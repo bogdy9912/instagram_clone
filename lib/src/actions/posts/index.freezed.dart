@@ -2028,3 +2028,887 @@ abstract class UpdateSavedPostsError implements UpdateSavedPosts, ErrorAction {
   Object get error;
   $UpdateSavedPostsErrorCopyWith<UpdateSavedPostsError> get copyWith;
 }
+
+/// @nodoc
+class _$GetCommentsTearOff {
+  const _$GetCommentsTearOff();
+
+// ignore: unused_element
+  GetComments$ call(String postId) {
+    return GetComments$(
+      postId,
+    );
+  }
+
+// ignore: unused_element
+  GetCommentsSuccessful successful(List<Comment> comments) {
+    return GetCommentsSuccessful(
+      comments,
+    );
+  }
+
+// ignore: unused_element
+  GetCommentsError error(Object error) {
+    return GetCommentsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $GetComments = _$GetCommentsTearOff();
+
+/// @nodoc
+mixin _$GetComments {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId), {
+    @required Result successful(List<Comment> comments),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId), {
+    Result successful(List<Comment> comments),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetComments$ value), {
+    @required Result successful(GetCommentsSuccessful value),
+    @required Result error(GetCommentsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetComments$ value), {
+    Result successful(GetCommentsSuccessful value),
+    Result error(GetCommentsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $GetCommentsCopyWith<$Res> {
+  factory $GetCommentsCopyWith(
+          GetComments value, $Res Function(GetComments) then) =
+      _$GetCommentsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetCommentsCopyWithImpl<$Res> implements $GetCommentsCopyWith<$Res> {
+  _$GetCommentsCopyWithImpl(this._value, this._then);
+
+  final GetComments _value;
+  // ignore: unused_field
+  final $Res Function(GetComments) _then;
+}
+
+/// @nodoc
+abstract class $GetComments$CopyWith<$Res> {
+  factory $GetComments$CopyWith(
+          GetComments$ value, $Res Function(GetComments$) then) =
+      _$GetComments$CopyWithImpl<$Res>;
+  $Res call({String postId});
+}
+
+/// @nodoc
+class _$GetComments$CopyWithImpl<$Res> extends _$GetCommentsCopyWithImpl<$Res>
+    implements $GetComments$CopyWith<$Res> {
+  _$GetComments$CopyWithImpl(
+      GetComments$ _value, $Res Function(GetComments$) _then)
+      : super(_value, (v) => _then(v as GetComments$));
+
+  @override
+  GetComments$ get _value => super._value as GetComments$;
+
+  @override
+  $Res call({
+    Object postId = freezed,
+  }) {
+    return _then(GetComments$(
+      postId == freezed ? _value.postId : postId as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetComments$ implements GetComments$ {
+  const _$GetComments$(this.postId) : assert(postId != null);
+
+  @override
+  final String postId;
+
+  @override
+  String toString() {
+    return 'GetComments(postId: $postId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetComments$ &&
+            (identical(other.postId, postId) ||
+                const DeepCollectionEquality().equals(other.postId, postId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(postId);
+
+  @override
+  $GetComments$CopyWith<GetComments$> get copyWith =>
+      _$GetComments$CopyWithImpl<GetComments$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId), {
+    @required Result successful(List<Comment> comments),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(postId);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId), {
+    Result successful(List<Comment> comments),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(postId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetComments$ value), {
+    @required Result successful(GetCommentsSuccessful value),
+    @required Result error(GetCommentsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetComments$ value), {
+    Result successful(GetCommentsSuccessful value),
+    Result error(GetCommentsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetComments$ implements GetComments {
+  const factory GetComments$(String postId) = _$GetComments$;
+
+  String get postId;
+  $GetComments$CopyWith<GetComments$> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetCommentsSuccessfulCopyWith<$Res> {
+  factory $GetCommentsSuccessfulCopyWith(GetCommentsSuccessful value,
+          $Res Function(GetCommentsSuccessful) then) =
+      _$GetCommentsSuccessfulCopyWithImpl<$Res>;
+  $Res call({List<Comment> comments});
+}
+
+/// @nodoc
+class _$GetCommentsSuccessfulCopyWithImpl<$Res>
+    extends _$GetCommentsCopyWithImpl<$Res>
+    implements $GetCommentsSuccessfulCopyWith<$Res> {
+  _$GetCommentsSuccessfulCopyWithImpl(
+      GetCommentsSuccessful _value, $Res Function(GetCommentsSuccessful) _then)
+      : super(_value, (v) => _then(v as GetCommentsSuccessful));
+
+  @override
+  GetCommentsSuccessful get _value => super._value as GetCommentsSuccessful;
+
+  @override
+  $Res call({
+    Object comments = freezed,
+  }) {
+    return _then(GetCommentsSuccessful(
+      comments == freezed ? _value.comments : comments as List<Comment>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetCommentsSuccessful implements GetCommentsSuccessful {
+  const _$GetCommentsSuccessful(this.comments) : assert(comments != null);
+
+  @override
+  final List<Comment> comments;
+
+  @override
+  String toString() {
+    return 'GetComments.successful(comments: $comments)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetCommentsSuccessful &&
+            (identical(other.comments, comments) ||
+                const DeepCollectionEquality()
+                    .equals(other.comments, comments)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(comments);
+
+  @override
+  $GetCommentsSuccessfulCopyWith<GetCommentsSuccessful> get copyWith =>
+      _$GetCommentsSuccessfulCopyWithImpl<GetCommentsSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId), {
+    @required Result successful(List<Comment> comments),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(comments);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId), {
+    Result successful(List<Comment> comments),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(comments);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetComments$ value), {
+    @required Result successful(GetCommentsSuccessful value),
+    @required Result error(GetCommentsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetComments$ value), {
+    Result successful(GetCommentsSuccessful value),
+    Result error(GetCommentsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetCommentsSuccessful implements GetComments {
+  const factory GetCommentsSuccessful(List<Comment> comments) =
+      _$GetCommentsSuccessful;
+
+  List<Comment> get comments;
+  $GetCommentsSuccessfulCopyWith<GetCommentsSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetCommentsErrorCopyWith<$Res> {
+  factory $GetCommentsErrorCopyWith(
+          GetCommentsError value, $Res Function(GetCommentsError) then) =
+      _$GetCommentsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$GetCommentsErrorCopyWithImpl<$Res>
+    extends _$GetCommentsCopyWithImpl<$Res>
+    implements $GetCommentsErrorCopyWith<$Res> {
+  _$GetCommentsErrorCopyWithImpl(
+      GetCommentsError _value, $Res Function(GetCommentsError) _then)
+      : super(_value, (v) => _then(v as GetCommentsError));
+
+  @override
+  GetCommentsError get _value => super._value as GetCommentsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(GetCommentsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$GetCommentsError implements GetCommentsError {
+  const _$GetCommentsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'GetComments.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetCommentsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $GetCommentsErrorCopyWith<GetCommentsError> get copyWith =>
+      _$GetCommentsErrorCopyWithImpl<GetCommentsError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId), {
+    @required Result successful(List<Comment> comments),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId), {
+    Result successful(List<Comment> comments),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetComments$ value), {
+    @required Result successful(GetCommentsSuccessful value),
+    @required Result error(GetCommentsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetComments$ value), {
+    Result successful(GetCommentsSuccessful value),
+    Result error(GetCommentsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetCommentsError implements GetComments, ErrorAction {
+  const factory GetCommentsError(Object error) = _$GetCommentsError;
+
+  Object get error;
+  $GetCommentsErrorCopyWith<GetCommentsError> get copyWith;
+}
+
+/// @nodoc
+class _$PostCommentTearOff {
+  const _$PostCommentTearOff();
+
+// ignore: unused_element
+  PostComment$ call(
+      {@required String postId, @required String text, @required String uid}) {
+    return PostComment$(
+      postId: postId,
+      text: text,
+      uid: uid,
+    );
+  }
+
+// ignore: unused_element
+  PostCommentSuccessful successful() {
+    return const PostCommentSuccessful();
+  }
+
+// ignore: unused_element
+  PostCommentError error(Object error) {
+    return PostCommentError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $PostComment = _$PostCommentTearOff();
+
+/// @nodoc
+mixin _$PostComment {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId, String text, String uid), {
+    @required Result successful(),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId, String text, String uid), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(PostComment$ value), {
+    @required Result successful(PostCommentSuccessful value),
+    @required Result error(PostCommentError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(PostComment$ value), {
+    Result successful(PostCommentSuccessful value),
+    Result error(PostCommentError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $PostCommentCopyWith<$Res> {
+  factory $PostCommentCopyWith(
+          PostComment value, $Res Function(PostComment) then) =
+      _$PostCommentCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$PostCommentCopyWithImpl<$Res> implements $PostCommentCopyWith<$Res> {
+  _$PostCommentCopyWithImpl(this._value, this._then);
+
+  final PostComment _value;
+  // ignore: unused_field
+  final $Res Function(PostComment) _then;
+}
+
+/// @nodoc
+abstract class $PostComment$CopyWith<$Res> {
+  factory $PostComment$CopyWith(
+          PostComment$ value, $Res Function(PostComment$) then) =
+      _$PostComment$CopyWithImpl<$Res>;
+  $Res call({String postId, String text, String uid});
+}
+
+/// @nodoc
+class _$PostComment$CopyWithImpl<$Res> extends _$PostCommentCopyWithImpl<$Res>
+    implements $PostComment$CopyWith<$Res> {
+  _$PostComment$CopyWithImpl(
+      PostComment$ _value, $Res Function(PostComment$) _then)
+      : super(_value, (v) => _then(v as PostComment$));
+
+  @override
+  PostComment$ get _value => super._value as PostComment$;
+
+  @override
+  $Res call({
+    Object postId = freezed,
+    Object text = freezed,
+    Object uid = freezed,
+  }) {
+    return _then(PostComment$(
+      postId: postId == freezed ? _value.postId : postId as String,
+      text: text == freezed ? _value.text : text as String,
+      uid: uid == freezed ? _value.uid : uid as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$PostComment$ implements PostComment$ {
+  const _$PostComment$(
+      {@required this.postId, @required this.text, @required this.uid})
+      : assert(postId != null),
+        assert(text != null),
+        assert(uid != null);
+
+  @override
+  final String postId;
+  @override
+  final String text;
+  @override
+  final String uid;
+
+  @override
+  String toString() {
+    return 'PostComment(postId: $postId, text: $text, uid: $uid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is PostComment$ &&
+            (identical(other.postId, postId) ||
+                const DeepCollectionEquality().equals(other.postId, postId)) &&
+            (identical(other.text, text) ||
+                const DeepCollectionEquality().equals(other.text, text)) &&
+            (identical(other.uid, uid) ||
+                const DeepCollectionEquality().equals(other.uid, uid)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(postId) ^
+      const DeepCollectionEquality().hash(text) ^
+      const DeepCollectionEquality().hash(uid);
+
+  @override
+  $PostComment$CopyWith<PostComment$> get copyWith =>
+      _$PostComment$CopyWithImpl<PostComment$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId, String text, String uid), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(postId, text, uid);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId, String text, String uid), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(postId, text, uid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(PostComment$ value), {
+    @required Result successful(PostCommentSuccessful value),
+    @required Result error(PostCommentError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(PostComment$ value), {
+    Result successful(PostCommentSuccessful value),
+    Result error(PostCommentError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PostComment$ implements PostComment {
+  const factory PostComment$(
+      {@required String postId,
+      @required String text,
+      @required String uid}) = _$PostComment$;
+
+  String get postId;
+  String get text;
+  String get uid;
+  $PostComment$CopyWith<PostComment$> get copyWith;
+}
+
+/// @nodoc
+abstract class $PostCommentSuccessfulCopyWith<$Res> {
+  factory $PostCommentSuccessfulCopyWith(PostCommentSuccessful value,
+          $Res Function(PostCommentSuccessful) then) =
+      _$PostCommentSuccessfulCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$PostCommentSuccessfulCopyWithImpl<$Res>
+    extends _$PostCommentCopyWithImpl<$Res>
+    implements $PostCommentSuccessfulCopyWith<$Res> {
+  _$PostCommentSuccessfulCopyWithImpl(
+      PostCommentSuccessful _value, $Res Function(PostCommentSuccessful) _then)
+      : super(_value, (v) => _then(v as PostCommentSuccessful));
+
+  @override
+  PostCommentSuccessful get _value => super._value as PostCommentSuccessful;
+}
+
+/// @nodoc
+class _$PostCommentSuccessful implements PostCommentSuccessful {
+  const _$PostCommentSuccessful();
+
+  @override
+  String toString() {
+    return 'PostComment.successful()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is PostCommentSuccessful);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId, String text, String uid), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId, String text, String uid), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(PostComment$ value), {
+    @required Result successful(PostCommentSuccessful value),
+    @required Result error(PostCommentError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(PostComment$ value), {
+    Result successful(PostCommentSuccessful value),
+    Result error(PostCommentError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PostCommentSuccessful implements PostComment {
+  const factory PostCommentSuccessful() = _$PostCommentSuccessful;
+}
+
+/// @nodoc
+abstract class $PostCommentErrorCopyWith<$Res> {
+  factory $PostCommentErrorCopyWith(
+          PostCommentError value, $Res Function(PostCommentError) then) =
+      _$PostCommentErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$PostCommentErrorCopyWithImpl<$Res>
+    extends _$PostCommentCopyWithImpl<$Res>
+    implements $PostCommentErrorCopyWith<$Res> {
+  _$PostCommentErrorCopyWithImpl(
+      PostCommentError _value, $Res Function(PostCommentError) _then)
+      : super(_value, (v) => _then(v as PostCommentError));
+
+  @override
+  PostCommentError get _value => super._value as PostCommentError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(PostCommentError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$PostCommentError implements PostCommentError {
+  const _$PostCommentError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'PostComment.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is PostCommentError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $PostCommentErrorCopyWith<PostCommentError> get copyWith =>
+      _$PostCommentErrorCopyWithImpl<PostCommentError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId, String text, String uid), {
+    @required Result successful(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId, String text, String uid), {
+    Result successful(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(PostComment$ value), {
+    @required Result successful(PostCommentSuccessful value),
+    @required Result error(PostCommentError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(PostComment$ value), {
+    Result successful(PostCommentSuccessful value),
+    Result error(PostCommentError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PostCommentError implements PostComment, ErrorAction {
+  const factory PostCommentError(Object error) = _$PostCommentError;
+
+  Object get error;
+  $PostCommentErrorCopyWith<PostCommentError> get copyWith;
+}

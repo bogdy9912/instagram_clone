@@ -1,6 +1,8 @@
 import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
+import 'package:instagram_clone/src/models/posts/index.dart';
+import 'package:instagram_clone/src/presentation/feed/comments_page.dart';
 import 'package:instagram_clone/src/presentation/feed/feed_page.dart';
 import 'package:instagram_clone/src/presentation/login/reset_password_page.dart';
 import 'package:instagram_clone/src/presentation/posts/choose_photos_post.dart';
@@ -23,6 +25,7 @@ class AppRoutes {
   static const String choosePhotosPost = '/choosePhotosPost';
   static const String searchUsers = '/searchUsers';
   static const String feedPage = '/feedPage';
+  static const String commentsPage = '/commentsPage';
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
@@ -33,5 +36,9 @@ class AppRoutes {
     choosePhotosPost: (BuildContext context) => const ChoosePhotosPost(),
     searchUsers: (BuildContext context) => const SearchUsersPage(),
     feedPage: (BuildContext context) => const FeedPage(),
+    commentsPage: (BuildContext context) {
+      final Post arg = ModalRoute.of(context).settings.arguments;
+      return CommentsPage(post: arg);
+    },
   };
 }
