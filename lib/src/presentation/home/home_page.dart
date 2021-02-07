@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram_clone/src/actions/index.dart';
+import 'package:instagram_clone/src/containers/auth/index.dart';
 import 'package:instagram_clone/src/models/index.dart';
 import 'package:instagram_clone/src/presentation/app_routes.dart';
 import 'package:instagram_clone/src/presentation/feed/feed_page.dart';
+import 'package:instagram_clone/src/presentation/profile/profile_page.dart';
 import 'package:instagram_clone/src/presentation/widgets/search_users_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,48 +31,60 @@ class _HomePageState extends State<HomePage> {
         Container(
           color: Colors.blue,
         ),
-        Container(
-          color: Colors.purple,
-        ),
+        const ProfilePage(),
       ][_page],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _page,
-        onTap: (int i) async {
-          if (i == 2) {
-            final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
-            if (file != null) {
-              StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
+      bottomNavigationBar: UserContainer(
+        builder: (BuildContext context, AppUser currentUser) {
+          return BottomNavigationBar(
+            currentIndex: _page,
+            onTap: (int i) async {
+              if (i == 2) {
+                final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
+                if (file != null) {
+                  StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
 
-              Navigator.pushNamed(context, AppRoutes.choosePhotosPost);
-            }
-          } else {
-            setState(() {
-              _page = i;
-            });
-          }
+                  Navigator.pushNamed(context, AppRoutes.choosePhotosPost);
+                }
+              } else {
+                setState(() {
+                  _page = i;
+                });
+              }
+            },
+            items: <BottomNavigationBarItem>[
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'home',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: 'search',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.add_a_photo_outlined),
+                label: 'add photo',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.notifications),
+                label: 'notification',
+              ),
+              BottomNavigationBarItem(
+                activeIcon: currentUser.photoUrl != null
+                    ? CircleAvatar(
+                        backgroundImage: NetworkImage(currentUser.photoUrl),
+                      )
+                    : CircleAvatar(
+                        backgroundColor: Colors.grey,
+                        child: Text(
+                          currentUser.username[0],
+                        ),
+                      ),
+                icon: const Icon(Icons.account_circle),
+                label: 'profile',
+              ),
+            ],
+          );
         },
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_a_photo_outlined),
-            label: 'add photo',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'notification',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'profile',
-          ),
-        ],
       ),
     );
   }

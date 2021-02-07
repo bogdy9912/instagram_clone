@@ -117,6 +117,30 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
         ..add(serializers.serialize(object.photoUrl,
             specifiedType: const FullType(String)));
     }
+    if (object.bio != null) {
+      result
+        ..add('bio')
+        ..add(serializers.serialize(object.bio,
+            specifiedType: const FullType(String)));
+    }
+    if (object.displayName != null) {
+      result
+        ..add('displayName')
+        ..add(serializers.serialize(object.displayName,
+            specifiedType: const FullType(String)));
+    }
+    if (object.nrPosts != null) {
+      result
+        ..add('nrPosts')
+        ..add(serializers.serialize(object.nrPosts,
+            specifiedType: const FullType(int)));
+    }
+    if (object.nrFollowers != null) {
+      result
+        ..add('nrFollowers')
+        ..add(serializers.serialize(object.nrFollowers,
+            specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -164,6 +188,22 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList<Object>);
+          break;
+        case 'bio':
+          result.bio = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'nrPosts':
+          result.nrPosts = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'nrFollowers':
+          result.nrFollowers = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
           break;
       }
     }
@@ -392,6 +432,14 @@ class _$AppUser extends AppUser {
   final BuiltList<String> following;
   @override
   final BuiltList<String> saves;
+  @override
+  final String bio;
+  @override
+  final String displayName;
+  @override
+  final int nrPosts;
+  @override
+  final int nrFollowers;
 
   factory _$AppUser([void Function(AppUserBuilder) updates]) =>
       (new AppUserBuilder()..update(updates)).build();
@@ -403,7 +451,11 @@ class _$AppUser extends AppUser {
       this.photoUrl,
       this.searchIndex,
       this.following,
-      this.saves})
+      this.saves,
+      this.bio,
+      this.displayName,
+      this.nrPosts,
+      this.nrFollowers})
       : super._() {
     if (uid == null) {
       throw new BuiltValueNullFieldError('AppUser', 'uid');
@@ -442,7 +494,11 @@ class _$AppUser extends AppUser {
         photoUrl == other.photoUrl &&
         searchIndex == other.searchIndex &&
         following == other.following &&
-        saves == other.saves;
+        saves == other.saves &&
+        bio == other.bio &&
+        displayName == other.displayName &&
+        nrPosts == other.nrPosts &&
+        nrFollowers == other.nrFollowers;
   }
 
   @override
@@ -451,12 +507,22 @@ class _$AppUser extends AppUser {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, uid.hashCode), username.hashCode),
-                        email.hashCode),
-                    photoUrl.hashCode),
-                searchIndex.hashCode),
-            following.hashCode),
-        saves.hashCode));
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc($jc(0, uid.hashCode),
+                                            username.hashCode),
+                                        email.hashCode),
+                                    photoUrl.hashCode),
+                                searchIndex.hashCode),
+                            following.hashCode),
+                        saves.hashCode),
+                    bio.hashCode),
+                displayName.hashCode),
+            nrPosts.hashCode),
+        nrFollowers.hashCode));
   }
 
   @override
@@ -468,7 +534,11 @@ class _$AppUser extends AppUser {
           ..add('photoUrl', photoUrl)
           ..add('searchIndex', searchIndex)
           ..add('following', following)
-          ..add('saves', saves))
+          ..add('saves', saves)
+          ..add('bio', bio)
+          ..add('displayName', displayName)
+          ..add('nrPosts', nrPosts)
+          ..add('nrFollowers', nrFollowers))
         .toString();
   }
 }
@@ -507,6 +577,22 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
   ListBuilder<String> get saves => _$this._saves ??= new ListBuilder<String>();
   set saves(ListBuilder<String> saves) => _$this._saves = saves;
 
+  String _bio;
+  String get bio => _$this._bio;
+  set bio(String bio) => _$this._bio = bio;
+
+  String _displayName;
+  String get displayName => _$this._displayName;
+  set displayName(String displayName) => _$this._displayName = displayName;
+
+  int _nrPosts;
+  int get nrPosts => _$this._nrPosts;
+  set nrPosts(int nrPosts) => _$this._nrPosts = nrPosts;
+
+  int _nrFollowers;
+  int get nrFollowers => _$this._nrFollowers;
+  set nrFollowers(int nrFollowers) => _$this._nrFollowers = nrFollowers;
+
   AppUserBuilder();
 
   AppUserBuilder get _$this {
@@ -518,6 +604,10 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _searchIndex = _$v.searchIndex?.toBuilder();
       _following = _$v.following?.toBuilder();
       _saves = _$v.saves?.toBuilder();
+      _bio = _$v.bio;
+      _displayName = _$v.displayName;
+      _nrPosts = _$v.nrPosts;
+      _nrFollowers = _$v.nrFollowers;
       _$v = null;
     }
     return this;
@@ -548,7 +638,11 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
               photoUrl: photoUrl,
               searchIndex: searchIndex.build(),
               following: following.build(),
-              saves: saves.build());
+              saves: saves.build(),
+              bio: bio,
+              displayName: displayName,
+              nrPosts: nrPosts,
+              nrFollowers: nrFollowers);
     } catch (_) {
       String _$failedField;
       try {

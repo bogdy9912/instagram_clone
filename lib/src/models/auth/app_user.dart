@@ -22,6 +22,18 @@ abstract class AppUser implements Built<AppUser, AppUserBuilder> {
 
   BuiltList<String> get saves;
 
+  @nullable
+  String get bio;
+
+  @nullable
+  String get displayName;
+
+  @nullable
+  int get nrPosts;
+
+  @nullable
+  int get nrFollowers;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<AppUser> get serializer => _$appUserSerializer;

@@ -7,6 +7,7 @@ import 'package:instagram_clone/src/presentation/feed/feed_page.dart';
 import 'package:instagram_clone/src/presentation/login/reset_password_page.dart';
 import 'package:instagram_clone/src/presentation/posts/choose_photos_post.dart';
 import 'package:instagram_clone/src/presentation/posts/create_post_page.dart';
+import 'package:instagram_clone/src/presentation/profile/profile_page.dart';
 import 'package:instagram_clone/src/presentation/sign_up/password_page.dart';
 import 'package:instagram_clone/src/presentation/sign_up/sign_up_page.dart';
 import 'package:instagram_clone/src/presentation/sign_up/username_page.dart';
@@ -26,6 +27,7 @@ class AppRoutes {
   static const String searchUsers = '/searchUsers';
   static const String feedPage = '/feedPage';
   static const String commentsPage = '/commentsPage';
+  static const String profilePage = '/profilePage';
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
@@ -40,5 +42,6 @@ class AppRoutes {
       final Post arg = ModalRoute.of(context).settings.arguments;
       return CommentsPage(post: arg);
     },
+    profilePage: (BuildContext context) => const ProfilePage(),
   };
 }
