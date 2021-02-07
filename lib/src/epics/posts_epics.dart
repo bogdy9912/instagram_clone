@@ -65,15 +65,19 @@ class PostsEpics {
 
   Stream<AppAction> _getComments(Stream<GetComments$> actions, EpicStore<AppState> store) {
     return actions //
-        .flatMap((GetComments$ action) => Stream<GetComments$>.value(action)
-            .asyncMap((GetComments$ action) => _api.getMessages(action.postId))
-            .expand((List<Comment> comments) => <AppAction>[
-                  GetComments.successful(comments),
-                  ...comments
-                      .map((Comment e) => e.userId)
-                      .toSet() //
-                      .map((String uid) => GetUser(uid)),
-                ])
+        .whereType<GetComments$>()
+        .flatMap((GetComments$ value) => Stream<GetComments$>.value(value) //
+            .flatMap((GetComments$ action) => _api.getMessages(action.postId))
+            .expand((List<Comment> value) {
+              return <AppAction>[
+                GetComments.successful(value),
+                ...value
+                    .map((Comment e) => e.userId)
+                    .toSet() //
+                    .map((String uid) => GetUser(uid)),
+              ];
+            })
+            .takeUntil(actions.whereType<GetCommentsEvent>())
             .onErrorReturnWith((dynamic error) => GetComments.error(error)));
   }
 

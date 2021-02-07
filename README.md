@@ -56,5 +56,5 @@ This is a clone of Instagram with the following features:
 
 ## (Optional) Chat (65')
   * [ ] show chats (25')
-  * [ ] send message (15')
+  * [ ] send message (15')(same as comments)
   * [ ] send pictures and videos (25')

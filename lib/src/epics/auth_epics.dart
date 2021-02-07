@@ -29,10 +29,11 @@ class AuthEpics {
   }
 
   Stream<AppAction> _initializeApp(Stream<InitializeApp$> actions, EpicStore<AppState> store) {
-    return actions.flatMap((InitializeApp$ action) => Stream<InitializeApp$>.value(action)
-        .asyncMap((InitializeApp$ action) => _authApi.initializeApp())
-        .map((AppUser event) => InitializeApp.successful(event))
-        .onErrorReturnWith((dynamic error) => InitializeApp.error(error)));
+    return actions //
+        .flatMap((InitializeApp$ action) => Stream<InitializeApp$>.value(action)
+            .asyncMap((InitializeApp$ action) => _authApi.initializeApp())
+            .map((AppUser event) => InitializeApp.successful(event))
+            .onErrorReturnWith((dynamic error) => InitializeApp.error(error)));
   }
 
   Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {
@@ -63,22 +64,25 @@ class AuthEpics {
   }
 
   Stream<AppAction> _signOut(Stream<SignOut$> actions, EpicStore<AppState> store) {
-    return actions.flatMap((SignOut$ action) => Stream<SignOut$>.value(action)
-        .asyncMap((SignOut$ event) => _authApi.signOut())
-        .map((_) => const SignOut.successful())
-        .onErrorReturnWith((dynamic error) => SignOut.error(error)));
+    return actions //
+        .flatMap((SignOut$ action) => Stream<SignOut$>.value(action)
+            .asyncMap((SignOut$ event) => _authApi.signOut())
+            .map((_) => const SignOut.successful())
+            .onErrorReturnWith((dynamic error) => SignOut.error(error)));
   }
 
   Stream<AppAction> _resetPassword(Stream<ResetPassword$> actions, EpicStore<AppState> store) {
-    return actions.flatMap((ResetPassword$ action) => Stream<ResetPassword$>.value(action)
-        .asyncMap((ResetPassword$ action) => _authApi.resetPassword(email: action.email))
-        .map((_) => const ResetPassword.successful())
-        .onErrorReturnWith((dynamic error) => ResetPassword.error(error)));
+    return actions //
+        .flatMap((ResetPassword$ action) => Stream<ResetPassword$>.value(action)
+            .asyncMap((ResetPassword$ action) => _authApi.resetPassword(email: action.email))
+            .map((_) => const ResetPassword.successful())
+            .onErrorReturnWith((dynamic error) => ResetPassword.error(error)));
   }
 
   Stream<AppAction> _searchUsers(Stream<SearchUsers$> actions, EpicStore<AppState> store) {
     return actions
         .debounceTime(const Duration(milliseconds: 500)) //
+
         .flatMap((SearchUsers$ action) => Stream<SearchUsers$>.value(action)
             .asyncMap((SearchUsers$ action) => _authApi.searchUsers(action.query))
             .map((List<AppUser> users) => SearchUsers.successful(users))

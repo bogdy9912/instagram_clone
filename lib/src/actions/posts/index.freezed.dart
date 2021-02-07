@@ -2048,6 +2048,13 @@ class _$GetCommentsTearOff {
   }
 
 // ignore: unused_element
+  GetCommentsEvent event(List<Comment> comments) {
+    return GetCommentsEvent(
+      comments,
+    );
+  }
+
+// ignore: unused_element
   GetCommentsError error(Object error) {
     return GetCommentsError(
       error,
@@ -2065,12 +2072,14 @@ mixin _$GetComments {
   Result when<Result extends Object>(
     Result $default(String postId), {
     @required Result successful(List<Comment> comments),
+    @required Result event(List<Comment> comments),
     @required Result error(Object error),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
     Result successful(List<Comment> comments),
+    Result event(List<Comment> comments),
     Result error(Object error),
     @required Result orElse(),
   });
@@ -2078,12 +2087,14 @@ mixin _$GetComments {
   Result map<Result extends Object>(
     Result $default(GetComments$ value), {
     @required Result successful(GetCommentsSuccessful value),
+    @required Result event(GetCommentsEvent value),
     @required Result error(GetCommentsError value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
     Result $default(GetComments$ value), {
     Result successful(GetCommentsSuccessful value),
+    Result event(GetCommentsEvent value),
     Result error(GetCommentsError value),
     @required Result orElse(),
   });
@@ -2166,10 +2177,12 @@ class _$GetComments$ implements GetComments$ {
   Result when<Result extends Object>(
     Result $default(String postId), {
     @required Result successful(List<Comment> comments),
+    @required Result event(List<Comment> comments),
     @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
+    assert(event != null);
     assert(error != null);
     return $default(postId);
   }
@@ -2179,6 +2192,7 @@ class _$GetComments$ implements GetComments$ {
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
     Result successful(List<Comment> comments),
+    Result event(List<Comment> comments),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -2194,10 +2208,12 @@ class _$GetComments$ implements GetComments$ {
   Result map<Result extends Object>(
     Result $default(GetComments$ value), {
     @required Result successful(GetCommentsSuccessful value),
+    @required Result event(GetCommentsEvent value),
     @required Result error(GetCommentsError value),
   }) {
     assert($default != null);
     assert(successful != null);
+    assert(event != null);
     assert(error != null);
     return $default(this);
   }
@@ -2207,6 +2223,7 @@ class _$GetComments$ implements GetComments$ {
   Result maybeMap<Result extends Object>(
     Result $default(GetComments$ value), {
     Result successful(GetCommentsSuccessful value),
+    Result event(GetCommentsEvent value),
     Result error(GetCommentsError value),
     @required Result orElse(),
   }) {
@@ -2289,10 +2306,12 @@ class _$GetCommentsSuccessful implements GetCommentsSuccessful {
   Result when<Result extends Object>(
     Result $default(String postId), {
     @required Result successful(List<Comment> comments),
+    @required Result event(List<Comment> comments),
     @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
+    assert(event != null);
     assert(error != null);
     return successful(comments);
   }
@@ -2302,6 +2321,7 @@ class _$GetCommentsSuccessful implements GetCommentsSuccessful {
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
     Result successful(List<Comment> comments),
+    Result event(List<Comment> comments),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -2317,10 +2337,12 @@ class _$GetCommentsSuccessful implements GetCommentsSuccessful {
   Result map<Result extends Object>(
     Result $default(GetComments$ value), {
     @required Result successful(GetCommentsSuccessful value),
+    @required Result event(GetCommentsEvent value),
     @required Result error(GetCommentsError value),
   }) {
     assert($default != null);
     assert(successful != null);
+    assert(event != null);
     assert(error != null);
     return successful(this);
   }
@@ -2330,6 +2352,7 @@ class _$GetCommentsSuccessful implements GetCommentsSuccessful {
   Result maybeMap<Result extends Object>(
     Result $default(GetComments$ value), {
     Result successful(GetCommentsSuccessful value),
+    Result event(GetCommentsEvent value),
     Result error(GetCommentsError value),
     @required Result orElse(),
   }) {
@@ -2347,6 +2370,134 @@ abstract class GetCommentsSuccessful implements GetComments {
 
   List<Comment> get comments;
   $GetCommentsSuccessfulCopyWith<GetCommentsSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetCommentsEventCopyWith<$Res> {
+  factory $GetCommentsEventCopyWith(
+          GetCommentsEvent value, $Res Function(GetCommentsEvent) then) =
+      _$GetCommentsEventCopyWithImpl<$Res>;
+  $Res call({List<Comment> comments});
+}
+
+/// @nodoc
+class _$GetCommentsEventCopyWithImpl<$Res>
+    extends _$GetCommentsCopyWithImpl<$Res>
+    implements $GetCommentsEventCopyWith<$Res> {
+  _$GetCommentsEventCopyWithImpl(
+      GetCommentsEvent _value, $Res Function(GetCommentsEvent) _then)
+      : super(_value, (v) => _then(v as GetCommentsEvent));
+
+  @override
+  GetCommentsEvent get _value => super._value as GetCommentsEvent;
+
+  @override
+  $Res call({
+    Object comments = freezed,
+  }) {
+    return _then(GetCommentsEvent(
+      comments == freezed ? _value.comments : comments as List<Comment>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetCommentsEvent implements GetCommentsEvent {
+  const _$GetCommentsEvent(this.comments) : assert(comments != null);
+
+  @override
+  final List<Comment> comments;
+
+  @override
+  String toString() {
+    return 'GetComments.event(comments: $comments)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetCommentsEvent &&
+            (identical(other.comments, comments) ||
+                const DeepCollectionEquality()
+                    .equals(other.comments, comments)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(comments);
+
+  @override
+  $GetCommentsEventCopyWith<GetCommentsEvent> get copyWith =>
+      _$GetCommentsEventCopyWithImpl<GetCommentsEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String postId), {
+    @required Result successful(List<Comment> comments),
+    @required Result event(List<Comment> comments),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return event(comments);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String postId), {
+    Result successful(List<Comment> comments),
+    Result event(List<Comment> comments),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (event != null) {
+      return event(comments);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetComments$ value), {
+    @required Result successful(GetCommentsSuccessful value),
+    @required Result event(GetCommentsEvent value),
+    @required Result error(GetCommentsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return event(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetComments$ value), {
+    Result successful(GetCommentsSuccessful value),
+    Result event(GetCommentsEvent value),
+    Result error(GetCommentsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (event != null) {
+      return event(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetCommentsEvent implements GetComments {
+  const factory GetCommentsEvent(List<Comment> comments) = _$GetCommentsEvent;
+
+  List<Comment> get comments;
+  $GetCommentsEventCopyWith<GetCommentsEvent> get copyWith;
 }
 
 /// @nodoc
@@ -2413,10 +2564,12 @@ class _$GetCommentsError implements GetCommentsError {
   Result when<Result extends Object>(
     Result $default(String postId), {
     @required Result successful(List<Comment> comments),
+    @required Result event(List<Comment> comments),
     @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
+    assert(event != null);
     assert(error != null);
     return error(this.error);
   }
@@ -2426,6 +2579,7 @@ class _$GetCommentsError implements GetCommentsError {
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
     Result successful(List<Comment> comments),
+    Result event(List<Comment> comments),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -2441,10 +2595,12 @@ class _$GetCommentsError implements GetCommentsError {
   Result map<Result extends Object>(
     Result $default(GetComments$ value), {
     @required Result successful(GetCommentsSuccessful value),
+    @required Result event(GetCommentsEvent value),
     @required Result error(GetCommentsError value),
   }) {
     assert($default != null);
     assert(successful != null);
+    assert(event != null);
     assert(error != null);
     return error(this);
   }
@@ -2454,6 +2610,7 @@ class _$GetCommentsError implements GetCommentsError {
   Result maybeMap<Result extends Object>(
     Result $default(GetComments$ value), {
     Result successful(GetCommentsSuccessful value),
+    Result event(GetCommentsEvent value),
     Result error(GetCommentsError value),
     @required Result orElse(),
   }) {

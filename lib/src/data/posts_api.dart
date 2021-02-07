@@ -89,15 +89,12 @@ class PostsApi {
     }
 
     await _firestore.doc('posts/$id').update(<String, dynamic>{'likes': value});
-    final DocumentSnapshot doc = await _firestore.doc('posts/$id').get();
+//    final DocumentSnapshot doc = await _firestore.doc('posts/$id').get();
   }
 
-  Future<List<Comment>> getMessages(String postId) async {
-    final QuerySnapshot comments = await _firestore.collection('posts/$postId/comments').get();
-
-    final List<QueryDocumentSnapshot> docsSnapshot = comments.docs;
-
-    return docsSnapshot.map((QueryDocumentSnapshot comment) => Comment.fromJson(comment.data())).toList();
+  Stream<List<Comment>> getMessages(String postId) {
+    return _firestore.collection('posts/$postId/comments').snapshots().map((QuerySnapshot snapshot) =>
+        snapshot.docs.map((QueryDocumentSnapshot doc) => Comment.fromJson(doc.data())).toList());
   }
 
   Future<void> postComment({@required String postId, @required String text, @required String uid}) async {
