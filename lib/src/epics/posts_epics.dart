@@ -20,6 +20,7 @@ class PostsEpics {
       TypedEpic<AppState, PostComment$>(_postComments),
       TypedEpic<AppState, GetUserPosts$>(_getUserPosts),
       TypedEpic<AppState, GetTaggedPosts$>(_getTaggedPosts),
+      TypedEpic<AppState, GetSavedPosts$>(_getSavedPosts),
     ]);
   }
 
@@ -109,5 +110,13 @@ class PostsEpics {
             .asyncMap((GetTaggedPosts$ action) => _api.getTaggedPosts(action.uid))
             .map((List<Post> posts) => GetTaggedPosts.successful(posts))
             .onErrorReturnWith((dynamic error) => GetTaggedPosts.error(error)));
+  }
+
+  Stream<AppAction> _getSavedPosts(Stream<GetSavedPosts$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((GetSavedPosts$ action) => Stream<GetSavedPosts$>.value(action)
+            .asyncMap((_) => _api.getSavedPost(store.state.auth.user.saves.asList()))
+            .map((List<Post> event) => GetSavedPosts.successful(event))
+            .onErrorReturnWith((dynamic error) => GetSavedPosts.error(error)));
   }
 }

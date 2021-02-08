@@ -52,7 +52,7 @@ This is a clone of Instagram with the following features:
   * [x] profile counters(posts, followers and following) (20')
   * [x] users posts (10')
   * [x] posts tagged with user (25')
-  * [ ] saved posts (10')
+  * [x] saved posts (10')
 
 ## (Optional) Chat (65')
   * [ ] show chats (25')

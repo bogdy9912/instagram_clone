@@ -119,4 +119,10 @@ class PostsApi {
     final QuerySnapshot result = await _firestore.collection('posts').where('users', arrayContains: uid).get();
     return result.docs.map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data())).toList();
   }
+
+  Future<List<Post>> getSavedPost(List<String> savedPosts) async {
+    final QuerySnapshot result = await _firestore.collection('posts').where('id', whereIn: savedPosts).get();
+
+    return result.docs.map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data())).toList();
+  }
 }

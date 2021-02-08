@@ -10,6 +10,7 @@ Reducer<PostsState> postsReducer = combineReducers<PostsState>(<Reducer<PostsSta
   TypedReducer<PostsState, GetCommentsSuccessful>(_getCommentsSuccessful),
   TypedReducer<PostsState, GetUserPostsSuccessful>(_getUserPostsSuccessful),
   TypedReducer<PostsState, GetTaggedPostsSuccessful>(_getTaggedPostsSuccessful),
+  TypedReducer<PostsState, GetSavedPostsSuccessful>(_getSavedPostsSuccessful),
 ]);
 
 PostsState _updatePost(PostsState state, UpdatePostInfo$ action) {
@@ -67,4 +68,8 @@ PostsState _getUserPostsSuccessful(PostsState state, GetUserPostsSuccessful acti
 
 PostsState _getTaggedPostsSuccessful(PostsState state, GetTaggedPostsSuccessful action) {
   return state.rebuild((PostsStateBuilder b) => b.taggedPosts = ListBuilder<Post>(action.posts));
+}
+
+PostsState _getSavedPostsSuccessful(PostsState state, GetSavedPostsSuccessful action) {
+  return state.rebuild((PostsStateBuilder b) => b.savedPosts = ListBuilder<Post>(action.posts));
 }

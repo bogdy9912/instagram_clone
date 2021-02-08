@@ -3956,3 +3956,421 @@ abstract class GetTaggedPostsError implements GetTaggedPosts, ErrorAction {
   Object get error;
   $GetTaggedPostsErrorCopyWith<GetTaggedPostsError> get copyWith;
 }
+
+/// @nodoc
+class _$GetSavedPostsTearOff {
+  const _$GetSavedPostsTearOff();
+
+// ignore: unused_element
+  GetSavedPosts$ call() {
+    return const GetSavedPosts$();
+  }
+
+// ignore: unused_element
+  GetSavedPostsSuccessful successful(List<Post> posts) {
+    return GetSavedPostsSuccessful(
+      posts,
+    );
+  }
+
+// ignore: unused_element
+  GetSavedPostsError error(Object error) {
+    return GetSavedPostsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $GetSavedPosts = _$GetSavedPostsTearOff();
+
+/// @nodoc
+mixin _$GetSavedPosts {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetSavedPosts$ value), {
+    @required Result successful(GetSavedPostsSuccessful value),
+    @required Result error(GetSavedPostsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetSavedPosts$ value), {
+    Result successful(GetSavedPostsSuccessful value),
+    Result error(GetSavedPostsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $GetSavedPostsCopyWith<$Res> {
+  factory $GetSavedPostsCopyWith(
+          GetSavedPosts value, $Res Function(GetSavedPosts) then) =
+      _$GetSavedPostsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetSavedPostsCopyWithImpl<$Res>
+    implements $GetSavedPostsCopyWith<$Res> {
+  _$GetSavedPostsCopyWithImpl(this._value, this._then);
+
+  final GetSavedPosts _value;
+  // ignore: unused_field
+  final $Res Function(GetSavedPosts) _then;
+}
+
+/// @nodoc
+abstract class $GetSavedPosts$CopyWith<$Res> {
+  factory $GetSavedPosts$CopyWith(
+          GetSavedPosts$ value, $Res Function(GetSavedPosts$) then) =
+      _$GetSavedPosts$CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetSavedPosts$CopyWithImpl<$Res>
+    extends _$GetSavedPostsCopyWithImpl<$Res>
+    implements $GetSavedPosts$CopyWith<$Res> {
+  _$GetSavedPosts$CopyWithImpl(
+      GetSavedPosts$ _value, $Res Function(GetSavedPosts$) _then)
+      : super(_value, (v) => _then(v as GetSavedPosts$));
+
+  @override
+  GetSavedPosts$ get _value => super._value as GetSavedPosts$;
+}
+
+/// @nodoc
+class _$GetSavedPosts$ implements GetSavedPosts$ {
+  const _$GetSavedPosts$();
+
+  @override
+  String toString() {
+    return 'GetSavedPosts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is GetSavedPosts$);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetSavedPosts$ value), {
+    @required Result successful(GetSavedPostsSuccessful value),
+    @required Result error(GetSavedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetSavedPosts$ value), {
+    Result successful(GetSavedPostsSuccessful value),
+    Result error(GetSavedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetSavedPosts$ implements GetSavedPosts {
+  const factory GetSavedPosts$() = _$GetSavedPosts$;
+}
+
+/// @nodoc
+abstract class $GetSavedPostsSuccessfulCopyWith<$Res> {
+  factory $GetSavedPostsSuccessfulCopyWith(GetSavedPostsSuccessful value,
+          $Res Function(GetSavedPostsSuccessful) then) =
+      _$GetSavedPostsSuccessfulCopyWithImpl<$Res>;
+  $Res call({List<Post> posts});
+}
+
+/// @nodoc
+class _$GetSavedPostsSuccessfulCopyWithImpl<$Res>
+    extends _$GetSavedPostsCopyWithImpl<$Res>
+    implements $GetSavedPostsSuccessfulCopyWith<$Res> {
+  _$GetSavedPostsSuccessfulCopyWithImpl(GetSavedPostsSuccessful _value,
+      $Res Function(GetSavedPostsSuccessful) _then)
+      : super(_value, (v) => _then(v as GetSavedPostsSuccessful));
+
+  @override
+  GetSavedPostsSuccessful get _value => super._value as GetSavedPostsSuccessful;
+
+  @override
+  $Res call({
+    Object posts = freezed,
+  }) {
+    return _then(GetSavedPostsSuccessful(
+      posts == freezed ? _value.posts : posts as List<Post>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetSavedPostsSuccessful implements GetSavedPostsSuccessful {
+  const _$GetSavedPostsSuccessful(this.posts) : assert(posts != null);
+
+  @override
+  final List<Post> posts;
+
+  @override
+  String toString() {
+    return 'GetSavedPosts.successful(posts: $posts)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetSavedPostsSuccessful &&
+            (identical(other.posts, posts) ||
+                const DeepCollectionEquality().equals(other.posts, posts)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(posts);
+
+  @override
+  $GetSavedPostsSuccessfulCopyWith<GetSavedPostsSuccessful> get copyWith =>
+      _$GetSavedPostsSuccessfulCopyWithImpl<GetSavedPostsSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(posts);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(posts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetSavedPosts$ value), {
+    @required Result successful(GetSavedPostsSuccessful value),
+    @required Result error(GetSavedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetSavedPosts$ value), {
+    Result successful(GetSavedPostsSuccessful value),
+    Result error(GetSavedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetSavedPostsSuccessful implements GetSavedPosts {
+  const factory GetSavedPostsSuccessful(List<Post> posts) =
+      _$GetSavedPostsSuccessful;
+
+  List<Post> get posts;
+  $GetSavedPostsSuccessfulCopyWith<GetSavedPostsSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetSavedPostsErrorCopyWith<$Res> {
+  factory $GetSavedPostsErrorCopyWith(
+          GetSavedPostsError value, $Res Function(GetSavedPostsError) then) =
+      _$GetSavedPostsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$GetSavedPostsErrorCopyWithImpl<$Res>
+    extends _$GetSavedPostsCopyWithImpl<$Res>
+    implements $GetSavedPostsErrorCopyWith<$Res> {
+  _$GetSavedPostsErrorCopyWithImpl(
+      GetSavedPostsError _value, $Res Function(GetSavedPostsError) _then)
+      : super(_value, (v) => _then(v as GetSavedPostsError));
+
+  @override
+  GetSavedPostsError get _value => super._value as GetSavedPostsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(GetSavedPostsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$GetSavedPostsError implements GetSavedPostsError {
+  const _$GetSavedPostsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'GetSavedPosts.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetSavedPostsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $GetSavedPostsErrorCopyWith<GetSavedPostsError> get copyWith =>
+      _$GetSavedPostsErrorCopyWithImpl<GetSavedPostsError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetSavedPosts$ value), {
+    @required Result successful(GetSavedPostsSuccessful value),
+    @required Result error(GetSavedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetSavedPosts$ value), {
+    Result successful(GetSavedPostsSuccessful value),
+    Result error(GetSavedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetSavedPostsError implements GetSavedPosts, ErrorAction {
+  const factory GetSavedPostsError(Object error) = _$GetSavedPostsError;
+
+  Object get error;
+  $GetSavedPostsErrorCopyWith<GetSavedPostsError> get copyWith;
+}

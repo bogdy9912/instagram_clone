@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/src/containers/auth/index.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:instagram_clone/src/models/index.dart';
+import 'package:instagram_clone/src/presentation/profile/widgets/profile_drawer.dart';
 import 'package:instagram_clone/src/presentation/profile/widgets/tagged_posts_widget.dart';
 import 'package:instagram_clone/src/presentation/profile/widgets/user_posts_widget.dart';
 
@@ -42,6 +43,10 @@ class _ProfilePageState extends State<ProfilePage> {
             title: Text(currentUser.username),
             elevation: 0,
           ),
+
+
+          endDrawer: const Drawer(child: ProfileDrawer(),),
+
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
