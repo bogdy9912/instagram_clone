@@ -59,7 +59,8 @@ This is a clone of Instagram with the following features:
   * [ ] new comment (15')
   * [ ] someone tagged you (15')
   * [ ] new post from following (15')
-  
+ 
+ <p float="left">
  <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/login.PNG" alt="alt text" width="200" height="400">
  <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/feed.PNG" alt="alt text" width="200" height="400">
  <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/select_photo.PNG" alt="alt text" width="200" height="400">
@@ -67,3 +68,4 @@ This is a clone of Instagram with the following features:
  <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/profile.PNG" alt="alt text" width="200" height="400">
  <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/search.PNG" alt="alt text" width="200" height="400">
  <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/post_owner.PNG" alt="alt text" width="200" height="400">
+</p>
