@@ -32,6 +32,10 @@ class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
       serializers.serialize(object.comments,
           specifiedType:
               const FullType(BuiltList, const [const FullType(Comment)])),
+      'userPosts',
+      serializers.serialize(object.userPosts,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(Post)])),
     ];
 
     return result;
@@ -61,6 +65,12 @@ class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
           result.comments.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(Comment)]))
+              as BuiltList<Object>);
+          break;
+        case 'userPosts':
+          result.userPosts.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(Post)]))
               as BuiltList<Object>);
           break;
       }
@@ -335,11 +345,14 @@ class _$PostsState extends PostsState {
   final BuiltMap<String, Post> posts;
   @override
   final BuiltList<Comment> comments;
+  @override
+  final BuiltList<Post> userPosts;
 
   factory _$PostsState([void Function(PostsStateBuilder) updates]) =>
       (new PostsStateBuilder()..update(updates)).build();
 
-  _$PostsState._({this.info, this.posts, this.comments}) : super._() {
+  _$PostsState._({this.info, this.posts, this.comments, this.userPosts})
+      : super._() {
     if (info == null) {
       throw new BuiltValueNullFieldError('PostsState', 'info');
     }
@@ -348,6 +361,9 @@ class _$PostsState extends PostsState {
     }
     if (comments == null) {
       throw new BuiltValueNullFieldError('PostsState', 'comments');
+    }
+    if (userPosts == null) {
+      throw new BuiltValueNullFieldError('PostsState', 'userPosts');
     }
   }
 
@@ -364,13 +380,15 @@ class _$PostsState extends PostsState {
     return other is PostsState &&
         info == other.info &&
         posts == other.posts &&
-        comments == other.comments;
+        comments == other.comments &&
+        userPosts == other.userPosts;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, info.hashCode), posts.hashCode), comments.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, info.hashCode), posts.hashCode), comments.hashCode),
+        userPosts.hashCode));
   }
 
   @override
@@ -378,7 +396,8 @@ class _$PostsState extends PostsState {
     return (newBuiltValueToStringHelper('PostsState')
           ..add('info', info)
           ..add('posts', posts)
-          ..add('comments', comments))
+          ..add('comments', comments)
+          ..add('userPosts', userPosts))
         .toString();
   }
 }
@@ -400,6 +419,11 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
       _$this._comments ??= new ListBuilder<Comment>();
   set comments(ListBuilder<Comment> comments) => _$this._comments = comments;
 
+  ListBuilder<Post> _userPosts;
+  ListBuilder<Post> get userPosts =>
+      _$this._userPosts ??= new ListBuilder<Post>();
+  set userPosts(ListBuilder<Post> userPosts) => _$this._userPosts = userPosts;
+
   PostsStateBuilder();
 
   PostsStateBuilder get _$this {
@@ -407,6 +431,7 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
       _info = _$v.info?.toBuilder();
       _posts = _$v.posts?.toBuilder();
       _comments = _$v.comments?.toBuilder();
+      _userPosts = _$v.userPosts?.toBuilder();
       _$v = null;
     }
     return this;
@@ -433,7 +458,8 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
           new _$PostsState._(
               info: info.build(),
               posts: posts.build(),
-              comments: comments.build());
+              comments: comments.build(),
+              userPosts: userPosts.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -443,6 +469,8 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
         posts.build();
         _$failedField = 'comments';
         comments.build();
+        _$failedField = 'userPosts';
+        userPosts.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'PostsState', _$failedField, e.toString());

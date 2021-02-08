@@ -47,6 +47,9 @@ class _HomePageState extends State<HomePage> {
                 }
               } else {
                 setState(() {
+                  if (i == 4){
+                    StoreProvider.of<AppState>(context, listen: false).dispatch(GetUserPosts(currentUser.uid));
+                  }
                   _page = i;
                 });
               }

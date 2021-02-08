@@ -18,6 +18,7 @@ class PostsEpics {
       TypedEpic<AppState, UpdateLikePost$>(_updateLikePost),
       TypedEpic<AppState, GetComments$>(_getComments),
       TypedEpic<AppState, PostComment$>(_postComments),
+      TypedEpic<AppState, GetUserPosts$>(_getUserPosts),
     ]);
   }
 
@@ -91,5 +92,14 @@ class PostsEpics {
                 ))
             .mapTo(const PostComment.successful())
             .onErrorReturnWith((dynamic error) => PostComment.error(error)));
+  }
+
+  Stream<AppAction> _getUserPosts(Stream<GetUserPosts$> actions, EpicStore<AppState> store) {
+    print('epic: $actions');
+    return actions //
+        .flatMap((GetUserPosts$ action) => Stream<GetUserPosts$>.value(action)
+            .asyncMap((GetUserPosts$ action) => _api.getUserPosts(action.uid))
+            .map((List<Post> posts) => GetUserPosts.successful(posts))
+            .onErrorReturnWith((dynamic error) => GetUserPosts.error(error)));
   }
 }

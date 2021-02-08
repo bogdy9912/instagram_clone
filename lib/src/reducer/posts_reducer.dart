@@ -8,6 +8,7 @@ Reducer<PostsState> postsReducer = combineReducers<PostsState>(<Reducer<PostsSta
   TypedReducer<PostsState, GetFeedSuccessful>(_getFeedSuccessful),
   TypedReducer<PostsState, UpdateLikePostSuccessful>(_updateLikesPostSuccessful),
   TypedReducer<PostsState, GetCommentsSuccessful>(_getCommentsSuccessful),
+  TypedReducer<PostsState, GetUserPostsSuccessful>(_getUserPostsSuccessful),
 ]);
 
 PostsState _updatePost(PostsState state, UpdatePostInfo$ action) {
@@ -57,4 +58,9 @@ PostsState _updateLikesPostSuccessful(PostsState state, UpdateLikePostSuccessful
 
 PostsState _getCommentsSuccessful(PostsState state, GetCommentsSuccessful action) {
   return state.rebuild((PostsStateBuilder b) => b.comments = ListBuilder<Comment>(action.comments));
+}
+
+PostsState _getUserPostsSuccessful(PostsState state, GetUserPostsSuccessful action) {
+  print('reducer: $action');
+  return state.rebuild((PostsStateBuilder b) => b.userPosts = ListBuilder<Post>(action.posts));
 }

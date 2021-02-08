@@ -109,4 +109,13 @@ class PostsApi {
 
     await _firestore.doc('posts/$postId/comments/${comment.id}').set(comment.json);
   }
+
+  Future<List<Post>> getUserPosts(String uid) async {
+    print('data: $uid');
+    final QuerySnapshot result = await _firestore.collection('posts').where('uid', isEqualTo: uid).get();
+    print('result: $result');
+    final List<Post> r =  result.docs.map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data())).toList();
+    print(r);
+    return result.docs.map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data())).toList();
+  }
 }

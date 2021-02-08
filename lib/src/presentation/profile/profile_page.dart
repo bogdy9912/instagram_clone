@@ -1,10 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/src/containers/auth/index.dart';
+import 'package:instagram_clone/src/containers/posts/user_posts_container.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
+import 'package:instagram_clone/src/models/index.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key key}) : super(key: key);
 
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   Widget _statWidget(int number, String category) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -83,6 +91,25 @@ class ProfilePage extends StatelessWidget {
                 onPressed: () {},
                 child: Container(width: double.infinity, child: const Center(child: Text('Edit Profile'))),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+              UserPostsContainer(
+                builder: (BuildContext context, List<Post> posts) {
+                  return Expanded(
+                    child: GridView.builder(
+                      itemCount: posts.length,
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          decoration: BoxDecoration(border: Border.all()),
+                          child: Image.network(
+                            posts[index].images[0],
+                            fit: BoxFit.cover,
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
               ),
             ],
           ),

@@ -3069,3 +3069,445 @@ abstract class PostCommentError implements PostComment, ErrorAction {
   Object get error;
   $PostCommentErrorCopyWith<PostCommentError> get copyWith;
 }
+
+/// @nodoc
+class _$GetUserPostsTearOff {
+  const _$GetUserPostsTearOff();
+
+// ignore: unused_element
+  GetUserPosts$ call(String uid) {
+    return GetUserPosts$(
+      uid,
+    );
+  }
+
+// ignore: unused_element
+  GetUserPostsSuccessful successful(List<Post> posts) {
+    return GetUserPostsSuccessful(
+      posts,
+    );
+  }
+
+// ignore: unused_element
+  GetUserPostsError error(Object error) {
+    return GetUserPostsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $GetUserPosts = _$GetUserPostsTearOff();
+
+/// @nodoc
+mixin _$GetUserPosts {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetUserPosts$ value), {
+    @required Result successful(GetUserPostsSuccessful value),
+    @required Result error(GetUserPostsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetUserPosts$ value), {
+    Result successful(GetUserPostsSuccessful value),
+    Result error(GetUserPostsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $GetUserPostsCopyWith<$Res> {
+  factory $GetUserPostsCopyWith(
+          GetUserPosts value, $Res Function(GetUserPosts) then) =
+      _$GetUserPostsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetUserPostsCopyWithImpl<$Res> implements $GetUserPostsCopyWith<$Res> {
+  _$GetUserPostsCopyWithImpl(this._value, this._then);
+
+  final GetUserPosts _value;
+  // ignore: unused_field
+  final $Res Function(GetUserPosts) _then;
+}
+
+/// @nodoc
+abstract class $GetUserPosts$CopyWith<$Res> {
+  factory $GetUserPosts$CopyWith(
+          GetUserPosts$ value, $Res Function(GetUserPosts$) then) =
+      _$GetUserPosts$CopyWithImpl<$Res>;
+  $Res call({String uid});
+}
+
+/// @nodoc
+class _$GetUserPosts$CopyWithImpl<$Res> extends _$GetUserPostsCopyWithImpl<$Res>
+    implements $GetUserPosts$CopyWith<$Res> {
+  _$GetUserPosts$CopyWithImpl(
+      GetUserPosts$ _value, $Res Function(GetUserPosts$) _then)
+      : super(_value, (v) => _then(v as GetUserPosts$));
+
+  @override
+  GetUserPosts$ get _value => super._value as GetUserPosts$;
+
+  @override
+  $Res call({
+    Object uid = freezed,
+  }) {
+    return _then(GetUserPosts$(
+      uid == freezed ? _value.uid : uid as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetUserPosts$ implements GetUserPosts$ {
+  const _$GetUserPosts$(this.uid) : assert(uid != null);
+
+  @override
+  final String uid;
+
+  @override
+  String toString() {
+    return 'GetUserPosts(uid: $uid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetUserPosts$ &&
+            (identical(other.uid, uid) ||
+                const DeepCollectionEquality().equals(other.uid, uid)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(uid);
+
+  @override
+  $GetUserPosts$CopyWith<GetUserPosts$> get copyWith =>
+      _$GetUserPosts$CopyWithImpl<GetUserPosts$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(uid);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(uid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetUserPosts$ value), {
+    @required Result successful(GetUserPostsSuccessful value),
+    @required Result error(GetUserPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetUserPosts$ value), {
+    Result successful(GetUserPostsSuccessful value),
+    Result error(GetUserPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUserPosts$ implements GetUserPosts {
+  const factory GetUserPosts$(String uid) = _$GetUserPosts$;
+
+  String get uid;
+  $GetUserPosts$CopyWith<GetUserPosts$> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetUserPostsSuccessfulCopyWith<$Res> {
+  factory $GetUserPostsSuccessfulCopyWith(GetUserPostsSuccessful value,
+          $Res Function(GetUserPostsSuccessful) then) =
+      _$GetUserPostsSuccessfulCopyWithImpl<$Res>;
+  $Res call({List<Post> posts});
+}
+
+/// @nodoc
+class _$GetUserPostsSuccessfulCopyWithImpl<$Res>
+    extends _$GetUserPostsCopyWithImpl<$Res>
+    implements $GetUserPostsSuccessfulCopyWith<$Res> {
+  _$GetUserPostsSuccessfulCopyWithImpl(GetUserPostsSuccessful _value,
+      $Res Function(GetUserPostsSuccessful) _then)
+      : super(_value, (v) => _then(v as GetUserPostsSuccessful));
+
+  @override
+  GetUserPostsSuccessful get _value => super._value as GetUserPostsSuccessful;
+
+  @override
+  $Res call({
+    Object posts = freezed,
+  }) {
+    return _then(GetUserPostsSuccessful(
+      posts == freezed ? _value.posts : posts as List<Post>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetUserPostsSuccessful implements GetUserPostsSuccessful {
+  const _$GetUserPostsSuccessful(this.posts) : assert(posts != null);
+
+  @override
+  final List<Post> posts;
+
+  @override
+  String toString() {
+    return 'GetUserPosts.successful(posts: $posts)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetUserPostsSuccessful &&
+            (identical(other.posts, posts) ||
+                const DeepCollectionEquality().equals(other.posts, posts)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(posts);
+
+  @override
+  $GetUserPostsSuccessfulCopyWith<GetUserPostsSuccessful> get copyWith =>
+      _$GetUserPostsSuccessfulCopyWithImpl<GetUserPostsSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(posts);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(posts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetUserPosts$ value), {
+    @required Result successful(GetUserPostsSuccessful value),
+    @required Result error(GetUserPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetUserPosts$ value), {
+    Result successful(GetUserPostsSuccessful value),
+    Result error(GetUserPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUserPostsSuccessful implements GetUserPosts {
+  const factory GetUserPostsSuccessful(List<Post> posts) =
+      _$GetUserPostsSuccessful;
+
+  List<Post> get posts;
+  $GetUserPostsSuccessfulCopyWith<GetUserPostsSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetUserPostsErrorCopyWith<$Res> {
+  factory $GetUserPostsErrorCopyWith(
+          GetUserPostsError value, $Res Function(GetUserPostsError) then) =
+      _$GetUserPostsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$GetUserPostsErrorCopyWithImpl<$Res>
+    extends _$GetUserPostsCopyWithImpl<$Res>
+    implements $GetUserPostsErrorCopyWith<$Res> {
+  _$GetUserPostsErrorCopyWithImpl(
+      GetUserPostsError _value, $Res Function(GetUserPostsError) _then)
+      : super(_value, (v) => _then(v as GetUserPostsError));
+
+  @override
+  GetUserPostsError get _value => super._value as GetUserPostsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(GetUserPostsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$GetUserPostsError implements GetUserPostsError {
+  const _$GetUserPostsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'GetUserPosts.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetUserPostsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $GetUserPostsErrorCopyWith<GetUserPostsError> get copyWith =>
+      _$GetUserPostsErrorCopyWithImpl<GetUserPostsError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetUserPosts$ value), {
+    @required Result successful(GetUserPostsSuccessful value),
+    @required Result error(GetUserPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetUserPosts$ value), {
+    Result successful(GetUserPostsSuccessful value),
+    Result error(GetUserPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUserPostsError implements GetUserPosts, ErrorAction {
+  const factory GetUserPostsError(Object error) = _$GetUserPostsError;
+
+  Object get error;
+  $GetUserPostsErrorCopyWith<GetUserPostsError> get copyWith;
+}
