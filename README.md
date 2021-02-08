@@ -30,10 +30,10 @@ This is a clone of Instagram with the following features:
   * [x] add comment (20')
     * [x] like a comment (20')
   * [x] like (double tap to like) (10')
-  * [ ] share (10')
+  * [ ] share (10') (repost)
   * [x] save (10')
   * [x] show post owner profile (5')
-  * [ ] report (5')
+  * [x] report (5')
 
 ## Search + Trending (65')
   * [x] username (20')
