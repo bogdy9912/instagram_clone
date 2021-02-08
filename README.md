@@ -41,13 +41,6 @@ This is a clone of Instagram with the following features:
   * [ ] tags (25')
   * [ ] show trending (20')
 
-## Notifications post (75')
-  * [ ] new follower (15')
-  * [ ] new like (15')
-  * [ ] new comment (15')
-  * [ ] someone tagged you (15')
-  * [ ] new post from following (15')
-
 ## Profile page (75')
   * [x] follow user (10')
   * [x] profile counters(posts, followers and following) (20')
@@ -59,6 +52,13 @@ This is a clone of Instagram with the following features:
   * [ ] show chats (25')
   * [ ] send message (15')(same as comments)
   * [ ] send pictures and videos (25')
+  
+## Notifications post (75')
+  * [ ] new follower (15')
+  * [ ] new like (15')
+  * [ ] new comment (15')
+  * [ ] someone tagged you (15')
+  * [ ] new post from following (15')
   
  <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/login.PNG" alt="alt text" width="200" height="400">
  <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/feed.PNG" alt="alt text" width="200" height="400">
