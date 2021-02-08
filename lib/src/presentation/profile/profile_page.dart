@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/src/containers/auth/index.dart';
-import 'package:instagram_clone/src/containers/posts/user_posts_container.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:instagram_clone/src/models/index.dart';
+import 'package:instagram_clone/src/presentation/profile/widgets/tagged_posts_widget.dart';
+import 'package:instagram_clone/src/presentation/profile/widgets/user_posts_widget.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key key}) : super(key: key);
@@ -92,24 +93,38 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Container(width: double.infinity, child: const Center(child: Text('Edit Profile'))),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
-              UserPostsContainer(
-                builder: (BuildContext context, List<Post> posts) {
-                  return Expanded(
-                    child: GridView.builder(
-                      itemCount: posts.length,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          decoration: BoxDecoration(border: Border.all()),
-                          child: Image.network(
-                            posts[index].images[0],
-                            fit: BoxFit.cover,
+              Expanded(
+                child: DefaultTabController(
+                  length: 2,
+                  child: Builder(
+                    builder: (BuildContext context) {
+                      return Column(
+                        children: <Widget>[
+                          const TabBar(
+                            tabs: <Widget>[
+                              Tab(
+                                icon: Icon(Icons.grid_on),
+                              ),
+                              Tab(
+                                icon: Icon(Icons.perm_contact_calendar),
+                              ),
+                            ],
+                            indicatorColor: Colors.white,
+                            indicatorWeight: 1.0,
                           ),
-                        );
-                      },
-                    ),
-                  );
-                },
+                          Expanded(
+                            child: TabBarView(
+                              children: <Widget>[
+                                UserPostsWidget(),
+                                TaggedPostsWidget(uid: currentUser.uid),
+                              ],
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
               ),
             ],
           ),

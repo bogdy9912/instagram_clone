@@ -3511,3 +3511,448 @@ abstract class GetUserPostsError implements GetUserPosts, ErrorAction {
   Object get error;
   $GetUserPostsErrorCopyWith<GetUserPostsError> get copyWith;
 }
+
+/// @nodoc
+class _$GetTaggedPostsTearOff {
+  const _$GetTaggedPostsTearOff();
+
+// ignore: unused_element
+  GetTaggedPosts$ call(String uid) {
+    return GetTaggedPosts$(
+      uid,
+    );
+  }
+
+// ignore: unused_element
+  GetTaggedPostsSuccessful successful(List<Post> posts) {
+    return GetTaggedPostsSuccessful(
+      posts,
+    );
+  }
+
+// ignore: unused_element
+  GetTaggedPostsError error(Object error) {
+    return GetTaggedPostsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $GetTaggedPosts = _$GetTaggedPostsTearOff();
+
+/// @nodoc
+mixin _$GetTaggedPosts {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetTaggedPosts$ value), {
+    @required Result successful(GetTaggedPostsSuccessful value),
+    @required Result error(GetTaggedPostsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetTaggedPosts$ value), {
+    Result successful(GetTaggedPostsSuccessful value),
+    Result error(GetTaggedPostsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $GetTaggedPostsCopyWith<$Res> {
+  factory $GetTaggedPostsCopyWith(
+          GetTaggedPosts value, $Res Function(GetTaggedPosts) then) =
+      _$GetTaggedPostsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetTaggedPostsCopyWithImpl<$Res>
+    implements $GetTaggedPostsCopyWith<$Res> {
+  _$GetTaggedPostsCopyWithImpl(this._value, this._then);
+
+  final GetTaggedPosts _value;
+  // ignore: unused_field
+  final $Res Function(GetTaggedPosts) _then;
+}
+
+/// @nodoc
+abstract class $GetTaggedPosts$CopyWith<$Res> {
+  factory $GetTaggedPosts$CopyWith(
+          GetTaggedPosts$ value, $Res Function(GetTaggedPosts$) then) =
+      _$GetTaggedPosts$CopyWithImpl<$Res>;
+  $Res call({String uid});
+}
+
+/// @nodoc
+class _$GetTaggedPosts$CopyWithImpl<$Res>
+    extends _$GetTaggedPostsCopyWithImpl<$Res>
+    implements $GetTaggedPosts$CopyWith<$Res> {
+  _$GetTaggedPosts$CopyWithImpl(
+      GetTaggedPosts$ _value, $Res Function(GetTaggedPosts$) _then)
+      : super(_value, (v) => _then(v as GetTaggedPosts$));
+
+  @override
+  GetTaggedPosts$ get _value => super._value as GetTaggedPosts$;
+
+  @override
+  $Res call({
+    Object uid = freezed,
+  }) {
+    return _then(GetTaggedPosts$(
+      uid == freezed ? _value.uid : uid as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetTaggedPosts$ implements GetTaggedPosts$ {
+  const _$GetTaggedPosts$(this.uid) : assert(uid != null);
+
+  @override
+  final String uid;
+
+  @override
+  String toString() {
+    return 'GetTaggedPosts(uid: $uid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetTaggedPosts$ &&
+            (identical(other.uid, uid) ||
+                const DeepCollectionEquality().equals(other.uid, uid)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(uid);
+
+  @override
+  $GetTaggedPosts$CopyWith<GetTaggedPosts$> get copyWith =>
+      _$GetTaggedPosts$CopyWithImpl<GetTaggedPosts$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(uid);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(uid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetTaggedPosts$ value), {
+    @required Result successful(GetTaggedPostsSuccessful value),
+    @required Result error(GetTaggedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetTaggedPosts$ value), {
+    Result successful(GetTaggedPostsSuccessful value),
+    Result error(GetTaggedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetTaggedPosts$ implements GetTaggedPosts {
+  const factory GetTaggedPosts$(String uid) = _$GetTaggedPosts$;
+
+  String get uid;
+  $GetTaggedPosts$CopyWith<GetTaggedPosts$> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetTaggedPostsSuccessfulCopyWith<$Res> {
+  factory $GetTaggedPostsSuccessfulCopyWith(GetTaggedPostsSuccessful value,
+          $Res Function(GetTaggedPostsSuccessful) then) =
+      _$GetTaggedPostsSuccessfulCopyWithImpl<$Res>;
+  $Res call({List<Post> posts});
+}
+
+/// @nodoc
+class _$GetTaggedPostsSuccessfulCopyWithImpl<$Res>
+    extends _$GetTaggedPostsCopyWithImpl<$Res>
+    implements $GetTaggedPostsSuccessfulCopyWith<$Res> {
+  _$GetTaggedPostsSuccessfulCopyWithImpl(GetTaggedPostsSuccessful _value,
+      $Res Function(GetTaggedPostsSuccessful) _then)
+      : super(_value, (v) => _then(v as GetTaggedPostsSuccessful));
+
+  @override
+  GetTaggedPostsSuccessful get _value =>
+      super._value as GetTaggedPostsSuccessful;
+
+  @override
+  $Res call({
+    Object posts = freezed,
+  }) {
+    return _then(GetTaggedPostsSuccessful(
+      posts == freezed ? _value.posts : posts as List<Post>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetTaggedPostsSuccessful implements GetTaggedPostsSuccessful {
+  const _$GetTaggedPostsSuccessful(this.posts) : assert(posts != null);
+
+  @override
+  final List<Post> posts;
+
+  @override
+  String toString() {
+    return 'GetTaggedPosts.successful(posts: $posts)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetTaggedPostsSuccessful &&
+            (identical(other.posts, posts) ||
+                const DeepCollectionEquality().equals(other.posts, posts)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(posts);
+
+  @override
+  $GetTaggedPostsSuccessfulCopyWith<GetTaggedPostsSuccessful> get copyWith =>
+      _$GetTaggedPostsSuccessfulCopyWithImpl<GetTaggedPostsSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(posts);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(posts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetTaggedPosts$ value), {
+    @required Result successful(GetTaggedPostsSuccessful value),
+    @required Result error(GetTaggedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetTaggedPosts$ value), {
+    Result successful(GetTaggedPostsSuccessful value),
+    Result error(GetTaggedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetTaggedPostsSuccessful implements GetTaggedPosts {
+  const factory GetTaggedPostsSuccessful(List<Post> posts) =
+      _$GetTaggedPostsSuccessful;
+
+  List<Post> get posts;
+  $GetTaggedPostsSuccessfulCopyWith<GetTaggedPostsSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetTaggedPostsErrorCopyWith<$Res> {
+  factory $GetTaggedPostsErrorCopyWith(
+          GetTaggedPostsError value, $Res Function(GetTaggedPostsError) then) =
+      _$GetTaggedPostsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$GetTaggedPostsErrorCopyWithImpl<$Res>
+    extends _$GetTaggedPostsCopyWithImpl<$Res>
+    implements $GetTaggedPostsErrorCopyWith<$Res> {
+  _$GetTaggedPostsErrorCopyWithImpl(
+      GetTaggedPostsError _value, $Res Function(GetTaggedPostsError) _then)
+      : super(_value, (v) => _then(v as GetTaggedPostsError));
+
+  @override
+  GetTaggedPostsError get _value => super._value as GetTaggedPostsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(GetTaggedPostsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$GetTaggedPostsError implements GetTaggedPostsError {
+  const _$GetTaggedPostsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'GetTaggedPosts.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetTaggedPostsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $GetTaggedPostsErrorCopyWith<GetTaggedPostsError> get copyWith =>
+      _$GetTaggedPostsErrorCopyWithImpl<GetTaggedPostsError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetTaggedPosts$ value), {
+    @required Result successful(GetTaggedPostsSuccessful value),
+    @required Result error(GetTaggedPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetTaggedPosts$ value), {
+    Result successful(GetTaggedPostsSuccessful value),
+    Result error(GetTaggedPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetTaggedPostsError implements GetTaggedPosts, ErrorAction {
+  const factory GetTaggedPostsError(Object error) = _$GetTaggedPostsError;
+
+  Object get error;
+  $GetTaggedPostsErrorCopyWith<GetTaggedPostsError> get copyWith;
+}

@@ -17,3 +17,4 @@ part 'save_posts.dart';
 part 'get_comments.dart';
 part 'post_comment.dart';
 part 'get_user_posts.dart';
+part 'get_tagged_posts.dart';

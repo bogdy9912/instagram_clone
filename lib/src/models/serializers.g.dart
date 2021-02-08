@@ -61,6 +61,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<Comment>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Post)]),
+          () => new ListBuilder<Post>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Post)]),
           () => new ListBuilder<Post>()))
     .build();
 

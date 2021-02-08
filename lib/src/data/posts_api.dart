@@ -111,11 +111,12 @@ class PostsApi {
   }
 
   Future<List<Post>> getUserPosts(String uid) async {
-    print('data: $uid');
     final QuerySnapshot result = await _firestore.collection('posts').where('uid', isEqualTo: uid).get();
-    print('result: $result');
-    final List<Post> r =  result.docs.map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data())).toList();
-    print(r);
+    return result.docs.map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data())).toList();
+  }
+
+  Future<List<Post>> getTaggedPosts(String uid) async {
+    final QuerySnapshot result = await _firestore.collection('posts').where('users', arrayContains: uid).get();
     return result.docs.map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data())).toList();
   }
 }

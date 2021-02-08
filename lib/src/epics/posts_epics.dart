@@ -19,6 +19,7 @@ class PostsEpics {
       TypedEpic<AppState, GetComments$>(_getComments),
       TypedEpic<AppState, PostComment$>(_postComments),
       TypedEpic<AppState, GetUserPosts$>(_getUserPosts),
+      TypedEpic<AppState, GetTaggedPosts$>(_getTaggedPosts),
     ]);
   }
 
@@ -95,11 +96,18 @@ class PostsEpics {
   }
 
   Stream<AppAction> _getUserPosts(Stream<GetUserPosts$> actions, EpicStore<AppState> store) {
-    print('epic: $actions');
     return actions //
         .flatMap((GetUserPosts$ action) => Stream<GetUserPosts$>.value(action)
             .asyncMap((GetUserPosts$ action) => _api.getUserPosts(action.uid))
             .map((List<Post> posts) => GetUserPosts.successful(posts))
             .onErrorReturnWith((dynamic error) => GetUserPosts.error(error)));
+  }
+
+  Stream<AppAction> _getTaggedPosts(Stream<GetTaggedPosts$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((GetTaggedPosts$ action) => Stream<GetTaggedPosts$>.value(action)
+            .asyncMap((GetTaggedPosts$ action) => _api.getTaggedPosts(action.uid))
+            .map((List<Post> posts) => GetTaggedPosts.successful(posts))
+            .onErrorReturnWith((dynamic error) => GetTaggedPosts.error(error)));
   }
 }

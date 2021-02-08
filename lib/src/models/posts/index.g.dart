@@ -36,6 +36,10 @@ class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
       serializers.serialize(object.userPosts,
           specifiedType:
               const FullType(BuiltList, const [const FullType(Post)])),
+      'taggedPosts',
+      serializers.serialize(object.taggedPosts,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(Post)])),
     ];
 
     return result;
@@ -69,6 +73,12 @@ class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
           break;
         case 'userPosts':
           result.userPosts.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(Post)]))
+              as BuiltList<Object>);
+          break;
+        case 'taggedPosts':
+          result.taggedPosts.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(Post)]))
               as BuiltList<Object>);
@@ -347,11 +357,14 @@ class _$PostsState extends PostsState {
   final BuiltList<Comment> comments;
   @override
   final BuiltList<Post> userPosts;
+  @override
+  final BuiltList<Post> taggedPosts;
 
   factory _$PostsState([void Function(PostsStateBuilder) updates]) =>
       (new PostsStateBuilder()..update(updates)).build();
 
-  _$PostsState._({this.info, this.posts, this.comments, this.userPosts})
+  _$PostsState._(
+      {this.info, this.posts, this.comments, this.userPosts, this.taggedPosts})
       : super._() {
     if (info == null) {
       throw new BuiltValueNullFieldError('PostsState', 'info');
@@ -364,6 +377,9 @@ class _$PostsState extends PostsState {
     }
     if (userPosts == null) {
       throw new BuiltValueNullFieldError('PostsState', 'userPosts');
+    }
+    if (taggedPosts == null) {
+      throw new BuiltValueNullFieldError('PostsState', 'taggedPosts');
     }
   }
 
@@ -381,14 +397,16 @@ class _$PostsState extends PostsState {
         info == other.info &&
         posts == other.posts &&
         comments == other.comments &&
-        userPosts == other.userPosts;
+        userPosts == other.userPosts &&
+        taggedPosts == other.taggedPosts;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, info.hashCode), posts.hashCode), comments.hashCode),
-        userPosts.hashCode));
+        $jc($jc($jc($jc(0, info.hashCode), posts.hashCode), comments.hashCode),
+            userPosts.hashCode),
+        taggedPosts.hashCode));
   }
 
   @override
@@ -397,7 +415,8 @@ class _$PostsState extends PostsState {
           ..add('info', info)
           ..add('posts', posts)
           ..add('comments', comments)
-          ..add('userPosts', userPosts))
+          ..add('userPosts', userPosts)
+          ..add('taggedPosts', taggedPosts))
         .toString();
   }
 }
@@ -424,6 +443,12 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
       _$this._userPosts ??= new ListBuilder<Post>();
   set userPosts(ListBuilder<Post> userPosts) => _$this._userPosts = userPosts;
 
+  ListBuilder<Post> _taggedPosts;
+  ListBuilder<Post> get taggedPosts =>
+      _$this._taggedPosts ??= new ListBuilder<Post>();
+  set taggedPosts(ListBuilder<Post> taggedPosts) =>
+      _$this._taggedPosts = taggedPosts;
+
   PostsStateBuilder();
 
   PostsStateBuilder get _$this {
@@ -432,6 +457,7 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
       _posts = _$v.posts?.toBuilder();
       _comments = _$v.comments?.toBuilder();
       _userPosts = _$v.userPosts?.toBuilder();
+      _taggedPosts = _$v.taggedPosts?.toBuilder();
       _$v = null;
     }
     return this;
@@ -459,7 +485,8 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
               info: info.build(),
               posts: posts.build(),
               comments: comments.build(),
-              userPosts: userPosts.build());
+              userPosts: userPosts.build(),
+              taggedPosts: taggedPosts.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -471,6 +498,8 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
         comments.build();
         _$failedField = 'userPosts';
         userPosts.build();
+        _$failedField = 'taggedPosts';
+        taggedPosts.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'PostsState', _$failedField, e.toString());
