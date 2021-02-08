@@ -125,4 +125,17 @@ class PostsApi {
 
     return result.docs.map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data())).toList();
   }
+
+  Future<void> updateLikeComment({@required String id, @required String postId, String add, String remove}) async {
+    FieldValue value;
+    if (add != null) {
+      value = FieldValue.arrayUnion(<String>[add]);
+    } else {
+      value = FieldValue.arrayRemove(<String>[remove]);
+    }
+
+    if (value != null) {
+      _firestore.doc('posts/$postId/comments/$id').update(<String, dynamic>{'likes': value});
+    }
+  }
 }

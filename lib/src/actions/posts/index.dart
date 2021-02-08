@@ -19,3 +19,4 @@ part 'post_comment.dart';
 part 'get_user_posts.dart';
 part 'get_tagged_posts.dart';
 part 'get_saved_posts.dart';
+part 'like_comments.dart';

@@ -2041,17 +2041,15 @@ class _$GetCommentsTearOff {
   }
 
 // ignore: unused_element
-  GetCommentsSuccessful successful(List<Comment> comments) {
+  GetCommentsSuccessful successful(Map<String, Comment> comments) {
     return GetCommentsSuccessful(
       comments,
     );
   }
 
 // ignore: unused_element
-  GetCommentsEvent event(List<Comment> comments) {
-    return GetCommentsEvent(
-      comments,
-    );
+  GetCommentsEvent event() {
+    return const GetCommentsEvent();
   }
 
 // ignore: unused_element
@@ -2071,15 +2069,15 @@ mixin _$GetComments {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(String postId), {
-    @required Result successful(List<Comment> comments),
-    @required Result event(List<Comment> comments),
+    @required Result successful(Map<String, Comment> comments),
+    @required Result event(),
     @required Result error(Object error),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
-    Result successful(List<Comment> comments),
-    Result event(List<Comment> comments),
+    Result successful(Map<String, Comment> comments),
+    Result event(),
     Result error(Object error),
     @required Result orElse(),
   });
@@ -2176,8 +2174,8 @@ class _$GetComments$ implements GetComments$ {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(String postId), {
-    @required Result successful(List<Comment> comments),
-    @required Result event(List<Comment> comments),
+    @required Result successful(Map<String, Comment> comments),
+    @required Result event(),
     @required Result error(Object error),
   }) {
     assert($default != null);
@@ -2191,8 +2189,8 @@ class _$GetComments$ implements GetComments$ {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
-    Result successful(List<Comment> comments),
-    Result event(List<Comment> comments),
+    Result successful(Map<String, Comment> comments),
+    Result event(),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -2247,7 +2245,7 @@ abstract class $GetCommentsSuccessfulCopyWith<$Res> {
   factory $GetCommentsSuccessfulCopyWith(GetCommentsSuccessful value,
           $Res Function(GetCommentsSuccessful) then) =
       _$GetCommentsSuccessfulCopyWithImpl<$Res>;
-  $Res call({List<Comment> comments});
+  $Res call({Map<String, Comment> comments});
 }
 
 /// @nodoc
@@ -2266,7 +2264,7 @@ class _$GetCommentsSuccessfulCopyWithImpl<$Res>
     Object comments = freezed,
   }) {
     return _then(GetCommentsSuccessful(
-      comments == freezed ? _value.comments : comments as List<Comment>,
+      comments == freezed ? _value.comments : comments as Map<String, Comment>,
     ));
   }
 }
@@ -2276,7 +2274,7 @@ class _$GetCommentsSuccessful implements GetCommentsSuccessful {
   const _$GetCommentsSuccessful(this.comments) : assert(comments != null);
 
   @override
-  final List<Comment> comments;
+  final Map<String, Comment> comments;
 
   @override
   String toString() {
@@ -2305,8 +2303,8 @@ class _$GetCommentsSuccessful implements GetCommentsSuccessful {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(String postId), {
-    @required Result successful(List<Comment> comments),
-    @required Result event(List<Comment> comments),
+    @required Result successful(Map<String, Comment> comments),
+    @required Result event(),
     @required Result error(Object error),
   }) {
     assert($default != null);
@@ -2320,8 +2318,8 @@ class _$GetCommentsSuccessful implements GetCommentsSuccessful {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
-    Result successful(List<Comment> comments),
-    Result event(List<Comment> comments),
+    Result successful(Map<String, Comment> comments),
+    Result event(),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -2365,10 +2363,10 @@ class _$GetCommentsSuccessful implements GetCommentsSuccessful {
 }
 
 abstract class GetCommentsSuccessful implements GetComments {
-  const factory GetCommentsSuccessful(List<Comment> comments) =
+  const factory GetCommentsSuccessful(Map<String, Comment> comments) =
       _$GetCommentsSuccessful;
 
-  List<Comment> get comments;
+  Map<String, Comment> get comments;
   $GetCommentsSuccessfulCopyWith<GetCommentsSuccessful> get copyWith;
 }
 
@@ -2377,7 +2375,6 @@ abstract class $GetCommentsEventCopyWith<$Res> {
   factory $GetCommentsEventCopyWith(
           GetCommentsEvent value, $Res Function(GetCommentsEvent) then) =
       _$GetCommentsEventCopyWithImpl<$Res>;
-  $Res call({List<Comment> comments});
 }
 
 /// @nodoc
@@ -2390,73 +2387,52 @@ class _$GetCommentsEventCopyWithImpl<$Res>
 
   @override
   GetCommentsEvent get _value => super._value as GetCommentsEvent;
-
-  @override
-  $Res call({
-    Object comments = freezed,
-  }) {
-    return _then(GetCommentsEvent(
-      comments == freezed ? _value.comments : comments as List<Comment>,
-    ));
-  }
 }
 
 /// @nodoc
 class _$GetCommentsEvent implements GetCommentsEvent {
-  const _$GetCommentsEvent(this.comments) : assert(comments != null);
-
-  @override
-  final List<Comment> comments;
+  const _$GetCommentsEvent();
 
   @override
   String toString() {
-    return 'GetComments.event(comments: $comments)';
+    return 'GetComments.event()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is GetCommentsEvent &&
-            (identical(other.comments, comments) ||
-                const DeepCollectionEquality()
-                    .equals(other.comments, comments)));
+    return identical(this, other) || (other is GetCommentsEvent);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(comments);
-
-  @override
-  $GetCommentsEventCopyWith<GetCommentsEvent> get copyWith =>
-      _$GetCommentsEventCopyWithImpl<GetCommentsEvent>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(String postId), {
-    @required Result successful(List<Comment> comments),
-    @required Result event(List<Comment> comments),
+    @required Result successful(Map<String, Comment> comments),
+    @required Result event(),
     @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
     assert(event != null);
     assert(error != null);
-    return event(comments);
+    return event();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
-    Result successful(List<Comment> comments),
-    Result event(List<Comment> comments),
+    Result successful(Map<String, Comment> comments),
+    Result event(),
     Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (event != null) {
-      return event(comments);
+      return event();
     }
     return orElse();
   }
@@ -2494,10 +2470,7 @@ class _$GetCommentsEvent implements GetCommentsEvent {
 }
 
 abstract class GetCommentsEvent implements GetComments {
-  const factory GetCommentsEvent(List<Comment> comments) = _$GetCommentsEvent;
-
-  List<Comment> get comments;
-  $GetCommentsEventCopyWith<GetCommentsEvent> get copyWith;
+  const factory GetCommentsEvent() = _$GetCommentsEvent;
 }
 
 /// @nodoc
@@ -2563,8 +2536,8 @@ class _$GetCommentsError implements GetCommentsError {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(String postId), {
-    @required Result successful(List<Comment> comments),
-    @required Result event(List<Comment> comments),
+    @required Result successful(Map<String, Comment> comments),
+    @required Result event(),
     @required Result error(Object error),
   }) {
     assert($default != null);
@@ -2578,8 +2551,8 @@ class _$GetCommentsError implements GetCommentsError {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(String postId), {
-    Result successful(List<Comment> comments),
-    Result event(List<Comment> comments),
+    Result successful(Map<String, Comment> comments),
+    Result event(),
     Result error(Object error),
     @required Result orElse(),
   }) {
@@ -4373,4 +4346,536 @@ abstract class GetSavedPostsError implements GetSavedPosts, ErrorAction {
 
   Object get error;
   $GetSavedPostsErrorCopyWith<GetSavedPostsError> get copyWith;
+}
+
+/// @nodoc
+class _$UpdateLikeCommentsTearOff {
+  const _$UpdateLikeCommentsTearOff();
+
+// ignore: unused_element
+  UpdateLikeComments$ call(
+      {@required String id,
+      @required String postId,
+      String add,
+      String remove}) {
+    return UpdateLikeComments$(
+      id: id,
+      postId: postId,
+      add: add,
+      remove: remove,
+    );
+  }
+
+// ignore: unused_element
+  UpdateLikeCommentsSuccessful successful(
+      {@required String id,
+      @required String postId,
+      String add,
+      String remove}) {
+    return UpdateLikeCommentsSuccessful(
+      id: id,
+      postId: postId,
+      add: add,
+      remove: remove,
+    );
+  }
+
+// ignore: unused_element
+  UpdateLikeCommentsError error(Object error) {
+    return UpdateLikeCommentsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $UpdateLikeComments = _$UpdateLikeCommentsTearOff();
+
+/// @nodoc
+mixin _$UpdateLikeComments {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String id, String postId, String add, String remove), {
+    @required
+        Result successful(String id, String postId, String add, String remove),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String id, String postId, String add, String remove), {
+    Result successful(String id, String postId, String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateLikeComments$ value), {
+    @required Result successful(UpdateLikeCommentsSuccessful value),
+    @required Result error(UpdateLikeCommentsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateLikeComments$ value), {
+    Result successful(UpdateLikeCommentsSuccessful value),
+    Result error(UpdateLikeCommentsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $UpdateLikeCommentsCopyWith<$Res> {
+  factory $UpdateLikeCommentsCopyWith(
+          UpdateLikeComments value, $Res Function(UpdateLikeComments) then) =
+      _$UpdateLikeCommentsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateLikeCommentsCopyWithImpl<$Res>
+    implements $UpdateLikeCommentsCopyWith<$Res> {
+  _$UpdateLikeCommentsCopyWithImpl(this._value, this._then);
+
+  final UpdateLikeComments _value;
+  // ignore: unused_field
+  final $Res Function(UpdateLikeComments) _then;
+}
+
+/// @nodoc
+abstract class $UpdateLikeComments$CopyWith<$Res> {
+  factory $UpdateLikeComments$CopyWith(
+          UpdateLikeComments$ value, $Res Function(UpdateLikeComments$) then) =
+      _$UpdateLikeComments$CopyWithImpl<$Res>;
+  $Res call({String id, String postId, String add, String remove});
+}
+
+/// @nodoc
+class _$UpdateLikeComments$CopyWithImpl<$Res>
+    extends _$UpdateLikeCommentsCopyWithImpl<$Res>
+    implements $UpdateLikeComments$CopyWith<$Res> {
+  _$UpdateLikeComments$CopyWithImpl(
+      UpdateLikeComments$ _value, $Res Function(UpdateLikeComments$) _then)
+      : super(_value, (v) => _then(v as UpdateLikeComments$));
+
+  @override
+  UpdateLikeComments$ get _value => super._value as UpdateLikeComments$;
+
+  @override
+  $Res call({
+    Object id = freezed,
+    Object postId = freezed,
+    Object add = freezed,
+    Object remove = freezed,
+  }) {
+    return _then(UpdateLikeComments$(
+      id: id == freezed ? _value.id : id as String,
+      postId: postId == freezed ? _value.postId : postId as String,
+      add: add == freezed ? _value.add : add as String,
+      remove: remove == freezed ? _value.remove : remove as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateLikeComments$ implements UpdateLikeComments$ {
+  const _$UpdateLikeComments$(
+      {@required this.id, @required this.postId, this.add, this.remove})
+      : assert(id != null),
+        assert(postId != null);
+
+  @override
+  final String id;
+  @override
+  final String postId;
+  @override
+  final String add;
+  @override
+  final String remove;
+
+  @override
+  String toString() {
+    return 'UpdateLikeComments(id: $id, postId: $postId, add: $add, remove: $remove)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateLikeComments$ &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.postId, postId) ||
+                const DeepCollectionEquality().equals(other.postId, postId)) &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(postId) ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove);
+
+  @override
+  $UpdateLikeComments$CopyWith<UpdateLikeComments$> get copyWith =>
+      _$UpdateLikeComments$CopyWithImpl<UpdateLikeComments$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String id, String postId, String add, String remove), {
+    @required
+        Result successful(String id, String postId, String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(id, postId, add, remove);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String id, String postId, String add, String remove), {
+    Result successful(String id, String postId, String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(id, postId, add, remove);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateLikeComments$ value), {
+    @required Result successful(UpdateLikeCommentsSuccessful value),
+    @required Result error(UpdateLikeCommentsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateLikeComments$ value), {
+    Result successful(UpdateLikeCommentsSuccessful value),
+    Result error(UpdateLikeCommentsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateLikeComments$ implements UpdateLikeComments {
+  const factory UpdateLikeComments$(
+      {@required String id,
+      @required String postId,
+      String add,
+      String remove}) = _$UpdateLikeComments$;
+
+  String get id;
+  String get postId;
+  String get add;
+  String get remove;
+  $UpdateLikeComments$CopyWith<UpdateLikeComments$> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateLikeCommentsSuccessfulCopyWith<$Res> {
+  factory $UpdateLikeCommentsSuccessfulCopyWith(
+          UpdateLikeCommentsSuccessful value,
+          $Res Function(UpdateLikeCommentsSuccessful) then) =
+      _$UpdateLikeCommentsSuccessfulCopyWithImpl<$Res>;
+  $Res call({String id, String postId, String add, String remove});
+}
+
+/// @nodoc
+class _$UpdateLikeCommentsSuccessfulCopyWithImpl<$Res>
+    extends _$UpdateLikeCommentsCopyWithImpl<$Res>
+    implements $UpdateLikeCommentsSuccessfulCopyWith<$Res> {
+  _$UpdateLikeCommentsSuccessfulCopyWithImpl(
+      UpdateLikeCommentsSuccessful _value,
+      $Res Function(UpdateLikeCommentsSuccessful) _then)
+      : super(_value, (v) => _then(v as UpdateLikeCommentsSuccessful));
+
+  @override
+  UpdateLikeCommentsSuccessful get _value =>
+      super._value as UpdateLikeCommentsSuccessful;
+
+  @override
+  $Res call({
+    Object id = freezed,
+    Object postId = freezed,
+    Object add = freezed,
+    Object remove = freezed,
+  }) {
+    return _then(UpdateLikeCommentsSuccessful(
+      id: id == freezed ? _value.id : id as String,
+      postId: postId == freezed ? _value.postId : postId as String,
+      add: add == freezed ? _value.add : add as String,
+      remove: remove == freezed ? _value.remove : remove as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateLikeCommentsSuccessful implements UpdateLikeCommentsSuccessful {
+  const _$UpdateLikeCommentsSuccessful(
+      {@required this.id, @required this.postId, this.add, this.remove})
+      : assert(id != null),
+        assert(postId != null);
+
+  @override
+  final String id;
+  @override
+  final String postId;
+  @override
+  final String add;
+  @override
+  final String remove;
+
+  @override
+  String toString() {
+    return 'UpdateLikeComments.successful(id: $id, postId: $postId, add: $add, remove: $remove)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateLikeCommentsSuccessful &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.postId, postId) ||
+                const DeepCollectionEquality().equals(other.postId, postId)) &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(postId) ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove);
+
+  @override
+  $UpdateLikeCommentsSuccessfulCopyWith<UpdateLikeCommentsSuccessful>
+      get copyWith => _$UpdateLikeCommentsSuccessfulCopyWithImpl<
+          UpdateLikeCommentsSuccessful>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String id, String postId, String add, String remove), {
+    @required
+        Result successful(String id, String postId, String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(id, postId, add, remove);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String id, String postId, String add, String remove), {
+    Result successful(String id, String postId, String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(id, postId, add, remove);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateLikeComments$ value), {
+    @required Result successful(UpdateLikeCommentsSuccessful value),
+    @required Result error(UpdateLikeCommentsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateLikeComments$ value), {
+    Result successful(UpdateLikeCommentsSuccessful value),
+    Result error(UpdateLikeCommentsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateLikeCommentsSuccessful implements UpdateLikeComments {
+  const factory UpdateLikeCommentsSuccessful(
+      {@required String id,
+      @required String postId,
+      String add,
+      String remove}) = _$UpdateLikeCommentsSuccessful;
+
+  String get id;
+  String get postId;
+  String get add;
+  String get remove;
+  $UpdateLikeCommentsSuccessfulCopyWith<UpdateLikeCommentsSuccessful>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateLikeCommentsErrorCopyWith<$Res> {
+  factory $UpdateLikeCommentsErrorCopyWith(UpdateLikeCommentsError value,
+          $Res Function(UpdateLikeCommentsError) then) =
+      _$UpdateLikeCommentsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$UpdateLikeCommentsErrorCopyWithImpl<$Res>
+    extends _$UpdateLikeCommentsCopyWithImpl<$Res>
+    implements $UpdateLikeCommentsErrorCopyWith<$Res> {
+  _$UpdateLikeCommentsErrorCopyWithImpl(UpdateLikeCommentsError _value,
+      $Res Function(UpdateLikeCommentsError) _then)
+      : super(_value, (v) => _then(v as UpdateLikeCommentsError));
+
+  @override
+  UpdateLikeCommentsError get _value => super._value as UpdateLikeCommentsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(UpdateLikeCommentsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$UpdateLikeCommentsError implements UpdateLikeCommentsError {
+  const _$UpdateLikeCommentsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'UpdateLikeComments.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateLikeCommentsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $UpdateLikeCommentsErrorCopyWith<UpdateLikeCommentsError> get copyWith =>
+      _$UpdateLikeCommentsErrorCopyWithImpl<UpdateLikeCommentsError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String id, String postId, String add, String remove), {
+    @required
+        Result successful(String id, String postId, String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String id, String postId, String add, String remove), {
+    Result successful(String id, String postId, String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateLikeComments$ value), {
+    @required Result successful(UpdateLikeCommentsSuccessful value),
+    @required Result error(UpdateLikeCommentsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateLikeComments$ value), {
+    Result successful(UpdateLikeCommentsSuccessful value),
+    Result error(UpdateLikeCommentsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateLikeCommentsError
+    implements UpdateLikeComments, ErrorAction {
+  const factory UpdateLikeCommentsError(Object error) =
+      _$UpdateLikeCommentsError;
+
+  Object get error;
+  $UpdateLikeCommentsErrorCopyWith<UpdateLikeCommentsError> get copyWith;
 }

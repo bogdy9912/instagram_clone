@@ -11,6 +11,7 @@ Reducer<PostsState> postsReducer = combineReducers<PostsState>(<Reducer<PostsSta
   TypedReducer<PostsState, GetUserPostsSuccessful>(_getUserPostsSuccessful),
   TypedReducer<PostsState, GetTaggedPostsSuccessful>(_getTaggedPostsSuccessful),
   TypedReducer<PostsState, GetSavedPostsSuccessful>(_getSavedPostsSuccessful),
+  TypedReducer<PostsState, UpdateLikeCommentsSuccessful>(_updateLikeCommentsSuccessful),
 ]);
 
 PostsState _updatePost(PostsState state, UpdatePostInfo$ action) {
@@ -59,7 +60,7 @@ PostsState _updateLikesPostSuccessful(PostsState state, UpdateLikePostSuccessful
 }
 
 PostsState _getCommentsSuccessful(PostsState state, GetCommentsSuccessful action) {
-  return state.rebuild((PostsStateBuilder b) => b.comments = ListBuilder<Comment>(action.comments));
+  return state.rebuild((PostsStateBuilder b) => b.comments = MapBuilder<String, Comment>(action.comments));
 }
 
 PostsState _getUserPostsSuccessful(PostsState state, GetUserPostsSuccessful action) {
@@ -72,4 +73,20 @@ PostsState _getTaggedPostsSuccessful(PostsState state, GetTaggedPostsSuccessful 
 
 PostsState _getSavedPostsSuccessful(PostsState state, GetSavedPostsSuccessful action) {
   return state.rebuild((PostsStateBuilder b) => b.savedPosts = ListBuilder<Post>(action.posts));
+}
+
+PostsState _updateLikeCommentsSuccessful(PostsState state, UpdateLikeCommentsSuccessful action) {
+  print('reducer: $action');
+  return state.rebuild((PostsStateBuilder b) {
+    if (action.add != null){
+      if (!b.comments[action.id].likes.contains(action.add)) {
+        b.comments[action.id] = b.comments[action.id].rebuild((CommentBuilder comment) => comment.likes.add(action.add));
+      }
+    }
+    else{
+      if (b.comments[action.id].likes.contains(action.remove)) {
+        b.comments[action.id] = b.comments[action.id].rebuild((CommentBuilder comment) => comment.likes.remove(action.remove));
+      }
+    }
+  });
 }

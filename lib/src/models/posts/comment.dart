@@ -12,7 +12,7 @@ abstract class Comment implements Built<Comment, CommentBuilder> {
 
   String get userId;
 
-
+  BuiltList<String> get likes;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

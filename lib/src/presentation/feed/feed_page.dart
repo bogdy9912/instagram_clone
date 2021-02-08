@@ -57,6 +57,11 @@ class _FeedPageState extends State<FeedPage> {
                                   backgroundColor: Colors.grey,
                                   child: Text(user.username[0].toUpperCase()),
                                 ),
+
+                          onTap: (){
+                            Navigator.pushNamed(context, AppRoutes.postOwnerProfile, arguments: user);
+                            StoreProvider.of<AppState>(context, listen: false).dispatch(GetUserPosts(user.uid));
+                          },
                         ),
                         GestureDetector(
                           onDoubleTap: () {

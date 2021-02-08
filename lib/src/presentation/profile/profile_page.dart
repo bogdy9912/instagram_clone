@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/src/containers/auth/index.dart';
+import 'package:instagram_clone/src/containers/posts/user_posts_container.dart';
 import 'package:instagram_clone/src/models/auth/index.dart';
 import 'package:instagram_clone/src/models/index.dart';
 import 'package:instagram_clone/src/presentation/profile/widgets/profile_drawer.dart';
@@ -47,91 +48,95 @@ class _ProfilePageState extends State<ProfilePage> {
 
           endDrawer: const Drawer(child: ProfileDrawer(),),
 
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  if (currentUser.photoUrl != null)
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(currentUser.photoUrl),
-                      ),
-                    )
-                  else
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CircleAvatar(
-                        radius: 40,
-                        backgroundColor: Colors.grey,
-                        child: Text(currentUser.username[0]),
-                      ),
-                    ),
-                  _statWidget(currentUser.nrPosts, 'Posts'),
-                  _statWidget(currentUser.nrFollowers, 'Followers'),
-                  _statWidget(currentUser.following.length, 'Following'),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32.0,
-                  vertical: 4,
-                ),
-                child: currentUser.displayName != null
-                    ? Text(
-                        currentUser.displayName,
-                        style: const TextStyle(fontWeight: FontWeight.w700),
+          body: UserPostsContainer(
+            builder:(BuildContext context, List<Post> posts) {
+              return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    if (currentUser.photoUrl != null)
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage(currentUser.photoUrl),
+                        ),
                       )
-                    : null,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                child: currentUser.bio != null ? Text(currentUser.bio) : null,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              OutlineButton(
-                onPressed: () {},
-                child: Container(width: double.infinity, child: const Center(child: Text('Edit Profile'))),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              ),
-              Expanded(
-                child: DefaultTabController(
-                  length: 2,
-                  child: Builder(
-                    builder: (BuildContext context) {
-                      return Column(
-                        children: <Widget>[
-                          const TabBar(
-                            tabs: <Widget>[
-                              Tab(
-                                icon: Icon(Icons.grid_on),
-                              ),
-                              Tab(
-                                icon: Icon(Icons.perm_contact_calendar),
-                              ),
-                            ],
-                            indicatorColor: Colors.white,
-                            indicatorWeight: 1.0,
-                          ),
-                          Expanded(
-                            child: TabBarView(
-                              children: <Widget>[
-                                UserPostsWidget(),
-                                TaggedPostsWidget(uid: currentUser.uid),
+                    else
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.grey,
+                          child: Text(currentUser.username[0].toUpperCase()),
+                        ),
+                      ),
+                    _statWidget(posts.length, 'Posts'),
+                    _statWidget(currentUser.nrFollowers, 'Followers'),
+                    _statWidget(currentUser.following.length, 'Following'),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 32.0,
+                    vertical: 4,
+                  ),
+                  child: currentUser.displayName != null
+                      ? Text(
+                          currentUser.displayName,
+                          style: const TextStyle(fontWeight: FontWeight.w700),
+                        )
+                      : null,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  child: currentUser.bio != null ? Text(currentUser.bio) : null,
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                OutlineButton(
+                  onPressed: () {},
+                  child: Container(width: double.infinity, child: const Center(child: Text('Edit Profile'))),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+                Expanded(
+                  child: DefaultTabController(
+                    length: 2,
+                    child: Builder(
+                      builder: (BuildContext context) {
+                        return Column(
+                          children: <Widget>[
+                            const TabBar(
+                              tabs: <Widget>[
+                                Tab(
+                                  icon: Icon(Icons.grid_on),
+                                ),
+                                Tab(
+                                  icon: Icon(Icons.perm_contact_calendar),
+                                ),
                               ],
+                              indicatorColor: Colors.white,
+                              indicatorWeight: 1.0,
                             ),
-                          ),
-                        ],
-                      );
-                    },
+                            Expanded(
+                              child: TabBarView(
+                                children: <Widget>[
+                                  UserPostsWidget(),
+                                  TaggedPostsWidget(uid: currentUser.uid),
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            );
+            },
           ),
         );
       },

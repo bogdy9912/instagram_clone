@@ -15,7 +15,7 @@ abstract class PostsState implements Built<PostsState, PostsStateBuilder> {
 
   BuiltMap<String, Post> get posts;
 
-  BuiltList<Comment> get comments;
+  BuiltMap<String, Comment> get comments;
 
   BuiltList<Post> get userPosts;
 

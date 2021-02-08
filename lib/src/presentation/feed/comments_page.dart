@@ -36,7 +36,8 @@ class _CommentsPageState extends State<CommentsPage> {
           return UsersContainer(
             builder: (BuildContext context, Map<String, AppUser> users) {
               return PostCommentsContainer(
-                builder: (BuildContext context, List<Comment> comments) {
+                builder: (BuildContext context, Map<String, Comment> mapOfComments) {
+                  final List<Comment> comments = mapOfComments.values.toList();
                   return Column(
                     children: <Widget>[
                       ListTile(
@@ -65,6 +66,7 @@ class _CommentsPageState extends State<CommentsPage> {
                           itemCount: comments.length,
                           itemBuilder: (BuildContext context, int index) {
                             final AppUser user = users[comments[index].userId];
+                            final bool isLiked = comments[index].likes.contains(currentUser.uid);
                             return ListTile(
                               leading: user.photoUrl != null
                                   ? CircleAvatar(backgroundImage: NetworkImage(user.photoUrl))
@@ -84,10 +86,19 @@ class _CommentsPageState extends State<CommentsPage> {
                                   ],
                                 ),
                               ),
-                              subtitle: Container(),
+                              subtitle:
+                                  comments[index].likes.isNotEmpty ? Text('${comments[index].likes.length} likes') : null,
                               trailing: IconButton(
-                                icon: const Icon(Icons.favorite_outline),
-                                onPressed: () {},
+                                icon: Icon(isLiked ? Icons.favorite : Icons.favorite_outline),
+                                onPressed: () {
+                                  if (isLiked) {
+                                    StoreProvider.of<AppState>(context).dispatch(UpdateLikeComments(
+                                        id: comments[index].id, postId: widget.post.id, remove: currentUser.uid));
+                                  } else {
+                                    StoreProvider.of<AppState>(context).dispatch(UpdateLikeComments(
+                                        id: comments[index].id, postId: widget.post.id, add: currentUser.uid));
+                                  }
+                                },
                               ),
                             );
                           },

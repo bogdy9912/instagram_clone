@@ -21,6 +21,7 @@ class PostsEpics {
       TypedEpic<AppState, GetUserPosts$>(_getUserPosts),
       TypedEpic<AppState, GetTaggedPosts$>(_getTaggedPosts),
       TypedEpic<AppState, GetSavedPosts$>(_getSavedPosts),
+      TypedEpic<AppState, UpdateLikeComments$>(_updateLikeComments),
     ]);
   }
 
@@ -72,8 +73,12 @@ class PostsEpics {
         .flatMap((GetComments$ value) => Stream<GetComments$>.value(value) //
             .flatMap((GetComments$ action) => _api.getMessages(action.postId))
             .expand((List<Comment> value) {
+              final Map<String, Comment> mapOfValue = <String, Comment>{};
+              for (final Comment val in value) {
+                mapOfValue[val.id] = val;
+              }
               return <AppAction>[
-                GetComments.successful(value),
+                GetComments.successful(mapOfValue),
                 ...value
                     .map((Comment e) => e.userId)
                     .toSet() //
@@ -118,5 +123,15 @@ class PostsEpics {
             .asyncMap((_) => _api.getSavedPost(store.state.auth.user.saves.asList()))
             .map((List<Post> event) => GetSavedPosts.successful(event))
             .onErrorReturnWith((dynamic error) => GetSavedPosts.error(error)));
+  }
+
+  Stream<AppAction> _updateLikeComments(Stream<UpdateLikeComments$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((UpdateLikeComments$ action) => Stream<UpdateLikeComments$>.value(action)
+            .asyncMap((UpdateLikeComments$ action) =>
+                _api.updateLikeComment(id: action.id, postId: action.postId, add: action.add, remove: action.remove))
+            .map((_) => UpdateLikeComments.successful(
+                id: action.id, postId: action.postId, add: action.add, remove: action.remove))
+            .onErrorReturnWith((dynamic error) => UpdateLikeComments.error(error)));
   }
 }

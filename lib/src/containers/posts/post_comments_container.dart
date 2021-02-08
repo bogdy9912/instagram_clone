@@ -6,13 +6,25 @@ import 'package:redux/redux.dart';
 class PostCommentsContainer extends StatelessWidget {
   const PostCommentsContainer({Key key, @required this.builder}) : super(key: key);
 
-  final ViewModelBuilder<List<Comment>> builder;
+  final ViewModelBuilder<Map<String, Comment>> builder;
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, List<Comment>>(
-      converter: (Store<AppState> store) => store.state.posts.comments.toList(),
+    return StoreConnector<AppState, Map<String, Comment>>(
       builder: builder,
+      converter: (Store<AppState> store) {
+        final Map<String, Comment> mapOfPosts = <String, Comment>{};
+        if (true) {
+          final List<Comment> posts =
+          store.state.posts.comments.values.where((Comment post) => store.state.auth.users[post.userId] != null).toList();
+
+          for (final Comment post in posts) {
+            mapOfPosts[post.id] = post;
+          }
+        }
+        return mapOfPosts;
+
+      },
     );
   }
 }

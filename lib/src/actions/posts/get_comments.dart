@@ -4,9 +4,9 @@ part of posts_actions;
 abstract class GetComments with _$GetComments implements AppAction {
   const factory GetComments(String postId) = GetComments$;
 
-  const factory GetComments.successful(List<Comment> comments) = GetCommentsSuccessful;
+  const factory GetComments.successful(Map<String, Comment>  comments) = GetCommentsSuccessful;
 
-  const factory GetComments.event(List<Comment> comments) = GetCommentsEvent;
+  const factory GetComments.event() = GetCommentsEvent;
 
   @Implements(ErrorAction)
   const factory GetComments.error(Object error) = GetCommentsError;
