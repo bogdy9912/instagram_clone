@@ -23,6 +23,7 @@ class CreatePostPage extends StatelessWidget {
                 onPressed: () {
                   StoreProvider.of<AppState>(context).dispatch(const CreatePost());
                   Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
+                  StoreProvider.of<AppState>(context).dispatch(const UpdatePostInfo());
                 },
                 child: const Text('SHARE'))
           ],

@@ -19,6 +19,12 @@ class ProfileDrawer extends StatelessWidget {
           },
           child: const Text('Saved'),
         ),
+        FlatButton(
+          onPressed: () {
+            StoreProvider.of<AppState>(context).dispatch(const SignOut());
+          },
+          child: const Text('Sign Out'),
+        ),
       ],
     );
   }
