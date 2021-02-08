@@ -58,3 +58,11 @@ This is a clone of Instagram with the following features:
   * [ ] show chats (25')
   * [ ] send message (15')(same as comments)
   * [ ] send pictures and videos (25')
+  
+ <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/login.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/feed.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/select_photo.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/new_post.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/profile.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/search.PNG" alt="alt text" width="200" height="400">
+ <img src="https://github.com/bogdy9912/instagram_clone/blob/main/photos/post_owner.PNG" alt="alt text" width="200" height="400">
