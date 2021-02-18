@@ -22,6 +22,7 @@ class ChoosePhotosPost extends StatelessWidget {
             actions: <Widget>[
               FlatButton(
                   onPressed: () {
+
                     if (info.paths.isNotEmpty) {
                       Navigator.pushNamed(context, AppRoutes.createPost);
                     } else {
@@ -47,6 +48,7 @@ class ChoosePhotosPost extends StatelessWidget {
                       final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
                       if (file != null) {
                         StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
+
                       }
                     },
                   ),

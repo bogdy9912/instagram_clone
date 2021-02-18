@@ -39,7 +39,9 @@ class _HomePageState extends State<HomePage> {
             currentIndex: _page,
             onTap: (int i) async {
               if (i == 2) {
+                StoreProvider.of<AppState>(context).dispatch(const UpdatePostInfo());
                 final PickedFile file = await ImagePicker().getImage(source: ImageSource.gallery);
+
                 if (file != null) {
                   StoreProvider.of<AppState>(context).dispatch(UpdatePostInfo(addImage: file.path));
 
